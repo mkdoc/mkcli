@@ -20,7 +20,7 @@ Create a stream and write the program description:
 
 <? @source {javascript=s/\.\.\/index/mkcli/gm} usage.js ?>
 
-<? @include {=readme} example.md help.md ?>
+<? @include {=readme} example.md guide.md help.md ?>
 
 <? @exec mkapi index.js --title=API --level=2 ?>
 <? @include {=readme} license.md links.md ?>

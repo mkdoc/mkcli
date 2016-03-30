@@ -23,6 +23,8 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 - [Install](#install)
 - [Usage](#usage)
 - [Example](#example)
+- [Guide](#guide)
+   - [Defining Programs](#defining-programs)
 - [Help](#help)
 - [API](#api)
    - [cli](#cli)
@@ -45,6 +47,62 @@ ast.src('# Program\n\n```synopsis\n[options]\n```')
 ```
 
 ## Example
+
+## Guide
+
+### Defining Programs
+
+This section covers what you need to know to define a program as markdown, the important rules to remember are:
+
+* The first level one heading sets the program name
+* A fenced code block with the info string `synopsis` sets the program synopsis
+* A level two heading of `Options` declares the program options
+* A level two heading of `Commands` declares the program commands
+
+#### Program Name
+
+The program name is extracted from the first level one heading:
+
+```markdown
+# prg
+```
+
+Which creates a program named `prg`.
+
+#### Program Description
+
+The program description is created from all block level elements from the first level one heading until the next heading is encountered:
+
+```markdown
+# prg
+
+Short description.
+
+An extended description that can include paragraphs, lists, code blocks and other block level elements.
+```
+
+#### Program Synopsis
+
+A program synopsis can be specified with a fenced code block that uses the info string `synopsis`:
+
+```
+```synopsis
+[options] [file...]
+```
+```
+
+#### Program Options
+
+Program options are declared with a level two heading matching `Options` and a list following the heading:
+
+```markdown
+# prg
+
+## Options
+
+* `-i, --input [FILE...]` Input files
+* `-o, --output [FILE]` Output file
+```
 
 ## Help
 
