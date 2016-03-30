@@ -80,13 +80,39 @@ When the `<>` notation is used it indicates that that the option is required:
 * `-t, --type <TYPE>` Output format
 ```
 
+The parsed option will have the `required` flag set.
+
 To signify that an option argument is repeatable include an ellipsis:
 
 ```markdown
 * `-i, --input [FILE...]` Input files
 ```
 
-The parsed option object will have the `multiple` flag set.
+The parsed option will have the `multiple` flag set.
+
+You can associate some type information with the `{}` notation:
+
+```markdown
+* `-i, --indent [NUM] {Number} Amount of indentation
+```
+
+The parsed option will have the `kind` property set to `Number`.
+
+To specify a default value for the option use the `=` operator in the type:
+
+```markdown
+* `-i, --indent [NUM] {Number=2} Amount of indentation
+```
+
+The parsed option will have the `kind` property set to `Number` and the  `value` property set to `2`.
+
+You can just specify the default value using:
+
+```markdown
+* `-i, --indent [NUM] {=2} Amount of indentation
+```
+
+In which case the `kind` property will be `undefined` and the  `value` property is set to `2`.
 
 #### Manual Sections
 
