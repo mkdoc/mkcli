@@ -29,6 +29,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
      - [Program Description](#program-description)
      - [Program Synopsis](#program-synopsis)
      - [Program Options](#program-options)
+     - [Manual Sections](#manual-sections)
 - [Help](#help)
 - [API](#api)
    - [cli](#cli)
@@ -107,6 +108,20 @@ Program options are declared with a level two heading matching `Options` and a l
 * `-i, --input [FILE...]` Input files
 * `-o, --output [FILE]` Output file
 ```
+
+#### Manual Sections
+
+A level two heading that does not begin an options or commands list is treated as a section for man page output:
+
+```markdown
+# prg
+
+## Environment
+
+The environment variable FOO changes the behaviour to `bar`.
+```
+
+The section ends when the next heading is encountered.
 
 ## Help
 
