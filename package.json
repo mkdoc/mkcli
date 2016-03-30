@@ -1,0 +1,43 @@
+{
+  "name": "mkcli",
+  "version": "1.0.0",
+  "description": "Documentation for command line interfaces",
+  "author": "muji",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mkdoc/mkcli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkdoc/mkcli/issues"
+  },
+  "keywords": [
+    "markdown",
+    "commonmark",
+    "ast",
+    "stream",
+    "cli",
+    "docs",
+    "man",
+    "help"
+  ],
+  "dependencies": {
+    "mkast": "~1.2.2",
+    "through3": "~1.1.5"
+  },
+  "devDependencies": {
+    "chai": "~3.5.0",
+    "coveralls": "~2.11.8",
+    "istanbul": "~0.4.2",
+    "mocha": "~2.4.5"
+  },
+  "scripts": {
+    "lint": "jshint . && jscs .",
+    "clean": "rm -rf coverage",
+    "pretest": "rm -rf target && mkdir target",
+    "test": "NODE_ENV=test mocha ${SPEC:-test/spec}",
+    "precover": "npm run pretest",
+    "cover": "NODE_ENV=test istanbul cover _mocha -- ${SPEC:-test/spec}",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  }
+}

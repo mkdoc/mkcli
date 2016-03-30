@@ -1,0 +1,22 @@
+language: node_js
+sudo: false
+branches:
+  except:
+    - develop
+script: npm run cover
+node_js:
+  - '4.1'
+  - '4.0'
+  - '0.12'
+  - stable
+after_success:
+  - npm run coveralls
+deploy:
+  provider: npm
+  email: freeformsystems@gmail.com
+  api_key:
+    secure: sDx82S06AQnG7pZKbpYOGLJTOJwTOzfF+f1eFYEWAJcJA7OEkltNsh/lMmV5OYIAEFjDPi7kpREaUJKLOhHRHWQyIRIDMAbgJtYd8lk2GedUfXgYNwlxpZmOndp8crQXILTUSgByj6Lz8bbL/iJGDpTgDXoI5l8NjLbRaiGfJKZ+9DyBJc6GDcr/Mrg9y4EbGOPz9ceWiQjl16i5X9RZdU2AimgMWPUvmn/b6wBor+Q5/SXQoBZC66NSa+LVm/gkSmBvRSkjt2Z58copAlwMpUNeF5mj3durY3h5axZqcjfNac1/rUSydk7OPsYp3cfif+0/eRtmIvv/CYCmLOLibIs8pQYVmO/93vMLMb3J619CACyRs1UeSLvdb9wriN4kKM1P50wmnhlsakCL568BVMpDVSCZp8VzdcJ2uj4E556UaOQZAF0FXB00gdNPk9k2hTr1DTR7Do4mQoEudmKGr43mIdnrmgGAKgLdvvuPBt8Kusrnn0AJ4W0ZohRHf2+84+GCdIfTppeHTurTgYLP+FqF94HPhJR2/yb6Dp8JX0g/UpMWu6U4B5emUyq6v8boV9Ke5PuTrxzapNf8p1IcJoUlp7Xzi24E2WBqzrOH8GXVzqymSOlMPRPVZqenUPQUk8J2EX4DrZgu+z2ZasBgcJjuKDe+0MkiiRie/SKf0vU=
+  on:
+    tags: true
+    repo: mkdoc/mktransform
+    node: '4.1'

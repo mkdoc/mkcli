@@ -1,0 +1,7 @@
+-u bdd
+--recursive
+--bail
+--check-leaks
+--reporter list 
+--timeout 5000
+-A

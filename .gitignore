@@ -1,0 +1,6 @@
+.DS_Store
+*.bak
+*.log
+node_modules
+coverage
+target
