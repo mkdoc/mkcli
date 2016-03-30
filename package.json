@@ -1,7 +1,7 @@
 {
   "name": "mkcli",
   "version": "1.0.0",
-  "description": "Documentation for command line interfaces",
+  "description": "Markdown command line interface definition",
   "author": "muji",
   "license": "MIT",
   "repository": {
