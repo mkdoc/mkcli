@@ -25,7 +25,7 @@ describe('mkcli:', function() {
 
     output.once('finish', function() {
       var result = JSON.parse('' + fs.readFileSync(target));
-      expect(result.synopsis).to.eql('[options]\n');
+      expect(result.synopsis).to.eql('[options]');
       done();
     })
   });
