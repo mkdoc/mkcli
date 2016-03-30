@@ -31,6 +31,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
      - [Arguments](#arguments)
        - [Flags](#flags)
        - [Options](#options)
+     - [Commands](#commands)
      - [Manual Sections](#manual-sections)
 - [Help](#help)
 - [API](#api)
@@ -172,6 +173,21 @@ You can just specify the default value using:
 ```
 
 In which case the `kind` property will be `undefined` and the  `value` property is set to `2`.
+
+#### Commands
+
+Commands are declared in the same way as program arguments but under the `Commands` heading:
+
+```markdown
+# prg
+
+## Commands
+
+* `ls, list` List tasks
+* `i, info` Print task information
+```
+
+They allow you to create complex programs with options specific to a command.
 
 #### Manual Sections
 
