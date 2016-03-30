@@ -5,9 +5,9 @@ var expect = require('chai').expect
 
 describe('mkcli:', function() {
   
-  it('should parse flag option', function(done) {
-    var source = 'test/fixtures/flag.md'
-      , target = 'target/flag.json.log'
+  it('should parse option w/ multiple spec (...)', function(done) {
+    var source = 'test/fixtures/multiple-option.md'
+      , target = 'target/multiple-option.json.log'
       , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
@@ -27,10 +27,12 @@ describe('mkcli:', function() {
       var result = JSON.parse('' + fs.readFileSync(target))
         , opts = result.options;
 
-      expect(opts.help).to.be.an('object');
-      expect(opts.help.type).to.eql('flag');
-      expect(opts.help.key).to.eql('help');
-      expect(opts.help.names).to.eql(['-h', '--help']);
+      expect(opts.file).to.be.an('object');
+      expect(opts.file.type).to.eql('option');
+      expect(opts.file.multiple).to.eql(true);
+      expect(opts.file.required).to.eql(false);
+      expect(opts.file.key).to.eql('file');
+      expect(opts.file.names).to.eql(['-f', '--file']);
 
       done();
     })
