@@ -31,8 +31,6 @@ describe('mkcli:', function() {
       expect(opts.help.key).to.eql('help');
       expect(opts.help.names).to.eql(['-h', '--help']);
 
-      console.error(result);
-      //expect(result.name).to.eql('Program Name');
       done();
     })
   });
