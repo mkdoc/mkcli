@@ -80,6 +80,14 @@ When the `<>` notation is used it indicates that that the option is required:
 * `-t, --type <TYPE>` Output format
 ```
 
+To signify that an option argument is repeatable include an ellipsis:
+
+```markdown
+* `-i, --input [FILE...]` Input files
+```
+
+The parsed option object will have the `multiple` flag set.
+
 #### Manual Sections
 
 A level two heading that does not begin an options or commands list is treated as a section for man page output:
