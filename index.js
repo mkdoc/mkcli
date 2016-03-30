@@ -39,8 +39,7 @@ function cli(opts, cb) {
   }
 
   // set up input stream
-  stream = ast.parser(opts.input)
-    .pipe(stream)
+  stream = ast.parser(opts.input).pipe(stream)
 
   if(renderer) {
     stream = stream.pipe(renderer);
