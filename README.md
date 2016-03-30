@@ -25,15 +25,17 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 - [Example](#example)
 - [Guide](#guide)
    - [Defining Programs](#defining-programs)
-     - [Program Name](#program-name)
-     - [Program Description](#program-description)
-     - [Program Synopsis](#program-synopsis)
-     - [Program Options](#program-options)
+     - [Name](#name)
+     - [Description](#description)
+     - [Synopsis](#synopsis)
+     - [Arguments](#arguments)
+       - [Flags](#flags)
+       - [Options](#options)
      - [Manual Sections](#manual-sections)
 - [Help](#help)
 - [API](#api)
    - [cli](#cli)
-     - [Options](#options)
+     - [Options](#options-1)
 - [License](#license)
 
 ---
@@ -65,7 +67,7 @@ This section covers what you need to know to define a program as markdown, the i
 * A level two heading of `Options` declares the program options
 * A level two heading of `Commands` declares the program commands
 
-#### Program Name
+#### Name
 
 The program name is extracted from the first level one heading:
 
@@ -75,7 +77,7 @@ The program name is extracted from the first level one heading:
 
 Which creates a program named `prg`.
 
-#### Program Description
+#### Description
 
 The program description is created from all block level elements from the first level one heading until the next heading is encountered:
 
@@ -87,7 +89,7 @@ Short description.
 An extended description that can include paragraphs, lists, code blocks and other block level elements.
 ```
 
-#### Program Synopsis
+#### Synopsis
 
 A program synopsis can be specified with a fenced code block that uses the info string `synopsis`.
 
@@ -96,9 +98,9 @@ A program synopsis can be specified with a fenced code block that uses the info 
     ```
     
 
-#### Program Options
+#### Arguments
 
-Program options are declared with a level two heading matching `Options` and a list following the heading:
+Program arguments are declared with a level two heading matching `Options` and a list following the heading:
 
 ```markdown
 # prg
@@ -107,6 +109,34 @@ Program options are declared with a level two heading matching `Options` and a l
 
 * `-i, --input [FILE...]` Input files
 * `-o, --output [FILE]` Output file
+```
+
+An argument is declared as a list item whose first child is an inline code element which defines a *specification*.
+
+The specification is parsed into an object representing the argument which may be of type `flag`, `option` or `command`.
+
+The remaining list item content after the specification is treated as a short description for the argument.
+
+##### Flags
+
+An argument specification with no value is treated as a flag option:
+
+```markdown
+* `-v, --verbose` Print more information
+```
+
+##### Options
+
+To create an option argument specify a value in either `[]` or `<>`:
+
+```markdown
+* `-o, --output [FILE]` Output file
+```
+
+When the `<>` notation is used it indicates that that the option is required:
+
+```markdown
+* `-t, --type <TYPE>` Output format
 ```
 
 #### Manual Sections
