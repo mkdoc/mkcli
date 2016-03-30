@@ -129,6 +129,24 @@ Commands are declared in the same way as program arguments but under the `Comman
 
 They allow you to create complex programs with options specific to a command.
 
+#### Identifiers
+
+When a program is created from a source markdown document each argument and command is given a key for the resulting map. This key is generated automcatically by using the longest argument (or command) name and converting it to camel case.
+
+If you wish to use a fixed key you can add an identifier followed by a colon (`:`) to the beginning of the specification:
+
+```markdown
+# prg
+
+## Options
+
+* `verbose: -v` Print more information
+
+## Commands
+
+* `tasks: ls, list` List tasks
+```
+
 #### Manual Sections
 
 A level two heading that does not begin an options or commands list is treated as a section for man page output:
