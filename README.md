@@ -1,10 +1,12 @@
-# Command Line Documentation
+# Command Line Interface
 
 [![Build Status](https://travis-ci.org/mkdoc/mkcli.svg?v=3)](https://travis-ci.org/mkdoc/mkcli)
 [![npm version](http://img.shields.io/npm/v/mkcli.svg?v=3)](https://npmjs.org/package/mkcli)
 [![Coverage Status](https://coveralls.io/repos/mkdoc/mkcli/badge.svg?branch=master&service=github&v=3)](https://coveralls.io/github/mkdoc/mkcli?branch=master)
 
-> Generates help and man pages for command line interfaces
+> Define command line interfaces as markdown
+
+Creates a program definition from a markdown document and enables writing the program definition as JSON or javascript as well as creating man pages and help files for the program.
 
 ## Install
 
@@ -47,7 +49,7 @@ ast.src('# Program\n\n```synopsis\n[options]\n```')
 ```
 mkcli [options]
 
-Documentation for command line interfaces.
+Markdown command line interface definition.
 
   -h, --help  Display this help and exit
   --version   Print the version and exit
