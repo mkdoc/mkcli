@@ -25,9 +25,14 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 - [Example](#example)
 - [Guide](#guide)
    - [Defining Programs](#defining-programs)
+     - [Program Name](#program-name)
+     - [Program Description](#program-description)
+     - [Program Synopsis](#program-synopsis)
+     - [Program Options](#program-options)
 - [Help](#help)
 - [API](#api)
    - [cli](#cli)
+     - [Options](#options)
 - [License](#license)
 
 ---

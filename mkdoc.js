@@ -7,7 +7,7 @@ function readme(cb) {
     .pipe(mk.ref())
     .pipe(mk.abs())
     .pipe(mk.msg())
-    .pipe(mk.toc({depth: 2, max: 3}))
+    .pipe(mk.toc({depth: 2}))
     .pipe(mk.out())
     .pipe(mk.dest('README.md'))
     .on('finish', cb);
