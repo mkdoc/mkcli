@@ -90,11 +90,10 @@ An extended description that can include paragraphs, lists, code blocks and othe
 
 A program synopsis can be specified with a fenced code block that uses the info string `synopsis`.
 
-````markdown
-  ```synopsis
-  [options] [file...]
-  ```
-````
+    ```synopsis
+    [options] [file...]
+    ```
+    
 
 #### Program Options
 
