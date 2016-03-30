@@ -1,0 +1,5 @@
+# program
+
+```synopsis
+[options] [files..]
+```

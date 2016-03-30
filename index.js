@@ -16,17 +16,40 @@ var ast = require('mkast')
 function cli(opts, cb) {
   opts = opts || {};
 
-  var stream = new Parser(opts);
+  var stream = new Parser(opts)
+    , type = opts.type
+    , Type
+    , renderer;
+
+  if(type) {
+    try {
+      Type = require('./lib/render/' + type)
+    }catch(e) {
+      return cb(e); 
+    }
+
+    renderer = new Type(opts);
+  }
 
   if(!opts.input || !opts.output) {
+    if(renderer) {
+      return stream.pipe(renderer);
+    }
     return stream;
   }
 
   // set up input stream
-  ast.parser(opts.input)
+  stream = ast.parser(opts.input)
     .pipe(stream)
-    .pipe(ast.stringify())
-    .pipe(opts.output);
+
+  if(renderer) {
+    stream = stream.pipe(renderer);
+  // print as JSON with no renderer
+  }else{
+    stream = stream.pipe(ast.stringify());
+  }
+
+  stream.pipe(opts.output);
 
   if(cb) {
     opts.output
