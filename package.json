@@ -23,7 +23,9 @@
   ],
   "dependencies": {
     "mkast": "~1.2.2",
-    "through3": "~1.1.5"
+    "string-repeater": "~1.0.3",
+    "through3": "~1.1.5",
+    "wordwrap": "~1.0.0"
   },
   "devDependencies": {
     "chai": "~3.5.0",
