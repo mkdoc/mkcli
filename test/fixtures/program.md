@@ -4,6 +4,10 @@
 [options] [files..]
 ```
 
+Short program description.
+
+Long program description with a lot more information about the program behaviour.
+
 ## Options
 
 * `-b, --base=[URL] {String=http://example.com}` Base URL for absolute links that also has quite a bit of text.
