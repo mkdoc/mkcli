@@ -20,6 +20,10 @@ var ast = require('mkast')
 function cli(opts, cb) {
   opts = opts || {};
 
+  if(opts.type === types.json) {
+    opts.buffer = true; 
+  }
+
   var stream = new Parser(opts)
     , type = opts.type
     , Type
