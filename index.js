@@ -20,6 +20,8 @@ var ast = require('mkast')
 function cli(opts, cb) {
   opts = opts || {};
 
+  opts.type = opts.type || types.json;
+
   var stream = src(opts)
     , renderer;
 
@@ -59,6 +61,12 @@ function cli(opts, cb) {
 }
 
 function src(opts) {
+  var type = opts.type;
+
+  if(type === types.json) {
+    opts.buffer = true; 
+  }
+
   return new Parser(opts);
 }
 
