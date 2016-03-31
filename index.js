@@ -1,5 +1,9 @@
 var ast = require('mkast')
-  , Parser = require('./lib/parser');
+  , Parser = require('./lib/parser')
+  , types = {
+      json: 'json',
+      help: 'help'
+    }
 
 /**
  *  Creates documentation for command line interfaces.
@@ -21,13 +25,16 @@ function cli(opts, cb) {
     , Type
     , renderer;
 
+  if(!types[type]) {
+    return cb(new Error('unknown output type: ' + type)); 
+  }
+
   if(type) {
     try {
       Type = require('./lib/render/' + type)
     }catch(e) {
       return cb(e); 
     }
-
     renderer = new Type(opts);
   }
 
@@ -58,5 +65,7 @@ function cli(opts, cb) {
 
   return opts.output;
 }
+
+cli.types = types;
 
 module.exports = cli;
