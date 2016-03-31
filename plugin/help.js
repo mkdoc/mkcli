@@ -1,8 +1,14 @@
-var fs = require('fs');
+var fs = require('fs')
+  , path = require('path');
 
-function help(opts, cb) {
-  if(this.help === true && opts.file) {
-    fs.createReadStream(opts.file).pipe(process.stdout);
+function help(req, cb) {
+  var conf = req.conf
+    , file = conf.file;
+  if(this.help === true && file) {
+    if(req.runtime.base) {
+      file = path.join(req.runtime.base, file);
+    }
+    fs.createReadStream(file).pipe(process.stdout);
     // NOTE: don't call the callback
   }else{
     cb();
