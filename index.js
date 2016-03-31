@@ -1,4 +1,5 @@
 var ast = require('mkast')
+  , Program = require('./lib/program')
   , Parser = require('./lib/parser')
   , types = {
       json: 'json',
@@ -94,6 +95,13 @@ function dest(opts) {
   return renderer;
 }
 
+function load(def, opts) {
+  var prg = new Program(opts);
+  prg.load(def);
+  return prg;
+}
+
+cli.load = load;
 cli.types = types;
 cli.src = src;
 cli.dest = dest;
