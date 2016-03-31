@@ -20,18 +20,25 @@ var ast = require('mkast')
 function cli(opts, cb) {
   opts = opts || {};
 
-  if(opts.type === types.json) {
+
+  var type = opts.type || types.json
+
+  if(type === types.json) {
     opts.buffer = true; 
   }
 
+  if(!types[type]) {
+    var err = new Error('unknown output type: ' + type);
+    if(typeof cb === 'function') {
+      return cb(err); 
+    }
+    throw err;
+  }
+
+
   var stream = new Parser(opts)
-    , type = opts.type
     , Type
     , renderer;
-
-  if(!types[type]) {
-    return cb(new Error('unknown output type: ' + type)); 
-  }
 
   if(type) {
     try {
