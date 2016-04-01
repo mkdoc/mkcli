@@ -24,20 +24,20 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 - [Usage](#usage)
 - [Example](#example)
 - [Guide](#guide)
-   - [Defining Programs](#defining-programs)
-     - [Name](#name)
-     - [Description](#description)
-     - [Synopsis](#synopsis)
-     - [Arguments](#arguments)
-       - [Flags](#flags)
-       - [Options](#options)
-     - [Commands](#commands)
-     - [Identifiers](#identifiers)
-     - [Manual Sections](#manual-sections)
+- [Defining Programs](#defining-programs)
+  - [Name](#name)
+  - [Description](#description)
+  - [Synopsis](#synopsis)
+  - [Arguments](#arguments)
+    - [Flags](#flags)
+    - [Options](#options)
+  - [Commands](#commands)
+  - [Identifiers](#identifiers)
+  - [Manual Sections](#manual-sections)
 - [Help](#help)
 - [API](#api)
-   - [cli](#cli)
-     - [Options](#options-1)
+  - [cli](#cli)
+    - [Options](#options-1)
 - [License](#license)
 
 ---
@@ -229,10 +229,10 @@ mkcli [options]
 
 Markdown command line interface definition.
 
-  -p, --package=[FILE]  Use package descriptor
-  -t, --type=[TYPE]     Output renderer type
-  -h, --help            Display this help and exit
-  --version             Print the version and exit
+  -p, --package=[FILE]    Use package descriptor
+  -t, --type=[TYPE]       Output renderer type
+  -h, --help              Display help and exit
+  --version               Print the version and exit
 
 Report bugs to https://github.com/mkdoc/mkcli/issues
 ```
@@ -263,7 +263,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on March 31, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 1, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
