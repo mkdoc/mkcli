@@ -18,11 +18,17 @@ function print(file, req, cb) {
     file = path.join(req.runtime.base, file);
   }
   var output = req.conf && req.conf.output
-    ? req.conf.output : process.stdout
+      ? req.conf.output : process.stdout
     , input = fs.createReadStream(file);
+
   input.pipe(output);
+
   if(typeof cb === 'function') {
-    input.once('end', cb);
+    if(output !== process.stdout) {
+      output.once('finish', cb);
+    }else{
+      input.once('end', cb);
+    }
   }
 }
 
