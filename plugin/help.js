@@ -16,7 +16,9 @@ function print(file, req) {
   if(req.runtime.base) {
     file = path.join(req.runtime.base, file);
   }
-  fs.createReadStream(file).pipe(process.stdout);
+  var output = req.conf && req.conf.output
+    ? req.conf.output : process.stdout;
+  fs.createReadStream(file).pipe(output);
 }
 
 help.print = print;
