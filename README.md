@@ -22,11 +22,6 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 - [Install](#install)
 - [Usage](#usage)
-  - [Define](#define)
-  - [Compile](#compile)
-  - [Document](#document)
-  - [Program](#program)
-  - [Executable](#executable)
 - [Example](#example)
 - [Guide](#guide)
   - [Defining Programs](#defining-programs)
@@ -50,164 +45,21 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 ## Usage
 
-### Define
-
-First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md):
-
-```markdown
-# argv
-
-Prints the arguments passed to the program.
-
-## Options
-
-* `-e, --err` Print to stderr
-* `-h, --help` Display help and exit
-* `--version` Print version and exit
-```
-
-### Compile
-
-Compile the [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
+1) First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md).
+2) Compile the [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
 
 ```shell
 mkcat argv.md | mkcli > argv.json
 ```
 
-```json
-{
-  "description": "Prints the arguments passed to the program.",
-  "type": "program",
-  "name": "argv",
-  "options": {
-    "err": {
-      "literal": "-e, --err",
-      "key": "err",
-      "description": "Print to stderr",
-      "names": [
-        "-e",
-        "--err"
-      ],
-      "type": "flag"
-    },
-    "help": {
-      "literal": "-h, --help",
-      "key": "help",
-      "description": "Display help and exit",
-      "names": [
-        "-h",
-        "--help"
-      ],
-      "type": "flag"
-    },
-    "version": {
-      "literal": "--version",
-      "key": "version",
-      "description": "Print version and exit",
-      "names": [
-        "--version"
-      ],
-      "type": "flag"
-    }
-  }
-}
-
-```
-
-### Document
-
-Then create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt):
+3) Then create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt):
 
 ```shell
 mkcat argv.md | mkcli -t help > argv.txt
 ```
 
-```
-argv
-
-Prints the arguments passed to the program.
-
-  -e, --err               Print to stderr
-  -h, --help              Display help and exit
-  --version               Print version and exit
-
-```
-
-### Program
-
-Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested:
-
-```javascript
-var cli = require('../mkcli')
-  , def = require('./argv.json')
-  , pkg = require('../../package.json')
-  , prg = cli.load(def);
-
-/**
- *  @name argv
- *  @cli doc/example/argv.md
- */
-function main(argv, cb) {
-
-  if(typeof argv === 'function') {
-    cb = argv;
-    argv = null;
-  }
-
-  var scope = {}
-    , runtime = {
-        base: __dirname,
-        target: scope,
-        hints: prg,
-        help: {
-          file: 'argv.txt'
-        },
-        version: {
-          name: pkg.name,
-          version: pkg.version
-        },
-        plugins: [
-          require('../../plugin/hints'),
-          require('../../plugin/argv'),
-          require('../../plugin/help'),
-          require('../../plugin/version')
-        ]
-      };
-
-  cli.run(prg, argv, runtime, function parsed(err, req) {
-    if(err || req.aborted) {
-      return cb(err); 
-    }
-
-    // respect the -e, --err option
-    if(this.err) {
-      return console.error(this); 
-    }
-
-    console.log(this);
-  })
-}
-
-module.exports = main;
-```
-
-### Executable
-
-And add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv):
-
-```javascript
-#!/usr/bin/env node
-
-var cli = require('./argv.js');
-
-cli(function(err) {
-  if(err) {
-    console.error(err.message); 
-    process.exitCode = 1;
-  }
-});
-```
-
+4) Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested.
+5) Finally add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv).
 ## Example
 
 ## Guide
@@ -438,7 +290,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 2, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 3, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
