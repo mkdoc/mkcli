@@ -25,7 +25,8 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
   - [Define](#define)
   - [Compile](#compile)
   - [Document](#document)
-  - [Run](#run)
+  - [Program](#program)
+  - [Executable](#executable)
 - [Example](#example)
 - [Guide](#guide)
   - [Defining Programs](#defining-programs)
@@ -132,7 +133,7 @@ Prints the arguments passed to the program.
 
 ```
 
-### Run
+### Program
 
 Write a program that can be executed and easily tested:
 
@@ -190,7 +191,9 @@ function main(argv, cb) {
 module.exports = main;
 ```
 
-And add an executable:
+### Executable
+
+And add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv):
 
 ```javascript
 #!/usr/bin/env node
