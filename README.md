@@ -58,9 +58,9 @@ First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/
 
 Prints the parsed arguments passed to the program.
 
-```synopsis
-[options] [args...]
-```
+    ```synopsis
+    [options] [args...]
+    ```
 
 ## Options
 

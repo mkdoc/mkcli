@@ -2,9 +2,9 @@
 
 Prints the parsed arguments passed to the program.
 
-```synopsis
-[options] [args...]
-```
+    ```synopsis
+    [options] [args...]
+    ```
 
 ## Options
 
