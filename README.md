@@ -22,6 +22,10 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 - [Install](#install)
 - [Usage](#usage)
+  - [Define](#define)
+  - [Compile](#compile)
+  - [Document](#document)
+  - [Run](#run)
 - [Example](#example)
 - [Guide](#guide)
   - [Defining Programs](#defining-programs)
@@ -36,24 +40,172 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
     - [Manual Sections](#manual-sections)
 - [Help](#help)
 - [API](#api)
-  - [cli](#cli)
-    - [Options](#options-1)
+  - [src](#src)
+  - [dest](#dest)
+  - [load](#load)
 - [License](#license)
 
 ---
 
 ## Usage
 
-Create a stream and write the program description:
+### Define
+
+First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md):
+
+```markdown
+# argv
+
+Prints the parsed arguments passed to the program.
+
+```synopsis
+[options] [args...]
+```
+
+## Options
+
+* `-e, --err` Print to stderr
+* `-h, --help` Display help and exit
+* `--version` Print version and exit
+```
+
+### Compile
+
+Compile the [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
+
+```shell
+mkcat argv.md | mkcli > argv.json
+```
+
+```json
+{
+  "description": "Prints the parsed arguments passed to the program.",
+  "type": "program",
+  "name": "argv",
+  "synopsis": "[options] [args...]",
+  "options": {
+    "err": {
+      "literal": "-e, --err",
+      "key": "err",
+      "description": "Print to stderr",
+      "names": [
+        "-e",
+        "--err"
+      ],
+      "type": "flag"
+    },
+    "help": {
+      "literal": "-h, --help",
+      "key": "help",
+      "description": "Display help and exit",
+      "names": [
+        "-h",
+        "--help"
+      ],
+      "type": "flag"
+    },
+    "version": {
+      "literal": "--version",
+      "key": "version",
+      "description": "Print version and exit",
+      "names": [
+        "--version"
+      ],
+      "type": "flag"
+    }
+  }
+}```
+
+### Document
+
+Then create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt):
+
+```shell
+mkcat argv.md | mkcli -t help > argv.txt
+```
+
+```
+argv [options] [args...]
+
+Prints the parsed arguments passed to the program.
+
+  -e, --err               Print to stderr
+  -h, --help              Display help and exit
+  --version               Print version and exit
+
+```
+
+### Run
+
+Write a program that can be executed and easily tested:
 
 ```javascript
-var cli = require('mkcli')
-  , ast = require('mkast');
+var cli = require('../mkcli')
+  , def = require('./argv.json')
+  , pkg = require('../../package.json')
+  , prg = cli.load(def);
 
-ast.src('# Program\n\n```synopsis\n[options]\n```')
-  .pipe(cli())
-  .pipe(ast.stringify({indent: 2}))
-  .pipe(process.stdout);
+/**
+ *  @name argv
+ *  @cli doc/example/argv.md
+ */
+function main(argv, cb) {
+
+  if(typeof argv === 'function') {
+    cb = argv;
+    argv = null;
+  }
+
+  var scope = {}
+    , runtime = {
+        base: __dirname,
+        target: scope,
+        hints: prg,
+        help: {
+          file: 'argv.txt'
+        },
+        version: {
+          name: pkg.name,
+          version: pkg.version
+        },
+        plugins: [
+          require('../../plugin/hints'),
+          require('../../plugin/argv'),
+          require('../../plugin/help'),
+          require('../../plugin/version')
+        ]
+      };
+
+  cli.run(prg, argv, runtime, function parsed(err, req) {
+    if(err || req.aborted) {
+      return cb(err); 
+    }
+
+    // respect the -e, --err option
+    if(this.err) {
+      return console.error(this); 
+    }
+
+    console.log(this);
+  })
+}
+
+module.exports = main;
+```
+
+And add an executable:
+
+```javascript
+#!/usr/bin/env node
+
+var cli = require('./argv.js');
+
+cli(function(err) {
+  if(err) {
+    console.error(err.message); 
+    process.exitCode = 1;
+  }
+});
 ```
 
 ## Example
@@ -239,23 +391,46 @@ Report bugs to https://github.com/mkdoc/mkcli/issues
 
 ## API
 
-### cli
+### src
 
 ```javascript
-cli([opts][, cb])
+src([opts])
 ```
 
-Creates documentation for command line interfaces.
+Gets a source parser stream that transforms the incoming tree nodes into
+a program definition.
 
-Returns an output stream.
+Returns a parser stream.
 
-* `opts` Object processing options.
-* `cb` Function callback function.
+* `opts` Object parser options.
 
-#### Options
+### dest
 
-* `input` Readable input stream.
-* `output` Writable output stream.
+```javascript
+dest([opts])
+```
+
+Gets a destination renderer stream.
+
+When no type is specified the JSON renderer is assumed.
+
+Returns a renderer stream of the specified type.
+
+* `opts` Object renderer options.
+
+### load
+
+```javascript
+load(def[, opts])
+```
+
+Load a program definition into a new program assigning the definition
+properties to the program.
+
+Returns a new program.
+
+* `def` Object the program definition.
+* `opts` Object program options.
 
 ## License
 
@@ -263,7 +438,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 1, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 2, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast

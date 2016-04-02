@@ -1,0 +1,37 @@
+{
+  "description": "Prints the parsed arguments passed to the program.",
+  "type": "program",
+  "name": "argv",
+  "synopsis": "[options] [args...]",
+  "options": {
+    "err": {
+      "literal": "-e, --err",
+      "key": "err",
+      "description": "Print to stderr",
+      "names": [
+        "-e",
+        "--err"
+      ],
+      "type": "flag"
+    },
+    "help": {
+      "literal": "-h, --help",
+      "key": "help",
+      "description": "Display help and exit",
+      "names": [
+        "-h",
+        "--help"
+      ],
+      "type": "flag"
+    },
+    "version": {
+      "literal": "--version",
+      "key": "version",
+      "description": "Print version and exit",
+      "names": [
+        "--version"
+      ],
+      "type": "flag"
+    }
+  }
+}

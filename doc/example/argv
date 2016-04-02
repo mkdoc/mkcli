@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var cli = require('./argv.js');
+
+cli(function(err) {
+  if(err) {
+    console.error(err.message); 
+    process.exitCode = 1;
+  }
+});

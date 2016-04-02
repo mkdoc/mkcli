@@ -14,13 +14,7 @@ Generated program definitions may be converted to man pages and help files.
 <!-- @toc -->
 ***
 
-## Usage
-
-Create a stream and write the program description:
-
-<? @source {javascript=s/\.\.\/index/mkcli/gm} usage.js ?>
-
-<? @include {=readme} example.md guide.md help.md ?>
+<? @include {=readme} usage.md example.md guide.md help.md ?>
 
 <? @exec mkapi index.js --title=API --level=2 ?>
 <? @include {=readme} license.md links.md ?>
