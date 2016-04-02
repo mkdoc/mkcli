@@ -61,6 +61,18 @@ Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js
 
 ## Example
 
+Compile a program definition:
+
+```shell
+mkcat argv.md | mkcli > argv.json
+```
+
+Create a help file:
+
+```shell
+mkcat argv.md | mkcli -t help > argv.txt
+```
+
 ## Guide
 
 ### Defining Programs
