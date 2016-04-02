@@ -135,7 +135,7 @@ Prints the arguments passed to the program.
 
 ### Program
 
-Write a program that can be executed and easily tested:
+Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested:
 
 ```javascript
 var cli = require('../mkcli')

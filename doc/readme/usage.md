@@ -28,7 +28,7 @@ mkcat argv.md | mkcli -t help > argv.txt
 
 ### Program
 
-Write a program that can be executed and easily tested:
+Write [a program](/doc/example/argv.js) that can be executed and easily tested:
 
 <? @source {javascript=s/\.\.\/index/mkcli/gm} ../example/argv.js ?>
 
