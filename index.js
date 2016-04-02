@@ -95,9 +95,20 @@ function dest(opts) {
   return renderer;
 }
 
+/**
+ *  Load a program definition into a new program assigning the definition 
+ *  properties to the program.
+ *
+ *  @function load
+ *  @param {Object} def the program definition.
+ *
+ *  @returns a new program.
+ */
 function load(def, opts) {
   var prg = new Program(opts);
-  prg.load(def);
+  for(var k in def) {
+    prg[k] = def[k];
+  }
   return prg;
 }
 
