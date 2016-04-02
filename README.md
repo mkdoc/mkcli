@@ -56,11 +56,7 @@ First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/
 ```markdown
 # argv
 
-Prints the parsed arguments passed to the program.
-
-    ```synopsis
-    [options] [args...]
-    ```
+Prints the arguments passed to the program.
 
 ## Options
 
@@ -79,10 +75,9 @@ mkcat argv.md | mkcli > argv.json
 
 ```json
 {
-  "description": "Prints the parsed arguments passed to the program.",
+  "description": "Prints the arguments passed to the program.",
   "type": "program",
   "name": "argv",
-  "synopsis": "[options] [args...]",
   "options": {
     "err": {
       "literal": "-e, --err",
@@ -125,9 +120,9 @@ mkcat argv.md | mkcli -t help > argv.txt
 ```
 
 ```
-argv [options] [args...]
+argv
 
-Prints the parsed arguments passed to the program.
+Prints the arguments passed to the program.
 
   -e, --err               Print to stderr
   -h, --help              Display help and exit
