@@ -45,21 +45,20 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 ## Usage
 
-1. First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md).
-2. Compile the [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
+First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md) and compile the [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
 
 ```shell
 mkcat argv.md | mkcli > argv.json
 ```
 
-3. Then create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt):
+Then create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt):
 
 ```shell
 mkcat argv.md | mkcli -t help > argv.txt
 ```
 
-4. Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested.
-5. Finally add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv).
+Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested; then add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv).
+
 ## Example
 
 ## Guide
