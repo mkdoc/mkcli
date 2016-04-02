@@ -1,6 +1,6 @@
-argv [options] [args...]
+argv
 
-Prints the parsed arguments passed to the program.
+Prints the arguments passed to the program.
 
   -e, --err               Print to stderr
   -h, --help              Display help and exit

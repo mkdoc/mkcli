@@ -1,10 +1,6 @@
 # argv
 
-Prints the parsed arguments passed to the program.
-
-    ```synopsis
-    [options] [args...]
-    ```
+Prints the arguments passed to the program.
 
 ## Options
 
