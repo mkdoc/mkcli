@@ -226,13 +226,13 @@ If you wish to use a fixed key you can add an identifier followed by a colon (`:
 ```markdown
 # prg
 
-## Options
-
-* `verbose: -v` Print more information
-
 ## Commands
 
 * `tasks: ls, list` List tasks
+
+## Options
+
+* `verbose: -v` Print more information
 ```
 
 #### Manual Sections
