@@ -32,7 +32,6 @@ describe('json:', function() {
       expect(opts.file.multiple).to.eql(false);
       expect(opts.file.required).to.eql(false);
       expect(opts.file.key).to.eql('file');
-      expect(opts.file.names).to.eql(['-f', '--file']);
 
       done();
     })

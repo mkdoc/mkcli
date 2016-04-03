@@ -1,3 +1,3 @@
 # Options
 
-* `-f, --file [FILE]` Write output to FILE
+* `file: -f, --file, --full-file-path [FILE]` Write output to FILE

@@ -26,7 +26,8 @@ describe('help renderer:', function() {
 
     output.once('finish', function() {
       var result = '' + fs.readFileSync(target)
-      expect(Boolean(~result.indexOf('default: stdout'))).to.eql(true);
+      expect(Boolean(~result.indexOf('(default: stdout)'))).to.eql(true);
+      expect(Boolean(~result.indexOf('Default: foo'))).to.eql(true);
       done();
     })
   });
