@@ -41,9 +41,9 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 - [Help](#help)
 - [API](#api)
   - [src](#src)
-    - [Options](#options-1)
+  - [compile](#compile)
   - [dest](#dest)
-    - [Options](#options-2)
+    - [Options](#options-1)
   - [load](#load)
   - [run](#run)
 - [License](#license)
@@ -84,29 +84,37 @@ mkcat argv.md | mkcli -t help > argv.txt
 
 ### Defining Programs
 
-This section covers what you need to know to define a program as markdown, the important rules to remember are:
-
-* The first level one heading sets the program name
-* A fenced code block with the info string `synopsis` sets the program synopsis
-* A level two heading of `Options` declares the program options
-* A level two heading of `Commands` declares the program commands
+This section covers what you need to know to define a program as markdown.
 
 #### Name
 
-The program name is extracted from the first level one heading:
+The program name is extracted from the paragraph or list under the *Name* heading:
 
 ```markdown
-# prg
+# Name
+
+prg
 ```
 
-Which creates a program named `prg`.
+Which creates a program named `prg`. Use a list when a program can have multiple names:
+
+```markdown
+# Name
+
++ prg
++ prg-alias
+```
 
 #### Description
 
-The program description is created from all block level elements from the first level one heading until the next heading is encountered:
+The program description is created from all block level elements under the *Description* heading:
 
 ```markdown
-# prg
+# Name
+
+prg
+
+# Description
 
 Short description.
 
@@ -115,21 +123,23 @@ An extended description that can include paragraphs, lists, code blocks and othe
 
 #### Synopsis
 
-A program synopsis can be specified with a fenced code block that uses the info string `synopsis`.
+The program synopsis is created from all code block elements under the *Synopsis* heading:
 
-    ```synopsis
+    ```
     [options] [file...]
     ```
     
 
 #### Arguments
 
-Program arguments are declared with a level two heading matching `Options` and a list following the heading:
+Program arguments are declared with a heading or *Options* and a list following the heading:
 
 ```markdown
-# prg
+# Name
 
-## Options
+prg
+
+# Options
 
 * `-i, --input [FILE...]` Input files
 * `-o, --output [FILE]` Output file
@@ -210,9 +220,11 @@ In which case the `kind` property will be `undefined` and the  `value` property 
 Commands are declared in the same way as program arguments but under the `Commands` heading:
 
 ```markdown
-# prg
+# Name
 
-## Commands
+prg
+
+# Commands
 
 * `ls, list` List tasks
 * `i, info` Print task information
@@ -227,38 +239,45 @@ When a program is created from a source markdown document each argument and comm
 If you wish to use a fixed key you can add an identifier followed by a colon (`:`) to the beginning of the specification:
 
 ```markdown
-# prg
+# Name
 
-## Commands
+prg
+
+# Commands
 
 * `tasks: ls, list` List tasks
 
-## Options
+# Options
 
 * `verbose: -v` Print more information
 ```
 
 #### Manual Sections
 
-A level two heading that does not begin an options or commands list is treated as a section for man page output:
+A heading that is not matched by any of the rules above is a treated as a manual section:
 
 ```markdown
-# prg
+# Name
 
-## Environment
+prg
+
+# Environment
 
 The environment variable FOO changes the behaviour to `bar`.
 ```
 
-The section ends when the next heading is encountered.
+The section ends when the next level one heading is encountered or the end of the file is reached.
 
 ## Help
 
 ```
-mkcli [options]
+mkcli
 
-Markdown command line interface definition.
+Usage: mkcli [options]
 
+  Markdown command line interface definition.
+
+Options
   -p, --package=[FILE]    Use package descriptor
   -t, --type=[TYPE]       Output renderer type
   -h, --help              Display help and exit
@@ -276,15 +295,24 @@ src([opts])
 ```
 
 Gets a source parser stream that transforms the incoming tree nodes into
-a program definition.
+a state information.
 
 Returns a parser stream.
 
 * `opts` Object parser options.
 
-#### Options
+### compile
 
-* `type` String=json the renderer type.
+```javascript
+compile([opts])
+```
+
+Gets a compiler stream that transforms the parser state information to
+a program definition.
+
+Returns a compiler stream.
+
+* `opts` Object compiler options.
 
 ### dest
 
