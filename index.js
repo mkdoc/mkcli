@@ -166,4 +166,8 @@ cli.dest = dest;
 cli.run = run;
 cli.camelcase = require('./lib/camelcase');
 
+Object.keys(types).forEach(function(nm) {
+  cli[nm.toUpperCase()] = nm;
+});
+
 module.exports = cli;
