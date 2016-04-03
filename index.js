@@ -122,13 +122,13 @@ function load(def) {
 }
 
 function run(src, argv, opts, cb) {
-  var Program = require('./lib/program');
+  var Program = require('./lib/program')
+    , runner = require('./lib/run');
 
   if(!(src instanceof Program)) {
     src = load(src); 
   }
 
-  var runner = require('./lib/run');
   runner.call(src, argv, opts, cb);
 }
 
