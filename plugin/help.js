@@ -17,6 +17,8 @@ function print(file, req, cb) {
   if(req.runtime.base) {
     file = path.join(req.runtime.base, file);
   }
+
+  /* istanbul ignore next: never use stdout in test env */
   var output = req.conf && req.conf.output
       ? req.conf.output : process.stdout
     , input = fs.createReadStream(file);
@@ -24,6 +26,7 @@ function print(file, req, cb) {
   input.pipe(output);
 
   if(typeof cb === 'function') {
+    /* istanbul ignore else: never use stdout in test env */
     if(output !== process.stdout) {
       output.once('finish', cb);
     }else{
