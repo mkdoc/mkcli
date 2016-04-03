@@ -3,11 +3,11 @@ var expect = require('chai').expect
   , ast = require('mkast')
   , cli = require('../../../index');
 
-describe('json:', function() {
+describe('help renderer:', function() {
   
-  it('should parse program synopsis', function(done) {
-    var source = 'test/fixtures/synopsis.md'
-      , target = 'target/synopsis.json.log'
+  it('should render option w/ value spec ({=stdout})', function(done) {
+    var source = 'test/fixtures/option-value.md'
+      , target = 'target/option-value.txt'
       , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
@@ -18,16 +18,15 @@ describe('json:', function() {
       , output = fs.createWriteStream(target)
       , opts = {
           input: input,
-          output: output
+          output: output,
+          type: cli.HELP
         };
     
     cli(opts);
 
     output.once('finish', function() {
-      var result = JSON.parse('' + fs.readFileSync(target));
-      expect(result.synopsis).to.be.an('array')
-        .to.have.length(2);
-      expect(result.synopsis[0]).to.eql('[options]');
+      var result = '' + fs.readFileSync(target)
+      expect(Boolean(~result.indexOf('default: stdout'))).to.eql(true);
       done();
     })
   });

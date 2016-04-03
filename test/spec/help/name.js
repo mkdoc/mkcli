@@ -19,14 +19,18 @@ describe('help renderer:', function() {
       , opts = {
           input: input,
           output: output,
-          type: cli.HELP
+          type: cli.HELP,
+          pkg: {
+            bugs: {
+              url: 'http://example.com/issues'
+            }
+          }
         };
     
     cli(opts);
 
     output.once('finish', function() {
       var result = '' + fs.readFileSync(target)
-        console.dir(result);
       expect(Boolean(~result.indexOf('Program Name'))).to.eql(true);
       done();
     })

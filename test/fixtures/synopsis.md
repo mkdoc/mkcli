@@ -1,5 +1,9 @@
 # Synopsis
 
-```synopsis
+```
 [options]
+```
+
+```
+[options] [files...]
 ```
