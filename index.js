@@ -33,6 +33,7 @@ function cli(opts, cb) {
     if(typeof cb === 'function') {
       return cb(e); 
     }
+
     throw e;
   }
 
@@ -41,16 +42,10 @@ function cli(opts, cb) {
   }
 
   // set up input stream
-  stream = ast.parser(opts.input).pipe(stream)
-
-  if(renderer) {
-    stream = stream.pipe(renderer);
-  // print as JSON with no renderer
-  }else{
-    stream = stream.pipe(ast.stringify());
-  }
-
-  stream.pipe(opts.output);
+  stream = ast.parser(opts.input)
+    .pipe(stream)
+    .pipe(renderer)
+    .pipe(opts.output);
 
   if(cb) {
     opts.output
@@ -71,7 +66,8 @@ function cli(opts, cb) {
  *  @returns a parser stream.
  */
 function src(opts) {
-  var type = opts.type;
+  opts = opts || {};
+  var type = opts.type || types.json;
 
   if(type === types.json) {
     opts.buffer = true; 
@@ -99,19 +95,11 @@ function dest(opts) {
   }
 
   if(!types[type]) {
-    var err = new Error('unknown output type: ' + type);
-    throw err;
+    throw new Error('unknown output type: ' + type);
   }
 
-  var Type
-    , renderer;
-
-  if(type) {
-    Type = require('./lib/render/' + type)
-    renderer = new Type(opts);
-  }
-
-  return renderer;
+  var Type = require('./lib/render/' + type)
+  return new Type(opts);
 }
 
 /**
