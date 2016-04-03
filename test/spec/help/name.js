@@ -5,9 +5,9 @@ var expect = require('chai').expect
 
 describe('help renderer:', function() {
   
-  it('should render option help', function(done) {
-    var source = 'test/fixtures/option.md'
-      , target = 'target/option.txt'
+  it('should render program name', function(done) {
+    var source = 'test/fixtures/name.md'
+      , target = 'target/name.txt'
       , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
@@ -26,7 +26,7 @@ describe('help renderer:', function() {
 
     output.once('finish', function() {
       var result = '' + fs.readFileSync(target)
-      expect(Boolean(~result.indexOf('-f, --file'))).to.eql(true);
+      expect(Boolean(~result.indexOf('Program Name'))).to.eql(true);
       done();
     })
   });
