@@ -1,6 +1,7 @@
 var types = {
   json: 'json',
-  help: 'help'
+  help: 'help',
+  man: 'man'
 };
 
 /**
@@ -47,8 +48,13 @@ function cli(opts, cb) {
     stream = stream.pipe(compile(opts)); 
   }
 
-  stream.pipe(renderer)
-    .pipe(opts.output);
+  stream = stream.pipe(renderer)
+
+  if(opts.type === types.man) {
+    stream = stream.pipe(ast.stringify()); 
+  }
+  
+  stream.pipe(opts.output);
 
   if(cb) {
     opts.output
