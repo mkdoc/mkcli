@@ -22,6 +22,7 @@ function cli(opts, cb) {
   opts.type = opts.type || types.json;
 
   var stream = src(opts)
+    , parser = stream
     , ast = require('mkast')
     , renderer;
 
@@ -57,6 +58,7 @@ function cli(opts, cb) {
   stream.pipe(opts.output);
 
   if(cb) {
+    parser.once('error', cb);
     opts.output
       .once('error', cb)
       .once('finish', cb);
