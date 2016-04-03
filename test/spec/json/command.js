@@ -1,13 +1,13 @@
 var expect = require('chai').expect
   , fs = require('fs')
   , ast = require('mkast')
-  , cli = require('../../index');
+  , cli = require('../../../index');
 
 describe('cli:', function() {
   
-  it('should parse named flag option', function(done) {
-    var source = 'test/fixtures/named-flag.md'
-      , target = 'target/named-flag.json.log'
+  it('should parse command', function(done) {
+    var source = 'test/fixtures/command.md'
+      , target = 'target/command.json.log'
       , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
@@ -25,11 +25,12 @@ describe('cli:', function() {
 
     output.once('finish', function() {
       var result = JSON.parse('' + fs.readFileSync(target))
-        , opts = result.options;
+        , cmds = result.commands;
 
-      expect(opts.usage).to.be.an('object');
-      expect(opts.usage.key).to.eql('usage');
-      expect(opts.usage.names).to.eql(['-h', '--help']);
+      expect(cmds.list).to.be.an('object');
+      expect(cmds.list.type).to.eql('command');
+      expect(cmds.list.key).to.eql('list');
+      expect(cmds.list.names).to.eql(['ls', 'list']);
 
       done();
     })

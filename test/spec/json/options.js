@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-  , cli = require('../../index');
+  , cli = require('../../../index');
 
 describe('cli:', function() {
   

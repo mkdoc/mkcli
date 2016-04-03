@@ -1,7 +1,7 @@
 var expect = require('chai').expect
   , fs = require('fs')
   , ast = require('mkast')
-  , cli = require('../../index');
+  , cli = require('../../../index');
 
 describe('cli:', function() {
   

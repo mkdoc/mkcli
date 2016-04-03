@@ -1,13 +1,13 @@
 var expect = require('chai').expect
   , fs = require('fs')
   , ast = require('mkast')
-  , cli = require('../../index');
+  , cli = require('../../../index');
 
 describe('cli:', function() {
   
-  it('should parse command', function(done) {
-    var source = 'test/fixtures/command.md'
-      , target = 'target/command.json.log'
+  it('should parse option w/ multiple spec (...)', function(done) {
+    var source = 'test/fixtures/multiple-option.md'
+      , target = 'target/multiple-option.json.log'
       , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
@@ -25,12 +25,14 @@ describe('cli:', function() {
 
     output.once('finish', function() {
       var result = JSON.parse('' + fs.readFileSync(target))
-        , cmds = result.commands;
+        , opts = result.options;
 
-      expect(cmds.list).to.be.an('object');
-      expect(cmds.list.type).to.eql('command');
-      expect(cmds.list.key).to.eql('list');
-      expect(cmds.list.names).to.eql(['ls', 'list']);
+      expect(opts.file).to.be.an('object');
+      expect(opts.file.type).to.eql('option');
+      expect(opts.file.multiple).to.eql(true);
+      expect(opts.file.required).to.eql(false);
+      expect(opts.file.key).to.eql('file');
+      expect(opts.file.names).to.eql(['-f', '--file']);
 
       done();
     })
