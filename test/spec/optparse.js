@@ -28,6 +28,15 @@ describe('optparse:', function() {
     done();
   });
 
+  it('should sort with various names', function(done) {
+    // NOTE: triggers sort() code paths
+    var res = optparse('--verbose, -v, -v');
+    expect(res.type).to.eql(Argument.FLAG);
+    expect(res.key).to.eql('verbose');
+    expect(res.names).to.eql(['--verbose', '-v', '-v']);
+    done();
+  });
+
   it('should parse option', function(done) {
     var res = optparse('-f, --file=[FILE]');
     expect(res.type).to.eql(Argument.OPTION);
@@ -61,5 +70,43 @@ describe('optparse:', function() {
       done();
     }
   );
+
+  it('should parse option w/ multiple ellipsis', function(done) {
+    var res = optparse('-f, --file=[FILE...]');
+    expect(res.type).to.eql(Argument.OPTION);
+    expect(res.key).to.eql('file');
+    expect(res.names).to.eql(['-f', '--file']);
+    expect(res.multiple).to.eql(true);
+    done();
+  });
+
+  it('should parse option w/ required brackets (<>)', function(done) {
+    var res = optparse('-f, --file=<FILE...>');
+    expect(res.type).to.eql(Argument.OPTION);
+    expect(res.key).to.eql('file');
+    expect(res.names).to.eql(['-f', '--file']);
+    expect(res.multiple).to.eql(true);
+    expect(res.required).to.eql(true);
+    done();
+  });
+
+  it('should parse option with type specification', function(done) {
+    var res = optparse('-i, --indent [NUM] {Number}');
+    expect(res.type).to.eql(Argument.OPTION);
+    expect(res.key).to.eql('indent');
+    expect(res.names).to.eql(['-i', '--indent']);
+    expect(res.kind).to.eql('Number');
+    done();
+  });
+
+  it('should parse option with type and default value', function(done) {
+    var res = optparse('-i, --indent [NUM] {Number=2}');
+    expect(res.type).to.eql(Argument.OPTION);
+    expect(res.key).to.eql('indent');
+    expect(res.names).to.eql(['-i', '--indent']);
+    expect(res.kind).to.eql('Number');
+    expect(res.value).to.eql('2');
+    done();
+  });
 
 });
