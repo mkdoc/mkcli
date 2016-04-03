@@ -2,6 +2,10 @@
 
 Prints the arguments passed to the program.
 
+```synopsis
+[options]
+```
+
 ## Options
 
 * `-e, --err` Print to stderr

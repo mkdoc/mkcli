@@ -2,6 +2,7 @@
   "description": "Prints the arguments passed to the program.",
   "type": "program",
   "name": "argv",
+  "synopsis": "[options]",
   "options": {
     "err": {
       "literal": "-e, --err",
@@ -34,4 +35,3 @@
     }
   }
 }
-

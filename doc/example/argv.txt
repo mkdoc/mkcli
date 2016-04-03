@@ -1,4 +1,4 @@
-argv
+argv [options]
 
 Prints the arguments passed to the program.
 
