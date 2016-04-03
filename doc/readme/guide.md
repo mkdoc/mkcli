@@ -74,6 +74,8 @@ To create an option argument specify a value in either `[]` or `<>`:
 * `-o, --output [FILE]` Output file
 ```
 
+###### Required
+
 When the `<>` notation is used it indicates that that the option is required:
 
 ```markdown
@@ -81,6 +83,8 @@ When the `<>` notation is used it indicates that that the option is required:
 ```
 
 The parsed option will have the `required` flag set.
+
+###### Multiple
 
 To signify that an option argument is repeatable include an ellipsis:
 
@@ -90,6 +94,8 @@ To signify that an option argument is repeatable include an ellipsis:
 
 The parsed option will have the `multiple` flag set.
 
+###### Type Info
+
 You can associate some type information with the `{}` notation:
 
 ```markdown
@@ -97,6 +103,8 @@ You can associate some type information with the `{}` notation:
 ```
 
 The parsed option will have the `kind` property set to `Number`.
+
+###### Default Value
 
 To specify a default value for the option use the `=` operator in the type:
 
