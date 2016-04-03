@@ -26,7 +26,7 @@ describe('json:', function() {
 
     output.once('finish', function() {
       var result = JSON.parse('' + fs.readFileSync(target));
-      expect(result.sections).to.be.an('array').to.have.length(1);
+      expect(result.sections).to.be.an('array').to.have.length(2);
       var section = result.sections[0];
       expect(section.nodes).to.be.an('array').to.have.length(2);
       done();

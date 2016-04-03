@@ -3,11 +3,11 @@ var expect = require('chai').expect
   , ast = require('mkast')
   , cli = require('../../../index');
 
-describe('json:', function() {
+describe('help renderer:', function() {
   
-  it('should parse command', function(done) {
-    var source = 'test/fixtures/command.md'
-      , target = 'target/command.json.log'
+  it('should render section', function(done) {
+    var source = 'test/fixtures/section.md'
+      , target = 'target/section.txt'
       , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
@@ -19,20 +19,17 @@ describe('json:', function() {
       , opts = {
           input: input,
           output: output,
-          indent: 0
+          type: cli.HELP,
+          section: [
+            /env/i
+          ]
         };
     
     cli(opts);
 
     output.once('finish', function() {
-      var result = JSON.parse('' + fs.readFileSync(target))
-        , cmds = result.commands;
-
-      expect(cmds.list).to.be.an('object');
-      expect(cmds.list.type).to.eql('command');
-      expect(cmds.list.key).to.eql('list');
-      expect(cmds.list.names).to.eql(['ls', 'list']);
-
+      var result = '' + fs.readFileSync(target)
+      expect(Boolean(~result.indexOf('Environment'))).to.eql(true);
       done();
     })
   });
