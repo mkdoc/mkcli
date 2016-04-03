@@ -23,16 +23,18 @@ function print(file, req, cb) {
       ? req.conf.output : process.stdout
     , input = fs.createReadStream(file);
 
-  input.pipe(output);
+  input.once('open', function() {
+    input.pipe(output);
 
-  if(typeof cb === 'function') {
-    /* istanbul ignore else: never use stdout in test env */
-    if(output !== process.stdout) {
-      output.once('finish', cb);
-    }else{
-      input.once('end', cb);
+    if(typeof cb === 'function') {
+      /* istanbul ignore else: never use stdout in test env */
+      if(output !== process.stdout) {
+        output.once('finish', cb);
+      }else{
+        input.once('end', cb);
+      }
     }
-  }
+  });
 }
 
 help.print = print;
