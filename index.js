@@ -106,6 +106,9 @@ function dest(opts) {
  *  Load a program definition into a new program assigning the definition 
  *  properties to the program.
  *
+ *  Properties are passed by reference so if you modify the definition the 
+ *  program is also modified.
+ *
  *  @function load
  *  @param {Object} def the program definition.
  *  @param {Object} [opts] program options.
@@ -121,7 +124,28 @@ function load(def) {
   return prg;
 }
 
-function run(src, argv, opts, cb) {
+/**
+ *  Load a program definition into a new program assigning the definition 
+ *  properties to the program.
+ *
+ *  Properties are passed by reference so if you modify the definition the 
+ *  program is also modified.
+ *
+ *  The callback function signature is `function(err, req)` where `req` is a 
+ *  request object that contains state information for program execution.
+ *
+ *  Plugins may decorate the request object with pertinent information that 
+ *  does not affect the `target` object that receives the parsed arguments.
+ *
+ *  @function run
+ *  @param {Object} src the source program or definition.
+ *  @param {Array} argv the program arguments.
+ *  @param {Object} [runtime] runtime configuration.
+ *  @param {Function} cb callback function.
+ *
+ *  @returns a new program.
+ */
+function run(src, argv, runtime, cb) {
   var Program = require('./lib/program')
     , runner = require('./lib/run');
 
@@ -129,7 +153,7 @@ function run(src, argv, opts, cb) {
     src = load(src); 
   }
 
-  runner.call(src, argv, opts, cb);
+  runner.call(src, argv, runtime, cb);
 }
 
 cli.load = load;

@@ -43,6 +43,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
   - [src](#src)
   - [dest](#dest)
   - [load](#load)
+  - [run](#run)
 - [License](#license)
 
 ---
@@ -302,10 +303,38 @@ load(def[, opts])
 Load a program definition into a new program assigning the definition
 properties to the program.
 
+Properties are passed by reference so if you modify the definition the
+program is also modified.
+
 Returns a new program.
 
 * `def` Object the program definition.
 * `opts` Object program options.
+
+### run
+
+```javascript
+run(src, argv[, runtime], cb)
+```
+
+Load a program definition into a new program assigning the definition
+properties to the program.
+
+Properties are passed by reference so if you modify the definition the
+program is also modified.
+
+The callback function signature is `function(err, req)` where `req` is a
+request object that contains state information for program execution.
+
+Plugins may decorate the request object with pertinent information that
+does not affect the `target` object that receives the parsed arguments.
+
+Returns a new program.
+
+* `src` Object the source program or definition.
+* `argv` Array the program arguments.
+* `runtime` Object runtime configuration.
+* `cb` Function callback function.
 
 ## License
 
