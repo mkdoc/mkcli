@@ -1,4 +1,8 @@
-# Program Name
+# Name
+
+Program Name
+
+# Description
 
 This is a description of the program.
 

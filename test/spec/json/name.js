@@ -3,7 +3,7 @@ var expect = require('chai').expect
   , ast = require('mkast')
   , cli = require('../../../index');
 
-describe('cli:', function() {
+describe('json:', function() {
   
   it('should parse program name', function(done) {
     var source = 'test/fixtures/name.md'

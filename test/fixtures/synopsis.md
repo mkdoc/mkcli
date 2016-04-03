@@ -1,3 +1,5 @@
+# Synopsis
+
 ```synopsis
 [options]
 ```

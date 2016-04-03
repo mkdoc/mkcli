@@ -3,7 +3,7 @@ var expect = require('chai').expect
   , ast = require('mkast')
   , cli = require('../../../index');
 
-describe('cli:', function() {
+describe('json:', function() {
   
   it('should parse program synopsis', function(done) {
     var source = 'test/fixtures/synopsis.md'
@@ -25,7 +25,9 @@ describe('cli:', function() {
 
     output.once('finish', function() {
       var result = JSON.parse('' + fs.readFileSync(target));
-      expect(result.synopsis).to.eql('[options]');
+      expect(result.synopsis).to.be.an('array')
+        .to.have.length(1);
+      expect(result.synopsis[0]).to.eql('[options]');
       done();
     })
   });

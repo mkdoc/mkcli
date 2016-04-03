@@ -3,10 +3,10 @@ var expect = require('chai').expect
 
 describe('state:', function() {
   
-  it('should create state with attributes', function(done) {
+  it('should create state with chunk', function(done) {
     var state = new State(State.NAME, {foo: 'bar'});
     expect(state).to.be.an('object');
-    expect(state.foo).to.eql('bar');
+    expect(state.nodes).to.eql([{foo: 'bar'}]);
     done();
   });
 
