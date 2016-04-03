@@ -1,10 +1,7 @@
-var ast = require('mkast')
-  , Program = require('./lib/program')
-  , Parser = require('./lib/parser')
-  , types = {
-      json: 'json',
-      help: 'help'
-    };
+var types = {
+  json: 'json',
+  help: 'help'
+};
 
 /**
  *  Creates documentation for command line interfaces.
@@ -24,6 +21,7 @@ function cli(opts, cb) {
   opts.type = opts.type || types.json;
 
   var stream = src(opts)
+    , ast = require('mkast')
     , renderer;
 
   try {
@@ -66,8 +64,10 @@ function cli(opts, cb) {
  *  @returns a parser stream.
  */
 function src(opts) {
+
   opts = opts || {};
-  var type = opts.type || types.json;
+  var type = opts.type || types.json
+    , Parser = require('./lib/parser');
 
   if(type === types.json) {
     opts.buffer = true; 
@@ -113,7 +113,8 @@ function dest(opts) {
  *  @returns a new program.
  */
 function load(def) {
-  var prg = new Program();
+  var Program = require('./lib/program')
+    , prg = new Program();
   for(var k in def) {
     prg[k] = def[k];
   }
@@ -121,6 +122,8 @@ function load(def) {
 }
 
 function run(src, argv, opts, cb) {
+  var Program = require('./lib/program');
+
   if(!(src instanceof Program)) {
     src = load(src); 
   }
