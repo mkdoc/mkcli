@@ -61,4 +61,61 @@ describe('run:', function() {
     }) 
   });
   
+  it('should run plugin that calls back with an error', function(done) {
+    var argv = []
+      , runtime = {
+          plugins: [
+            function mock(req, cb) {
+              return cb(new Error('mock error')); 
+            }
+          ]
+        };
+
+    cli.run({}, argv, runtime, function(err) {
+      function fn() {
+        throw err;
+      }
+      expect(fn).throws(/mock error/);
+      done();
+    }) 
+  });
+  
+  it('should run plugin that throws an error', function(done) {
+    var argv = []
+      , runtime = {
+          plugins: [
+            function mock() {
+              throw new Error('mock error');
+            }
+          ]
+        };
+
+    cli.run({}, argv, runtime, function(err) {
+      function fn() {
+        throw err;
+      }
+      expect(fn).throws(/mock error/);
+      done();
+    }) 
+  });
+  
+  it('should error with anonymous plugin function', function(done) {
+    var argv = []
+      , runtime = {
+          plugins: [
+            function(req, cb) {
+              cb();
+            }
+          ]
+        };
+
+    cli.run({}, argv, runtime, function(err) {
+      function fn() {
+        throw err;
+      }
+      expect(fn).throws(/may not be anonymous/i);
+      done();
+    }) 
+  });
+  
 });
