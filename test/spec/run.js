@@ -45,6 +45,21 @@ describe('run:', function() {
     }) 
   });
 
+  it('should run program with plugins array', function(done) {
+    var argv = ['-foo=bar', '-v']
+      , runtime = {
+          plugins: [
+            require('../../plugin/argv')
+          ]
+        };
+
+    cli.run({}, argv, runtime, function(err, req) {
+      expect(req).to.be.an('object');
+      expect(this.foo).to.eql('bar');
+      expect(this.v).to.eql(true);
+      done();
+    }) 
+  });
   
 
 });
