@@ -1,12 +1,18 @@
-# argv
+# Name
 
-Prints the arguments passed to the program.
+argv
 
-```synopsis
+# Synopsis
+
+```
 [options]
 ```
 
-## Options
+# Description
+
+Prints the arguments passed to the program.
+
+# Options
 
 * `-e, --err` Print to stderr
 * `-h, --help` Display help and exit

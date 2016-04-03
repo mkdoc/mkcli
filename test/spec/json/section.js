@@ -3,7 +3,7 @@ var expect = require('chai').expect
   , ast = require('mkast')
   , cli = require('../../../index');
 
-describe('cli:', function() {
+describe('json:', function() {
   
   it('should parse program section', function(done) {
     var source = 'test/fixtures/section.md'
@@ -18,7 +18,8 @@ describe('cli:', function() {
       , output = fs.createWriteStream(target)
       , opts = {
           input: input,
-          output: output
+          output: output,
+          compact: false
         };
     
     cli(opts);
@@ -27,7 +28,7 @@ describe('cli:', function() {
       var result = JSON.parse('' + fs.readFileSync(target));
       expect(result.sections).to.be.an('array').to.have.length(1);
       var section = result.sections[0];
-      expect(section).to.be.an('array').to.have.length(2);
+      expect(section.nodes).to.be.an('array').to.have.length(2);
       done();
     })
   });

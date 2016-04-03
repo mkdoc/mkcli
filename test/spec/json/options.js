@@ -1,7 +1,7 @@
 var expect = require('chai').expect
   , cli = require('../../../index');
 
-describe('cli:', function() {
+describe('json:', function() {
   
   it('should return stream with no options', function(done) {
     var stream = cli();

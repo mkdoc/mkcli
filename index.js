@@ -41,8 +41,13 @@ function cli(opts, cb) {
 
   // set up input stream
   stream = ast.parser(opts.input)
-    .pipe(stream)
-    .pipe(renderer)
+    .pipe(stream);
+
+  if(opts.type === types.json) {
+    stream = stream.pipe(compile(opts)); 
+  }
+
+  stream.pipe(renderer)
     .pipe(opts.output);
 
   if(cb) {
@@ -56,26 +61,34 @@ function cli(opts, cb) {
 
 /**
  *  Gets a source parser stream that transforms the incoming tree nodes into 
- *  a program definition.
+ *  a state information.
  *
  *  @function src
  *  @param {Object} [opts] parser options.
- *
- *  @option {String=json} type the renderer type.
  *
  *  @returns a parser stream.
  */
 function src(opts) {
   opts = opts || {};
-  var type = opts.type || types.json
-    , Parser = require('./lib/parser');
-
-  if(type === types.json) {
-    opts.buffer = true; 
-  }
-
+  var Parser = require('./lib/parser');
   return new Parser(opts);
 }
+
+/**
+ *  Gets a compiler stream that transforms the parser state information to 
+ *  a program definition.
+ *
+ *  @function compile
+ *  @param {Object} [opts] compiler options.
+ *
+ *  @returns a compiler stream.
+ */
+function compile(opts) {
+  opts = opts || {};
+  var Compiler = require('./lib/compiler');
+  return new Compiler(opts);
+}
+
 
 /**
  *  Gets a destination renderer stream.
@@ -92,10 +105,6 @@ function src(opts) {
 function dest(opts) {
   opts = opts || {};
   var type = opts.type || types.json
-
-  if(type === types.json) {
-    opts.buffer = true; 
-  }
 
   if(!types[type]) {
     throw new Error('unknown output type: ' + type);
@@ -162,6 +171,7 @@ function run(src, argv, runtime, cb) {
 cli.load = load;
 cli.types = types;
 cli.src = src;
+cli.compile = compile;
 cli.dest = dest;
 cli.run = run;
 cli.camelcase = require('./lib/camelcase');

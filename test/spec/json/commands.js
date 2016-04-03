@@ -3,7 +3,7 @@ var expect = require('chai').expect
   , ast = require('mkast')
   , cli = require('../../../index');
 
-describe('cli:', function() {
+describe('json:', function() {
   
   it('should parse multiple commands', function(done) {
     var source = 'test/fixtures/commands.md'
