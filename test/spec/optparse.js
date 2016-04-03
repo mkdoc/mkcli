@@ -99,6 +99,15 @@ describe('optparse:', function() {
     done();
   });
 
+  it('should parse option with enum specification', function(done) {
+    var res = optparse('-t, --type [VAL] {json|help|man}');
+    expect(res.type).to.eql(Argument.OPTION);
+    expect(res.key).to.eql('type');
+    expect(res.names).to.eql(['-t', '--type']);
+    expect(res.kind).to.eql(['json', 'help', 'man']);
+    done();
+  });
+
   it('should parse option with type and default value', function(done) {
     var res = optparse('-i, --indent [NUM] {Number=2}');
     expect(res.type).to.eql(Argument.OPTION);

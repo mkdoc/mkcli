@@ -197,6 +197,12 @@ You can associate some type information with the `{}` notation:
 
 The parsed option will have the `kind` property set to `Number`.
 
+You can delimit multiple types with `|` and `kind` is expanded to an array. This is useful to indicate an argument may be of multiple types or if you want to treat an argument value as an enum:
+
+```markdown
+* `-t, --type [VAL] {json|help|man}` Renderer type
+```
+
 ###### Default Value
 
 To specify a default value for the option use the `=` operator in the type:
