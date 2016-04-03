@@ -4,9 +4,9 @@
 
 > Define command line interfaces as markdown
 
-Creates a program definition from a markdown document and writes the program definition as JSON.
+Compiles a markdown program definition to a JSON program descriptor.
 
-Generated program definitions may be converted to man pages and help files.
+Program definitions may be converted to man pages and help files.
 
 <? @include {=readme} install.md ?>
 
