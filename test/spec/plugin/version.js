@@ -1,7 +1,7 @@
 var fs = require('fs')
   , expect = require('chai').expect
-  , cli = require('../../index')
-  , version = require('../../plugin/version');
+  , cli = require('../../../index')
+  , version = require('../../../plugin/version');
 
 describe('version plugin:', function() {
 
@@ -22,7 +22,7 @@ describe('version plugin:', function() {
           output: fs.createWriteStream(target)
         },
         plugins: [
-          require('../../plugin/argv'),
+          require('../../../plugin/argv'),
           version
         ]
       };

@@ -1,7 +1,7 @@
 var fs = require('fs')
   , expect = require('chai').expect
-  , cli = require('../../index')
-  , help = require('../../plugin/help');
+  , cli = require('../../../index')
+  , help = require('../../../plugin/help');
 
 describe('help plugin:', function() {
 
@@ -17,13 +17,13 @@ describe('help plugin:', function() {
         } 
       }
     , runtime = {
-        base: __dirname + '/../..',
+        base: __dirname + '/../../..',
         help: {
           file: source,
           output: fs.createWriteStream(target)
         },
         plugins: [
-          require('../../plugin/argv'),
+          require('../../../plugin/argv'),
           help
         ]
       };
@@ -69,7 +69,7 @@ describe('help plugin:', function() {
     runtime.help.output = fs.createWriteStream(target);
 
     help.print(
-      __dirname + '/../../' + source,
+      __dirname + '/../../../' + source,
       {runtime: runtime, conf: runtime.help},
       function() {
         var res = '' + fs.readFileSync(target);
