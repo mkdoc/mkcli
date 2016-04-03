@@ -1,9 +1,9 @@
 var expect = require('chai').expect
   , fs = require('fs')
   , ast = require('mkast')
-  , mkcli = require('../../index');
+  , cli = require('../../index');
 
-describe('mkcli:', function() {
+describe('cli:', function() {
   
   it('should parse option w/ multiple spec (...)', function(done) {
     var source = 'test/fixtures/multiple-option.md'
@@ -21,7 +21,7 @@ describe('mkcli:', function() {
           output: output
         };
     
-    mkcli(opts);
+    cli(opts);
 
     output.once('finish', function() {
       var result = JSON.parse('' + fs.readFileSync(target))

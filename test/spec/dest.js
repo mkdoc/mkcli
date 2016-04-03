@@ -1,23 +1,23 @@
 var expect = require('chai').expect
-  , mkcli = require('../../index');
+  , cli = require('../../index');
 
-describe('mkcli:', function() {
+describe('dest:', function() {
   
-  it('should return stream from dest()', function(done) {
-    var stream = mkcli.dest();
+  it('should return stream', function(done) {
+    var stream = cli.dest();
     expect(stream).to.be.an('object');
     done();
   });
 
-  it('should return stream from dest() and type option', function(done) {
-    var stream = mkcli.dest({type: 'help'});
+  it('should return stream with type option', function(done) {
+    var stream = cli.dest({type: 'help'});
     expect(stream).to.be.an('object');
     done();
   });
 
-  it('should error with unsupporte type in dest()', function(done) {
+  it('should error with unsupported type', function(done) {
     function fn() {
-      mkcli.dest({type: 'foo'});
+      cli.dest({type: 'foo'});
     }
     expect(fn).throws(/unknown output type/i);
     done();

@@ -1,16 +1,16 @@
 var expect = require('chai').expect
-  , mkcli = require('../../index');
+  , cli = require('../../index');
 
-describe('mkcli:', function() {
+describe('src:', function() {
   
-  it('should return stream from src()', function(done) {
-    var stream = mkcli.src();
+  it('should return stream', function(done) {
+    var stream = cli.src();
     expect(stream).to.be.an('object');
     done();
   });
 
-  it('should return stream from src() and type option', function(done) {
-    var stream = mkcli.src({type: 'help'});
+  it('should return stream with type option', function(done) {
+    var stream = cli.src({type: 'help'});
     expect(stream).to.be.an('object');
     done();
   });

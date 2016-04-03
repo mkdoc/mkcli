@@ -1,12 +1,12 @@
 var expect = require('chai').expect
-  , mkcli = require('../../index');
+  , cli = require('../../index');
 
-describe('mkcli:', function() {
+describe('run:', function() {
 
   it('should run program with valid program instance', function(done) {
-    var prg = mkcli.load({options: {}})
+    var prg = cli.load({options: {}})
       , argv = ['--foo=bar', '-v'];
-    mkcli.run(prg, argv, function(err, req) {
+    cli.run(prg, argv, function(err, req) {
       expect(req).to.be.an('object');
       expect(this.foo).to.eql('bar');
       expect(this.v).to.eql(true);
@@ -37,7 +37,7 @@ describe('mkcli:', function() {
           hints: def
         };
 
-    mkcli.run(def, argv, runtime, function(err, req) {
+    cli.run(def, argv, runtime, function(err, req) {
       expect(req).to.be.an('object');
       expect(this.foo).to.eql('bar');
       expect(this.verbose).to.eql(true);
