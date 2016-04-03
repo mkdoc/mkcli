@@ -25,7 +25,7 @@ function build() {
 
   for(k in this.options) {
     opt = this.options[k];
-    names = opt.names;
+    names = opt.names || [];
     o.alias[names.join(' ')] = opt.key;
     if(opt.type === Argument.FLAG) {
       names.forEach(flag);
