@@ -5,9 +5,9 @@ var expect = require('chai').expect
 
 describe('help renderer:', function() {
   
-  it('should render command', function(done) {
-    var source = 'test/fixtures/command.md'
-      , target = 'target/command.txt'
+  it('should render empty definition', function(done) {
+    var source = 'test/fixtures/empty.md'
+      , target = 'target/empty.txt'
       , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
@@ -16,32 +16,17 @@ describe('help renderer:', function() {
 
     var input = ast.serialize(data)
       , output = fs.createWriteStream(target)
-      , headerCalled = false
-      , footerCalled = false
       , opts = {
           input: input,
           output: output,
-          type: cli.HELP,
-          align: 'right',
-          concise: true,
-          usage: '',
-          header: function() {
-            headerCalled = true; 
-          },
-          footer: function() {
-            footerCalled = true; 
-          }
+          type: cli.HELP
         };
     
     cli(opts);
 
     output.once('finish', function() {
-
-      expect(headerCalled).to.eql(true);
-      expect(footerCalled).to.eql(true);
-
       var result = '' + fs.readFileSync(target)
-      expect(Boolean(~result.indexOf('Commands\n'))).to.eql(true);
+      expect(result.trim()).to.eql('');
       done();
     })
   });
