@@ -41,7 +41,9 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 - [Help](#help)
 - [API](#api)
   - [src](#src)
+    - [Options](#options-1)
   - [dest](#dest)
+    - [Options](#options-2)
   - [load](#load)
   - [run](#run)
 - [License](#license)
@@ -280,6 +282,10 @@ Returns a parser stream.
 
 * `opts` Object parser options.
 
+#### Options
+
+* `type` String=json the renderer type.
+
 ### dest
 
 ```javascript
@@ -293,6 +299,10 @@ When no type is specified the JSON renderer is assumed.
 Returns a renderer stream of the specified type.
 
 * `opts` Object renderer options.
+
+#### Options
+
+* `type` String=json the renderer type.
 
 ### load
 

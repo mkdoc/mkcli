@@ -61,10 +61,11 @@ function cli(opts, cb) {
  *  @function src
  *  @param {Object} [opts] parser options.
  *
+ *  @option {String=json} type the renderer type.
+ *
  *  @returns a parser stream.
  */
 function src(opts) {
-
   opts = opts || {};
   var type = opts.type || types.json
     , Parser = require('./lib/parser');
@@ -83,6 +84,8 @@ function src(opts) {
  *
  *  @function dest
  *  @param {Object} [opts] renderer options.
+ *
+ *  @option {String=json} type the renderer type.
  *
  *  @returns a renderer stream of the specified type.
  */
