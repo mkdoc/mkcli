@@ -300,14 +300,13 @@ Options
   -s, --split=[NUM]       Split help columns at NUM (default: 26)
   -i, --indent=[NUM]      Number of spaces for help indentation (default: 2)
   -a, --align=[TYPE]      Align first help column left or right (default: left)
-  -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:
-                          )
+  -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:)
   -h, --help              Display help and exit
   --version               Print the version and exit
 
   Report bugs to https://github.com/mkdoc/mkcli/issues
 
-mkcli@1.0.12 https://github.com/mkdoc/mkcli
+mkcli@1.0.13 https://github.com/mkdoc/mkcli
 ```
 
 ## API
