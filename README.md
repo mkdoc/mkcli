@@ -354,6 +354,7 @@ Usage: mkcli [options]
 Options
   -p, --package=[FILE]    Use package descriptor
   -t, --type=[TYPE]       Output renderer type
+  -y, --style=[VAL]       Help output style
   -c, --cols=[NUM]        Wrap help output at NUM (default: 80)
   -s, --split=[NUM]       Split help columns at NUM (default: 26)
   -i, --indent=[NUM]      Number of spaces for help indentation (default: 2)
