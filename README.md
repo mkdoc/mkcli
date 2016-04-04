@@ -95,12 +95,14 @@ This section covers what you need to know to define a program as markdown.
 
 #### Name
 
-The program name is extracted from the paragraph or list under the *Name* heading:
+Like man pages the *Name* section is required and it **must** include a brief summary of the program after the program name.
+
+The program name is extracted from the first paragraph under the *Name* heading:
 
 ```markdown
 # Name
 
-prg
+prg - short program description
 ```
 
 Which creates a program named `prg`. Use a list when a program can have multiple names:
@@ -108,7 +110,8 @@ Which creates a program named `prg`. Use a list when a program can have multiple
 ```markdown
 # Name
 
-+ prg
+prg - short program description
+
 + prg-alias
 ```
 
@@ -119,11 +122,9 @@ The program description is created from all block level elements under the *Desc
 ```markdown
 # Name
 
-prg
+prg - short program description
 
 # Description
-
-Short description.
 
 An extended description that can include paragraphs, lists, code blocks and other block level elements.
 ```
@@ -144,7 +145,7 @@ Program arguments are declared with a heading or *Options* and a list following 
 ```markdown
 # Name
 
-prg
+prg - short program description
 
 # Options
 
@@ -235,7 +236,7 @@ Commands are declared in the same way as program arguments but under the `Comman
 ```markdown
 # Name
 
-prg
+prg - short program description
 
 # Commands
 
@@ -254,7 +255,7 @@ If you wish to use a fixed key you can add an identifier followed by a colon (`:
 ```markdown
 # Name
 
-prg
+prg - short program description
 
 # Commands
 
@@ -272,7 +273,7 @@ A heading that is not matched by any of the rules above is a treated as a manual
 ```markdown
 # Name
 
-prg
+prg - short program description
 
 # Environment
 
