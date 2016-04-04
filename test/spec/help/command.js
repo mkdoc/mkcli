@@ -41,7 +41,6 @@ describe('help renderer:', function() {
       expect(footerCalled).to.eql(true);
 
       var result = '' + fs.readFileSync(target)
-      //console.dir(result);
       expect(Boolean(~result.indexOf('Commands'))).to.eql(true);
       done();
     })

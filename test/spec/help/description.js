@@ -26,7 +26,6 @@ describe('help renderer:', function() {
 
     output.once('finish', function() {
       var result = '' + fs.readFileSync(target)
-      expect(Boolean(~result.indexOf('Program Name'))).to.eql(true);
       expect(Boolean(~result.indexOf('description of the program')))
         .to.eql(true);
       done();

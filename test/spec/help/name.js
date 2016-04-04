@@ -20,6 +20,8 @@ describe('help renderer:', function() {
           input: input,
           output: output,
           type: cli.HELP,
+          header: true,
+          footer: true,
           pkg: {
             bugs: {
               url: 'http://example.com/issues'
