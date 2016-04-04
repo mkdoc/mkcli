@@ -1,6 +1,6 @@
 # Name
 
-argv
+argv - prints the arguments passed to the program
 
 # Synopsis
 
@@ -10,7 +10,7 @@ argv
 
 # Description
 
-Prints the arguments passed to the program.
+When the `--err` option is given the arguments are printed to stderr rather than stdout.
 
 # Options
 

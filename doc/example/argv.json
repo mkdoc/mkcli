@@ -1,11 +1,15 @@
 {
   "description": "Prints the arguments passed to the program.",
+  "names": [
+    "argv"
+  ],
   "type": "program",
   "name": "argv",
-  "synopsis": "[options]",
+  "synopsis": [
+    "[options]"
+  ],
   "options": {
     "err": {
-      "literal": "-e, --err",
       "key": "err",
       "description": "Print to stderr",
       "names": [
@@ -15,7 +19,6 @@
       "type": "flag"
     },
     "help": {
-      "literal": "-h, --help",
       "key": "help",
       "description": "Display help and exit",
       "names": [
@@ -25,7 +28,6 @@
       "type": "flag"
     },
     "version": {
-      "literal": "--version",
       "key": "version",
       "description": "Print version and exit",
       "names": [
