@@ -102,7 +102,7 @@ The program name and summary is extracted from the first paragraph under the *Na
 ```markdown
 # Name
 
-prg - short program description
+prg - short program summary
 ```
 
 Add a list when a program can have multiple names:
@@ -110,7 +110,7 @@ Add a list when a program can have multiple names:
 ```markdown
 # Name
 
-prg - short program description
+prg - short program summary
 
 + prg-alias
 ```
@@ -122,7 +122,7 @@ The program description is created from all block level elements under the *Desc
 ```markdown
 # Name
 
-prg - short program description
+prg - short program summary
 
 # Description
 
@@ -145,7 +145,7 @@ Program arguments are declared with a heading of *Options* and a list following 
 ```markdown
 # Name
 
-prg - short program description
+prg - short program summary
 
 # Options
 
@@ -236,7 +236,7 @@ Commands are declared in the same way as program arguments but under the `Comman
 ```markdown
 # Name
 
-prg - short program description
+prg - short program summary
 
 # Commands
 
@@ -255,7 +255,7 @@ If you wish to use a fixed key you can add an identifier followed by a colon (`:
 ```markdown
 # Name
 
-prg - short program description
+prg - short program summary
 
 # Commands
 
@@ -273,7 +273,7 @@ A heading that is not matched by any of the rules above is treated as a manual s
 ```markdown
 # Name
 
-prg - short program description
+prg - short program summary
 
 # Environment
 
