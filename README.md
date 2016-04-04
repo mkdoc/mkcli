@@ -301,6 +301,7 @@ Options
   -i, --indent=[NUM]      Number of spaces for help indentation (default: 2)
   -a, --align=[TYPE]      Align first help column left or right (default: left)
   -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:)
+  -S, --section=[PTN...]  Include sections matching patterns in help output
   -h, --help              Display help and exit
   --version               Print the version and exit
 
