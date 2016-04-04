@@ -37,3 +37,7 @@ Long program description with a lot more information about the program behaviour
 # Environment
 
 Accepts the FOO variable.
+
+# Bugs
+
+Lots of them.

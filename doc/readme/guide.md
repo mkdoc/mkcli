@@ -191,3 +191,57 @@ The environment variable FOO changes the behaviour to `bar`.
 ```
 
 The section ends when the next level one heading is encountered or the end of the file is reached.
+
+### Compiling Programs
+
+This bit is easy, the hard work is done writing the markdown definition.
+
+To compile the markdown document to a JSON *program descriptor* run:
+
+```shell
+mkcat program.md | mkcli > program.json
+```
+
+Now you have a JSON document that describes your program commands and options.
+
+### Creating Documentation
+
+Once you have defined the program you will want to generate a man page and some help text.
+
+To create the help text run:
+
+```shell
+mkcat program.md | mkcli -t help | mktext > program.txt
+```
+
+For a man page run:
+
+```shell
+mkcat program.md | mkcli -t man | mkman --title program > program.1
+```
+
+#### Help Sections
+
+Sometimes when creating help files you may want to include a section from the manual, possibly you want to include an *Environment* section to show the environment variables your program recognises.
+
+Pass regular expression patterns using the `--section` option and if they match a section heading the section will be included in the help after the commands and options.
+
+To include an *Environment* section you could use:
+
+```shell
+mkcat program.md | mkcli -t help -S env | mktext > program.txt
+```
+
+To include the *Environment* and *Bugs* sections you could use:
+
+```shell
+mkcat program.md | mkcli -t help -S env -S bug | mktext > program.txt
+```
+
+Or if you prefer:
+
+```shell
+mkcat program.md | mkcli -t help -S '(env|bug)' | mktext > program.txt
+```
+
+See the [help](#help) for more options available when creating help and man pages. 
