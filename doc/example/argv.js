@@ -11,6 +11,9 @@ var cli = require('../../index')
  */
 function main(argv, cb) {
 
+  // we want to be able to accept arguments
+  // for testing purposes but when they are not specified
+  // it is ok becuase process.argv is used by default
   if(typeof argv === 'function') {
     cb = argv;
     argv = null;
@@ -35,7 +38,7 @@ function main(argv, cb) {
           name: pkg.name,
           version: pkg.version
         },
-        // configure plugins
+        // configure plugins for program execution
         plugins: [
           require('../../plugin/hints'),
           require('../../plugin/argv'),
@@ -44,10 +47,23 @@ function main(argv, cb) {
         ]
       };
 
+  // run the program passing the program, raw arguments and the 
+  // runtime configuration
   cli.run(prg, argv, runtime, function parsed(err, req) {
+
+    // handle errors and aborted request
+    // the request will have been aborted if --help or 
+    // the --version option was specified
     if(err || req.aborted) {
       return cb(err); 
     }
+
+    // `this` is the `scope` object passed as the `target`
+    // parsed arguments are available using `this`
+    // more information is available on the `req` object
+    // of particular interest is `req.args` which is the argument
+    // parser result object and `req.unparsed` which contains 
+    // any unparsed arguments
 
     // respect the -e, --err option
     if(this.err) {
