@@ -41,7 +41,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 - [Help](#help)
 - [API](#api)
   - [src](#src)
-  - [compile](#compile)
+  - [compiler](#compiler)
   - [dest](#dest)
     - [Options](#options-1)
   - [load](#load)
@@ -293,6 +293,7 @@ Usage: mkcli [options]
 Options
   -p, --package=[FILE]    Use package descriptor
   -t, --type=[TYPE]       Output renderer type
+  -f, --full              Do not compact compiled descriptor
   -c, --cols=[NUM]        Wrap help output at NUM (default: 80)
   -s, --split=[NUM]       Split help columns at NUM (default: 26)
   -i, --indent=[NUM]      Number of spaces for help indentation (default: 2)
@@ -306,7 +307,7 @@ Options
   -h, --help              Display help and exit
   --version               Print the version and exit
 
-mkcli@1.0.14 https://github.com/mkdoc/mkcli
+mkcli@1.0.15 https://github.com/mkdoc/mkcli
 ```
 
 ## API
@@ -318,16 +319,16 @@ src([opts])
 ```
 
 Gets a source parser stream that transforms the incoming tree nodes into
-a state information.
+parser state information.
 
 Returns a parser stream.
 
 * `opts` Object parser options.
 
-### compile
+### compiler
 
 ```javascript
-compile([opts])
+compiler([opts])
 ```
 
 Gets a compiler stream that transforms the parser state information to
