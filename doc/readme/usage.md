@@ -13,4 +13,4 @@ mkcat argv.md | mkcli -t help | mktext > argv.txt
 mkcat argv.md | mkcli -t man | mkman --title argv > argv.1
 ```
 
-Write [a program](/doc/example/argv.js) that can be executed and easily tested; then add [a minimal executable](/doc/example/argv).
+Write [a program](/doc/example/argv.js) that can be executed and easily tested and add [a minimal executable](/doc/example/argv).

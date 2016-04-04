@@ -65,7 +65,7 @@ mkcat argv.md | mkcli -t help | mktext > argv.txt
 mkcat argv.md | mkcli -t man | mkman --title argv > argv.1
 ```
 
-Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested; then add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv).
+Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested and add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv).
 
 ## Example
 
