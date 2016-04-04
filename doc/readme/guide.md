@@ -220,6 +220,12 @@ For a man page run:
 mkcat program.md | mkcli -t man | mkman --title program > program.1
 ```
 
+#### Help Styles
+
+The default column help style (`col`) should suit most purposes however the other styles can be useful. The `list` style renders a list of the commands and options which is designed for when you have very long argument names or a few arguments that require long descriptions.
+
+The `cmd` style is a list of command names (options are not printed) designed to be used when a program has lots of commands and a command is required. Typically the program would show this help page when no command was specified to indicate to the user a command is required.
+
 #### Help Sections
 
 Sometimes when creating help files you may want to include a section from the manual, possibly you want to include an *Environment* section to show the environment variables your program recognises.
