@@ -52,19 +52,19 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 ## Usage
 
-First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md) and compile the [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
+First define a [program as markdown](https://github.com/mkdoc/mkcli/doc/example/argv.md) and compile the [program descriptor](https://github.com/mkdoc/mkcli/doc/example/argv.json):
 
 ```shell
 mkcat argv.md | mkcli > argv.json
 ```
 
-Then create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt):
+Then create a [help file](https://github.com/mkdoc/mkcli/doc/example/argv.txt):
 
 ```shell
 mkcat argv.md | mkcli -t help > argv.txt
 ```
 
-Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested; then add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv).
+Write [a program](https://github.com/mkdoc/mkcli/doc/example/argv.js) that can be executed and easily tested; then add [a minimal executable](https://github.com/mkdoc/mkcli/doc/example/argv).
 
 ## Example
 
@@ -74,10 +74,16 @@ Compile a program definition:
 mkcat argv.md | mkcli > argv.json
 ```
 
-Create a help file:
+Create a help text file:
 
 ```shell
-mkcat argv.md | mkcli -t help > argv.txt
+mkcat argv.md | mkcli -t help | mktext > argv.txt
+```
+
+Create a man page:
+
+```shell
+mkcat argv.md | mkcli -t man | mkman > argv.1
 ```
 
 ## Guide
@@ -284,10 +290,10 @@ Usage: mkcli [options]
   Markdown command line interface definition.
 
 Options
-  -p, --package=[FILE]    Use package descriptor
-  -t, --type=[TYPE]       Output renderer type
-  -h, --help              Display help and exit
-  --version               Print the version and exit
+  -p, --package=[FILE]    -p, --package=[FILE] Use package descriptor
+  -t, --type=[TYPE]       -t, --type=[TYPE] Output renderer type
+  -h, --help              -h, --help Display help and exit
+  --version               --version Print the version and exit
 
 Report bugs to https://github.com/mkdoc/mkcli/issues
 ```
@@ -386,7 +392,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 3, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 4, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
