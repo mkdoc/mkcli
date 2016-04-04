@@ -26,7 +26,7 @@ describe('help renderer:', function() {
 
     output.once('finish', function() {
       var result = '' + fs.readFileSync(target)
-      expect(Boolean(~result.indexOf('program - '))).to.eql(true);
+      expect(Boolean(~result.indexOf('program'))).to.eql(true);
       done();
     })
   });
