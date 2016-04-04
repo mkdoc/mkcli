@@ -284,10 +284,6 @@ The section ends when the next level one heading is encountered or the end of th
 ## Help
 
 ```
-mkcli
-
-Compiles markdown cli definitions.
-
 Usage: mkcli [options]
 
   Compiles markdown command line interface definitions to JSON and supplies
@@ -302,12 +298,14 @@ Options
   -a, --align=[TYPE]      Align first help column left or right (default: left)
   -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:)
   -S, --section=[PTN...]  Include sections matching patterns in help output
+  -H, --header            Include default header in help output
+  -F, --footer            Include default footer in help output
+  -N, --newline           Print leading newline when no header
+  -P, --preserve          Do not upper case headings in man output
   -h, --help              Display help and exit
   --version               Print the version and exit
 
-  Report bugs to https://github.com/mkdoc/mkcli/issues
-
-mkcli@1.0.13 https://github.com/mkdoc/mkcli
+mkcli@1.0.14 https://github.com/mkdoc/mkcli
 ```
 
 ## API
