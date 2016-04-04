@@ -50,7 +50,7 @@ The program synopsis is created from all code block elements under the *Synopsis
 
 #### Arguments
 
-Program arguments are declared with a heading or *Options* and a list following the heading:
+Program arguments are declared with a heading of *Options* and a list following the heading:
 
 ```markdown
 # Name
@@ -67,7 +67,7 @@ An argument is declared as a list item whose first child is an inline code eleme
 
 The specification is parsed into an object representing the argument which may be of type `flag`, `option` or `command`.
 
-The remaining list item content after the specification is treated as a short description for the argument.
+The remaining list item content after the specification is treated as a description for the argument.
 
 ##### Flags
 
