@@ -4,6 +4,7 @@
   "description": "Markdown command line interface definition",
   "author": "muji",
   "license": "MIT",
+  "homepage": "https://github.com/mkdoc/mkcli",
   "repository": {
     "type": "git",
     "url": "https://github.com/mkdoc/mkcli.git"

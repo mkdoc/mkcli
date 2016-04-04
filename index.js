@@ -51,7 +51,7 @@ function cli(opts, cb) {
 
   stream = stream.pipe(renderer)
 
-  if(opts.type === types.man) {
+  if(opts.type !== types.json) {
     stream = stream.pipe(ast.stringify()); 
   }
   
