@@ -6,9 +6,9 @@ This section covers what you need to know to define a program as markdown.
 
 #### Name
 
-Like man pages the *Name* section is required and it **must** include a brief summary of the program after the program name.
+Like man pages the *Name* section is required and it **must** include a brief summary of the program after the program name. Delimit the program name from the short summary using a hyphen surrounded by spaces as shown below.
 
-The program name is extracted from the first paragraph under the *Name* heading:
+The program name and summary is extracted from the first paragraph under the *Name* heading:
 
 ```markdown
 # Name
@@ -16,8 +16,7 @@ The program name is extracted from the first paragraph under the *Name* heading:
 prg - short program description
 ```
 
-Which creates a program named `prg`. Use a list when a program can have multiple names:
-
+Add a list when a program can have multiple names:
 
 ```markdown
 # Name
