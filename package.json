@@ -7,7 +7,7 @@
   "homepage": "https://github.com/mkdoc/mkcli",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mkdoc/mkcli.git"
+    "url": "https://github.com/mkdoc/mkcli"
   },
   "bugs": {
     "url": "https://github.com/mkdoc/mkcli/issues"

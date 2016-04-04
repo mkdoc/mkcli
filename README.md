@@ -52,20 +52,20 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 ## Usage
 
-First define a [program as markdown](https://github.com/mkdoc/mkcli/doc/example/argv.md) and compile the [program descriptor](https://github.com/mkdoc/mkcli/doc/example/argv.json):
+First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md) and compile the [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
 
 ```shell
 mkcat argv.md | mkcli > argv.json
 ```
 
-Then create a [help file](https://github.com/mkdoc/mkcli/doc/example/argv.txt) and a [man page](https://github.com/mkdoc/mkcli/doc/example/argv.1):
+Then create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt) and a [man page](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.1):
 
 ```shell
 mkcat argv.md | mkcli -t help | mktext > argv.txt
 mkcat argv.md | mkcli -t man | mkman --title argv > argv.1
 ```
 
-Write [a program](https://github.com/mkdoc/mkcli/doc/example/argv.js) that can be executed and easily tested; then add [a minimal executable](https://github.com/mkdoc/mkcli/doc/example/argv).
+Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested; then add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv).
 
 ## Example
 
@@ -286,19 +286,28 @@ The section ends when the next level one heading is encountered or the end of th
 ```
 mkcli
 
+Compiles markdown cli definitions.
+
 Usage: mkcli [options]
 
-  Markdown command line interface definition.
+  Compiles markdown command line interface definitions to JSON and supplies
+  renderers for converting the definitions to help files and man pages.
 
 Options
-  -p, --package=[FILE]    -p, --package=[FILE] Use package descriptor
-  -t, --type=[TYPE]       -t, --type=[TYPE] Output renderer type
-  -h, --help              -h, --help Display help and exit
-  --version               --version Print the version and exit
+  -p, --package=[FILE]    Use package descriptor
+  -t, --type=[TYPE]       Output renderer type
+  -c, --cols=[NUM]        Wrap help output at NUM (default: 80)
+  -s, --split=[NUM]       Split help columns at NUM (default: 26)
+  -i, --indent=[NUM]      Number of spaces for help indentation (default: 2)
+  -a, --align=[TYPE]      Align first help column left or right (default: left)
+  -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:
+                          )
+  -h, --help              Display help and exit
+  --version               Print the version and exit
 
   Report bugs to https://github.com/mkdoc/mkcli/issues
 
-mkcli@1.0.11 https://github.com/mkdoc/mkcli
+mkcli@1.0.12 https://github.com/mkdoc/mkcli
 ```
 
 ## API
