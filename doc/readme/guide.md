@@ -178,7 +178,7 @@ prg - short program description
 
 #### Manual Sections
 
-A heading that is not matched by any of the rules above is a treated as a manual section:
+A heading that is not matched by any of the rules above is treated as a manual section:
 
 ```markdown
 # Name
