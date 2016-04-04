@@ -11,10 +11,10 @@ function argv(req, cb) {
     this[k] = args.options[k];
   }
 
-  // give the raw parsed arguments
-  this.args = req.args = args;
+  // give the raw parsed arguments 
+  req.args = args;
   // shortcut to the list of unparsed arguments
-  this.unparsed = req.unparsed = args.unparsed;
+  req.unparsed = args.unparsed;
 
   cb();
 }

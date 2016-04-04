@@ -1,6 +1,8 @@
 var cli = require('../../index')
+  // load the compiled program descriptor
   , def = require('./argv.json')
   , pkg = require('../../package.json')
+  // create a program with the descriptor information
   , prg = cli.load(def);
 
 /**
@@ -14,18 +16,26 @@ function main(argv, cb) {
     argv = null;
   }
 
+  // target for parsed command line options
   var scope = {}
+    // runtime configuration for program execution
     , runtime = {
+        // resolve paths relative to this directory
         base: __dirname,
+        // pass the scope
         target: scope,
+        // give the argument parser some hints
         hints: prg,
+        // configure the help plugin to show the help file
         help: {
           file: 'argv.txt'
         },
+        // configure the version plugin
         version: {
           name: pkg.name,
           version: pkg.version
         },
+        // configure plugins
         plugins: [
           require('../../plugin/hints'),
           require('../../plugin/argv'),
