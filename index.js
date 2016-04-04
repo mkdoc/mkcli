@@ -46,7 +46,7 @@ function cli(opts, cb) {
     .pipe(stream);
 
   if(opts.type === types.json) {
-    stream = stream.pipe(compile(opts)); 
+    stream = stream.pipe(compiler(opts)); 
   }
 
   stream = stream.pipe(renderer)
@@ -69,7 +69,7 @@ function cli(opts, cb) {
 
 /**
  *  Gets a source parser stream that transforms the incoming tree nodes into 
- *  a state information.
+ *  parser state information.
  *
  *  @function src
  *  @param {Object} [opts] parser options.
@@ -86,12 +86,12 @@ function src(opts) {
  *  Gets a compiler stream that transforms the parser state information to 
  *  a program definition.
  *
- *  @function compile
+ *  @function compiler
  *  @param {Object} [opts] compiler options.
  *
  *  @returns a compiler stream.
  */
-function compile(opts) {
+function compiler(opts) {
   opts = opts || {};
   var Compiler = require('./lib/compiler');
   return new Compiler(opts);
@@ -179,7 +179,7 @@ function run(src, argv, runtime, cb) {
 cli.load = load;
 cli.types = types;
 cli.src = src;
-cli.compile = compile;
+cli.compiler = compiler;
 cli.dest = dest;
 cli.run = run;
 cli.camelcase = require('./lib/camelcase');

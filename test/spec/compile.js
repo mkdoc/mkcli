@@ -4,7 +4,7 @@ var expect = require('chai').expect
 describe('compile:', function() {
   
   it('should return stream', function(done) {
-    var stream = cli.compile();
+    var stream = cli.compiler();
     expect(stream).to.be.an('object');
     done();
   });
