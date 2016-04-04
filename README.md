@@ -58,10 +58,11 @@ First define a [program as markdown](https://github.com/mkdoc/mkcli/doc/example/
 mkcat argv.md | mkcli > argv.json
 ```
 
-Then create a [help file](https://github.com/mkdoc/mkcli/doc/example/argv.txt):
+Then create a [help file](https://github.com/mkdoc/mkcli/doc/example/argv.txt) and a [man page](https://github.com/mkdoc/mkcli/doc/example/argv.1):
 
 ```shell
-mkcat argv.md | mkcli -t help > argv.txt
+mkcat argv.md | mkcli -t help | mktext > argv.txt
+mkcat argv.md | mkcli -t man | mkman --title argv > argv.txt
 ```
 
 Write [a program](https://github.com/mkdoc/mkcli/doc/example/argv.js) that can be executed and easily tested; then add [a minimal executable](https://github.com/mkdoc/mkcli/doc/example/argv).
@@ -295,7 +296,9 @@ Options
   -h, --help              -h, --help Display help and exit
   --version               --version Print the version and exit
 
-Report bugs to https://github.com/mkdoc/mkcli/issues
+  Report bugs to https://github.com/mkdoc/mkcli/issues
+
+mkcli@1.0.11 https://github.com/mkdoc/mkcli
 ```
 
 ## API
