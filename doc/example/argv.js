@@ -1,9 +1,6 @@
 var cli = require('../../index')
-  // load the compiled program descriptor
-  , def = require('./argv.json')
-  , pkg = require('../../package.json')
   // create a program with the descriptor information
-  , prg = cli.load(def);
+  , prg = cli.load(require('./argv.json'));
 
 /**
  *  @name argv
@@ -35,8 +32,8 @@ function main(argv, cb) {
         },
         // configure the version plugin
         version: {
-          name: pkg.name,
-          version: pkg.version
+          name: 'argv',
+          version: '1.0.0'
         },
         // configure plugins for program execution
         plugins: [
@@ -64,6 +61,9 @@ function main(argv, cb) {
     // of particular interest is `req.args` which is the argument
     // parser result object and `req.unparsed` which contains 
     // any unparsed arguments
+   
+    // include the unparsed arguments in the output
+    this.unparsed = req.unparsed;
 
     // respect the -e, --err option
     if(this.err) {
