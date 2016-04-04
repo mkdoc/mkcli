@@ -293,7 +293,6 @@ Usage: mkcli [options]
 Options
   -p, --package=[FILE]    Use package descriptor
   -t, --type=[TYPE]       Output renderer type
-  -f, --full              Do not compact compiled descriptor
   -c, --cols=[NUM]        Wrap help output at NUM (default: 80)
   -s, --split=[NUM]       Split help columns at NUM (default: 26)
   -i, --indent=[NUM]      Number of spaces for help indentation (default: 2)
@@ -304,6 +303,7 @@ Options
   -F, --footer            Include default footer in help output
   -N, --newline           Print leading newline when no header
   -P, --preserve          Do not upper case headings in man output
+  -f, --full              Do not compact compiled descriptor
   -h, --help              Display help and exit
   --version               Print the version and exit
 
