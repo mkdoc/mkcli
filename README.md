@@ -6,9 +6,13 @@
 
 > Define command line interfaces as markdown
 
-Compiles a markdown program definition to a JSON program descriptor.
+Describe a command line interface as an easy to read man-style markdown document and compile it to a program descriptor.
 
-Program definitions may be converted to man pages and help files.
+The JSON program descriptor can then be used by the program implementation to parse and validate arguments.
+
+The markdown program definitions can be converted to man pages and help files.
+
+Encourages a document first approach to writing command line interfaces.
 
 ## Install
 
