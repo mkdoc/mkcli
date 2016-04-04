@@ -48,7 +48,7 @@ describe('man renderer:', function() {
           input: input,
           output: output,
           type: cli.MAN,
-          upper: false
+          preserve: true
         };
     
     cli(opts);
