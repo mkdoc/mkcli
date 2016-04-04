@@ -1,6 +1,6 @@
 # Name
 
-program
+program - short program description
 
 # Synopsis
 
@@ -14,8 +14,6 @@ program
 
 # Description
 
-Short program description.
-
 Long program description with a lot more information about the program behaviour.
 
 # Commands
@@ -26,8 +24,7 @@ Long program description with a lot more information about the program behaviour
 # Options
 
 * `-b, --base=[URL] {String=http://example.com}` Base URL for absolute links that also has quite a bit of text
-* `-r, --relative=[PATH] {=/}`
-    Relative path when repository url with some really 
+* `-r, --relative=[PATH] {=/}` Relative path when repository url with some really 
     long `text` that *should* force **word** wrapping.
 
     And some more text in a new paragraph.
