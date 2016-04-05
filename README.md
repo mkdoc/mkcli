@@ -115,9 +115,11 @@ It is considered best practice to declare these sections in the order listed.
 
 All other sections are deemed to be man page sections they are ignored from help output by default (but may be included at compile time) and are always included when generating man pages.
 
+Section headings are not case-sensitive so you can use upper case, title case or lower case.
+
 #### Name
 
-Like man pages the *Name* section is required and it **must** include a brief summary of the program after the program name. Delimit the program name from the short summary using a hyphen surrounded by spaces as shown below.
+Like man pages the name section is required and it **must** include a brief summary of the program after the program name. Delimit the program name from the short summary using a hyphen surrounded by spaces as shown below.
 
 The program name and summary is extracted from the first paragraph under the *Name* heading:
 
@@ -136,6 +138,8 @@ prg - short program summary
 
 + prg-alias
 ```
+
+The name section must be the first section in the file otherwise the compiler will error.
 
 #### Synopsis
 
