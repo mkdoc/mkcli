@@ -145,10 +145,15 @@ The name section must be the first section in the file otherwise the compiler wi
 
 The program synopsis is created from all code block elements under the *Synopsis* heading:
 
-    ```
+```markdown
+# Name
+
+prg - short program summary
+
+# Synopsis
+
     [options] [file...]
-    ```
-    
+```
 
 It is a compiler error if any other type is declared in the synopsis section.
 
