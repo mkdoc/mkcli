@@ -23,9 +23,9 @@ describe('help renderer:', function() {
           header: true,
           footer: true,
           pkg: {
-            bugs: {
-              url: 'http://example.com/issues'
-            }
+            name: 'foo',
+            version: '1.0.0',
+            homepage: 'http://example.com'
           }
         };
     
@@ -34,6 +34,10 @@ describe('help renderer:', function() {
     output.once('finish', function() {
       var result = '' + fs.readFileSync(target)
       expect(Boolean(~result.indexOf('Program Name'))).to.eql(true);
+      expect(Boolean(~result.indexOf('foo@1.0.0')))
+        .to.eql(true);
+      expect(Boolean(~result.indexOf('http://example.com')))
+        .to.eql(true);
       done();
     })
   });

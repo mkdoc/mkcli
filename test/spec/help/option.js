@@ -19,7 +19,9 @@ describe('help renderer:', function() {
       , opts = {
           input: input,
           output: output,
-          type: cli.HELP
+          type: cli.HELP,
+          footer: true,
+          pkg: {}
         };
     
     cli(opts);

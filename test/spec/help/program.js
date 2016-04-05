@@ -19,7 +19,12 @@ describe('help renderer:', function() {
       , opts = {
           input: input,
           output: output,
-          type: cli.HELP
+          type: cli.HELP,
+          footer: true,
+          pkg: {
+            name: 'foo',
+            version: '1.0.0'
+          }
         };
     
     cli(opts);

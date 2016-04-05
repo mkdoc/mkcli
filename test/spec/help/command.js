@@ -22,6 +22,7 @@ describe('help renderer:', function() {
           input: input,
           output: output,
           type: cli.HELP,
+          style: 'foo',
           align: 'right',
           concise: true,
           usage: '',

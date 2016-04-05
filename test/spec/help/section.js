@@ -20,6 +20,7 @@ describe('help renderer:', function() {
           input: input,
           output: output,
           type: cli.HELP,
+          newline: true,
           section: [
             /env/i
           ]
