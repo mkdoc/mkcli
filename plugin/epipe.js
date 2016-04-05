@@ -1,20 +1,13 @@
-function listen(stream, cb) {
-  stream = stream || process.stdout;
-  cb = cb || process.exit;
+var stream
+  , callback;
 
-  function listener(err) {
-    if(err.code === 'EPIPE') {
-      return cb();
-    }
-
-    stream.removeListener('error', listener);
-    stream.emit('error', err);
-    stream.on('error', listener);
+function listener(err) {
+  if(err.code === 'EPIPE') {
+    return callback();
   }
-
-  // just in case the program is run multiple times
-  stream.removeListener('error', listener);
-  stream.on('error', listener);
+  this.removeListener('error', listener);
+  this.emit('error', err);
+  this.on('error', listener);
 }
 
 /**
@@ -25,7 +18,12 @@ function listen(stream, cb) {
  *  @param {Function} cb callback function.
  */
 function epipe(req, cb) {
-  listen(req.conf.stream, req.conf.callback);
+  stream = req.conf.stream || process.stdout;
+  callback = req.conf.callback || process.exit;
+
+  // just in case the program is run multiple times
+  stream.removeListener('error', listener);
+  stream.on('error', listener);
   cb();
 }
 
