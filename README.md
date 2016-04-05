@@ -109,7 +109,7 @@ The sections that have special meaning to the compiler are:
 * [SYNOPSIS](#synopsis)
 * [DESCRIPTION](#description)
 * [COMMANDS](#commands)
-* [OPTIONS](#options)
+* [OPTIONS](#arguments)
 
 It is considered best practice to declare these sections in the order listed.
 
