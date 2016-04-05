@@ -21,6 +21,7 @@ describe('help renderer:', function() {
           output: output,
           type: cli.HELP,
           footer: true,
+          colon: true,
           pkg: {}
         };
     

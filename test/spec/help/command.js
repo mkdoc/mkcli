@@ -27,6 +27,7 @@ describe('help renderer:', function() {
           style: 'foo',
           align: 'right',
           usage: '',
+          colon: ':',
           kind: function() {
             kindCalled = true; 
           },
@@ -51,7 +52,7 @@ describe('help renderer:', function() {
       expect(footerCalled).to.eql(true);
 
       var result = '' + fs.readFileSync(target)
-      expect(Boolean(~result.indexOf('Commands'))).to.eql(true);
+      expect(Boolean(~result.indexOf('Commands:'))).to.eql(true);
       done();
     })
   });

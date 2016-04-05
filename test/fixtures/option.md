@@ -10,3 +10,4 @@ mock - mock description
 
     And another paragraph under the one above.
 * `--no-description`
+* `--enum=[TYPE] {json|text|man}` Enumerable type definition
