@@ -4,10 +4,8 @@ mock - mock description
 
 # Synopsis
 
-```
-[options]
-```
+Paragraph that will trigger an error.
 
 ```
-[options] [files...]
+[options]
 ```

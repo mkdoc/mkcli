@@ -30,8 +30,8 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 - [Guide](#guide)
   - [Defining Programs](#defining-programs)
     - [Name](#name)
-    - [Description](#description)
     - [Synopsis](#synopsis)
+    - [Description](#description)
     - [Arguments](#arguments)
       - [Flags](#flags)
       - [Options](#options)
@@ -101,6 +101,19 @@ mkcat argv.md | mkcli -t man | mkman > argv.1
 
 This section covers what you need to know to define a program as markdown.
 
+The markdown document defines sections that start with a level one heading and continue until the next level one heading or the end of file is reached.
+
+The sections that have special meaning to the compiler are:
+
+* [NAME](#name)
+* [SYNOPSIS](#synopsis)
+* [DESCRIPTION](#description)
+* [COMMANDS](#commands)
+* [OPTIONS](#options)
+It is considered best practice to declare these sections in the order listed.
+
+All other sections are deemed to be man page sections they are ignored from help output by default (but may be included at compile time) and are always included when generating man pages.
+
 #### Name
 
 Like man pages the *Name* section is required and it **must** include a brief summary of the program after the program name. Delimit the program name from the short summary using a hyphen surrounded by spaces as shown below.
@@ -123,6 +136,17 @@ prg - short program summary
 + prg-alias
 ```
 
+#### Synopsis
+
+The program synopsis is created from all code block elements under the *Synopsis* heading:
+
+    ```
+    [options] [file...]
+    ```
+    
+
+It is a compiler error if any other type is declared in the synopsis section.
+
 #### Description
 
 The program description is created from all block level elements under the *Description* heading:
@@ -136,15 +160,6 @@ prg - short program summary
 
 An extended description that can include paragraphs, lists, code blocks and other block level elements.
 ```
-
-#### Synopsis
-
-The program synopsis is created from all code block elements under the *Synopsis* heading:
-
-    ```
-    [options] [file...]
-    ```
-    
 
 #### Arguments
 
