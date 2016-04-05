@@ -66,6 +66,28 @@ An extended description that can include paragraphs, lists, code blocks and othe
 
 Note that the help output only includes paragraphs so some meaning may be lost in the help output if you include lists, code blocks or block quotes. For this reason it is recommended that the description section only contain paragraphs.
 
+If you mix content in the description section you can use the `-d, --desc` option when generating the help file to restrict the number of paragraphs included in the help output.
+
+Consider this example:
+
+```markdown
+# Name
+
+prg - short program summary
+
+# Description
+
+Simple program.
+
+Run with:
+
+    cat file.md | program
+```
+
+Context would be lost on the second paragraph because the code block would not be included in the help output, whilst it would make perfect sense in the man output.
+
+To prevent this loss of context just include the first paragraph in the help output: `mkcat program.md | mkcli --desc 1 | mktext`.
+
 #### Arguments
 
 Program arguments are declared with a heading of *Options* and a list following the heading:
