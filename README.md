@@ -110,6 +110,7 @@ The sections that have special meaning to the compiler are:
 * [DESCRIPTION](#description)
 * [COMMANDS](#commands)
 * [OPTIONS](#options)
+
 It is considered best practice to declare these sections in the order listed.
 
 All other sections are deemed to be man page sections they are ignored from help output by default (but may be included at compile time) and are always included when generating man pages.
