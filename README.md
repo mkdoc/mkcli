@@ -414,6 +414,7 @@ Options
   -i, --indent=[NUM]      Number of spaces for help indentation (default: 2)
   -a, --align=[TYPE]      Alignment of first help column (left|right)
   -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:)
+  -C, --colon             Append a colon to headings in help output
   -S, --section=[PTN...]  Include sections matching patterns in help output
   -H, --header            Include default header in help output
   -F, --footer            Include default footer in help output
