@@ -406,13 +406,13 @@ Usage: mkcli [options]
 
 Options
   -p, --package=[FILE]    Use package descriptor
-  -t, --type=[TYPE]       Output renderer type
-  -y, --style=[VAL]       Help output style
+  -t, --type=[TYPE]       Output renderer type (json|help|man)
+  -y, --style=[VAL]       Help output style (col|list|cmd|usage)
   -c, --cols=[NUM]        Wrap help output at NUM (default: 80)
   -s, --split=[NUM]       Split help columns at NUM (default: 26)
   -d, --desc=[NUM]        Number of description paragraphs for help output
   -i, --indent=[NUM]      Number of spaces for help indentation (default: 2)
-  -a, --align=[TYPE]      Align first help column left or right (default: left)
+  -a, --align=[TYPE]      Alignment of first help column (left|right)
   -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:)
   -S, --section=[PTN...]  Include sections matching patterns in help output
   -H, --header            Include default header in help output
@@ -423,7 +423,7 @@ Options
   -h, --help              Display help and exit
   --version               Print the version and exit
 
-mkcli@1.0.16 https://github.com/mkdoc/mkcli
+mkcli@1.0.17 https://github.com/mkdoc/mkcli
 ```
 
 ## API

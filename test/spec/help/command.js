@@ -17,6 +17,7 @@ describe('help renderer:', function() {
     var input = ast.serialize(data)
       , output = fs.createWriteStream(target)
       , valueCalled = false
+      , kindCalled = false
       , headerCalled = false
       , footerCalled = false
       , opts = {
@@ -26,6 +27,9 @@ describe('help renderer:', function() {
           style: 'foo',
           align: 'right',
           usage: '',
+          kind: function() {
+            kindCalled = true; 
+          },
           value: function() {
             valueCalled = true; 
           },
@@ -41,6 +45,7 @@ describe('help renderer:', function() {
 
     output.once('finish', function() {
 
+      expect(kindCalled).to.eql(true);
       expect(valueCalled).to.eql(true);
       expect(headerCalled).to.eql(true);
       expect(footerCalled).to.eql(true);

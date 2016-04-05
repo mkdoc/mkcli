@@ -9,3 +9,4 @@ mock - mock description
 # Options
 
 * `-i=[NUM] {=2}` Number
+* `-s=[VAL] {foo|bar|qux}` Number
