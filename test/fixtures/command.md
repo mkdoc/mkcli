@@ -1,6 +1,6 @@
 # Name
 
-prg
+mock - mock description
 
 # Commands
 

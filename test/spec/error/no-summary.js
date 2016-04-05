@@ -3,11 +3,11 @@ var expect = require('chai').expect
   , ast = require('mkast')
   , cli = require('../../../index');
 
-describe('json:', function() {
+describe('parser:', function() {
   
-  it('should parse program description', function(done) {
-    var source = 'test/fixtures/description.md'
-      , target = 'target/description.json.log'
+  it('should error with no summary', function(done) {
+    var source = 'test/fixtures/no-summary.md'
+      , target = 'target/no-summary.json.log'
       , data = ast.parse('' + fs.readFileSync(source))
 
     // mock file for correct relative path
@@ -21,13 +21,15 @@ describe('json:', function() {
           output: output
         };
     
-    cli(opts);
-
-    output.once('finish', function() {
-      var result = JSON.parse('' + fs.readFileSync(target));
-      expect(result.description).to.be.a('string');
+    function onFinish(err) {
+      function fn() {
+        throw err;
+      }
+      expect(fn).throws(/program summary is required/i);
       done();
-    })
+    }
+
+    cli(opts, onFinish);
   });
 
 });

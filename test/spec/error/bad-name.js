@@ -5,7 +5,7 @@ var expect = require('chai').expect
 
 describe('parser:', function() {
   
-  it('should error with no specification', function(done) {
+  it('should error with bad name section', function(done) {
     var source = 'test/fixtures/bad-name.md'
       , target = 'target/bad-name.json.log'
       , data = ast.parse('' + fs.readFileSync(source))

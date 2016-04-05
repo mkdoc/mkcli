@@ -1,3 +1,7 @@
+# Name
+
+mock - mock description
+
 # Options
 
 * `-o, --output [FILE] {=stdout}` Output file

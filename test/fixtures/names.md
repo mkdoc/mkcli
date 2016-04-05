@@ -1,6 +1,6 @@
 # Name
 
-prg
+prg - mock description
 
 + prg-alias
 
