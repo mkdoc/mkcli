@@ -16,6 +16,16 @@ program - short program description
 
 Long program description with a lot more information about the program behaviour.
 
+It can contain multiple paragraphs and other block level elements but the help output will only include the paragraphs which might lose some meaning.
+
+```
+program --version
+```
+
+* foo
+* bar
+* baz
+
 # Commands
 
 * `ls, list` List tasks

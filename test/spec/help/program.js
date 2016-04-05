@@ -21,6 +21,7 @@ describe('help renderer:', function() {
           output: output,
           type: cli.HELP,
           footer: true,
+          desc: 1,
           pkg: {
             name: 'foo',
             version: '1.0.0'

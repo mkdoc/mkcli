@@ -64,6 +64,8 @@ prg - short program summary
 An extended description that can include paragraphs, lists, code blocks and other block level elements.
 ```
 
+Note that the help output only includes paragraphs so some meaning may be lost in the help output if you include lists, code blocks or block quotes. For this reason it is recommended that the description section only contain paragraphs.
+
 #### Arguments
 
 Program arguments are declared with a heading of *Options* and a list following the heading:
