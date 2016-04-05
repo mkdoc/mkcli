@@ -162,7 +162,7 @@ prg - short program summary
 An extended description that can include paragraphs, lists, code blocks and other block level elements.
 ```
 
-Note that the help output only includes paragraphs so some meaning may be lost in the help output if you include lists, code blocks or block quotes. For this reason it is recommended that the description section only contain paragraphs.
+Note that the help output only includes paragraphs so some meaning may be lost if you include lists, code blocks or block quotes. For this reason it is recommended that the description section only contain paragraphs.
 
 If you mix content in the description section you can use the `-d, --desc` option when generating the help file to restrict the number of paragraphs included in the help output.
 
