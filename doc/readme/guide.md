@@ -86,7 +86,11 @@ Run with:
 
 Context would be lost on the second paragraph because the code block would not be included in the help output, whilst it would make perfect sense in the man output.
 
-To prevent this loss of context just include the first paragraph in the help output: `mkcat program.md | mkcli --desc 1 | mktext`.
+To prevent this loss of context just include the first paragraph in the help output:
+
+```shell
+mkcat program.md | mkcli --desc 1 | mktext
+```
 
 #### Arguments
 
