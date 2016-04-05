@@ -226,6 +226,8 @@ The default column help style (`col`) should suit most purposes however the othe
 
 The `cmd` style is a list of command names (options are not printed) designed to be used when a program has lots of commands and a command is required. Typically the program would show this help page when no command was specified to indicate to the user a command is required.
 
+Sometimes you may want very minimal help output that just includes the usage synopsis in which case use the `usage` style.
+
 #### Help Sections
 
 Sometimes when creating help files you may want to include a section from the manual, possibly you want to include an *Environment* section to show the environment variables your program recognises.
