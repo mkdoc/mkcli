@@ -324,6 +324,8 @@ The default column help style (`col`) should suit most purposes however the othe
 
 The `cmd` style is a list of command names (options are not printed) designed to be used when a program has lots of commands and a command is required. Typically the program would show this help page when no command was specified to indicate to the user a command is required.
 
+Sometimes you may want very minimal help output that just includes the usage synopsis in which case use the `usage` style.
+
 #### Help Sections
 
 Sometimes when creating help files you may want to include a section from the manual, possibly you want to include an *Environment* section to show the environment variables your program recognises.
@@ -376,7 +378,7 @@ Options
   -h, --help              Display help and exit
   --version               Print the version and exit
 
-mkcli@1.0.15 https://github.com/mkdoc/mkcli
+mkcli@1.0.16 https://github.com/mkdoc/mkcli
 ```
 
 ## API
@@ -473,7 +475,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 4, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 5, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
