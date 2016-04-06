@@ -23,7 +23,7 @@
     "help"
   ],
   "dependencies": {
-    "cli-argparse": "~1.1.1",
+    "cli-argparse": "~1.1.2",
     "mkast": "~1.2.2",
     "string-repeater": "~1.0.3",
     "through3": "~1.1.5",

@@ -182,7 +182,11 @@ cli.src = src;
 cli.compiler = compiler;
 cli.dest = dest;
 cli.run = run;
-cli.camelcase = require('./lib/camelcase');
+cli.camelcase = function() {
+  // lazy require
+  var camel = require('cli-argparse').camelcase;
+  return camel.apply(this, arguments);
+}
 
 Object.keys(types).forEach(function(nm) {
   cli[nm.toUpperCase()] = nm;
