@@ -408,10 +408,17 @@ See the [help](#help) for more options available when creating help and man page
 ## Help
 
 ```
-Usage: mkcli [options]
+Usage: mkcli [options] [files...]
 
   Compiles markdown command line interface definitions to JSON and supplies
-  renderers for converting the definitions to help files and man pages.
+  renderers for converting the definitions to help files and man pages. If no
+  files are given input from stdin is expected.
+
+  If an input file is a directory then the directory is scanned for files
+  ending in md or markdown.
+
+  When files are given and no type is specified all types are created otherwise
+  when reading from stdin the json output type is assumed.
 
 Options
   -p, --package=[FILE]    Use package descriptor
@@ -433,7 +440,7 @@ Options
   -h, --help              Display help and exit
   --version               Print the version and exit
 
-mkcli@1.0.17 https://github.com/mkdoc/mkcli
+mkcli@1.0.22 https://github.com/mkdoc/mkcli
 ```
 
 ## API
@@ -530,7 +537,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 5, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 7, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast

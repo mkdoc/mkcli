@@ -1,10 +1,11 @@
 {
-  "description": "Prints the arguments passed to the program.",
+  "description": "When the --err option is given the arguments are printed to stderr rather than stdout.",
   "names": [
     "argv"
   ],
   "type": "program",
   "name": "argv",
+  "summary": "prints the arguments passed to the program",
   "synopsis": [
     "[options]"
   ],
