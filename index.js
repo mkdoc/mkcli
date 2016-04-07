@@ -1,7 +1,8 @@
 var types = {
   json: 'json',
   help: 'help',
-  man: 'man'
+  man: 'man',
+  zsh: 'zsh'
 };
 
 /**
@@ -45,13 +46,13 @@ function cli(opts, cb) {
   stream = ast.parser(opts.input)
     .pipe(stream);
 
-  if(opts.type === types.json) {
+  if(opts.type === types.json || opts.type === types.zsh) {
     stream = stream.pipe(compiler(opts)); 
   }
 
   stream = stream.pipe(renderer)
 
-  if(opts.type !== types.json) {
+  if(opts.type !== types.json && opts.type !== types.zsh) {
     stream = stream.pipe(ast.stringify()); 
   }
   
