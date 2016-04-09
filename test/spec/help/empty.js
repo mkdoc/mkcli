@@ -26,8 +26,7 @@ describe('help renderer:', function() {
 
     output.once('finish', function() {
       var result = '' + fs.readFileSync(target)
-        //console.dir(result);
-      //expect(result.trim()).to.eql('');
+      // TODO: assert on AST output
       done();
     })
   });
