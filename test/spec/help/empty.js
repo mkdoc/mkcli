@@ -1,6 +1,7 @@
 var expect = require('chai').expect
   , fs = require('fs')
   , ast = require('mkast')
+  , utils = require('../../util')
   , cli = require('../../../index');
 
 describe('help renderer:', function() {
@@ -25,8 +26,15 @@ describe('help renderer:', function() {
     cli(opts);
 
     output.once('finish', function() {
-      var result = '' + fs.readFileSync(target)
-      // TODO: assert on AST output
+      var result = utils.result(target)
+      expect(result).to.be.an('array');
+      expect(result[0].type).to.eql('document');
+      expect(result[1].type).to.eql('name');
+      expect(result[2].type).to.eql('synopsis');
+      expect(result[3].type).to.eql('description');
+      expect(result[4].type).to.eql('commands');
+      expect(result[5].type).to.eql('options');
+      expect(result[6].type).to.eql('eof');
       done();
     })
   });
