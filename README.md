@@ -66,41 +66,51 @@ To compile all output files run:
 mkcli argv.md
 ```
 
-To just compile the [program definition](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md) to a [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
+Or compile a specific output type:
 
 ```shell
 mkcli argv.md -t json
-```
-
-To create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt) and a [man page](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.1):
-
-```shell
 mkcli argv.md -t help
 mkcli argv.md -t man
+mkcli argv.md -t zsh
 ```
 
-Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested and add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv).
+See [help](#help) for more options.
 
 ## Example
 
 Compile a program definition:
 
 ```shell
-mkcat argv.md | mkcli > argv.json
+mkcli argv.md -t json
 ```
 
 Create a help text file:
 
 ```shell
-mkcat argv.md | mkcli -t help | mktext > argv.txt
+mkcli argv.md -t help
 ```
 
 Create a man page:
 
 ```shell
-mkcat argv.md | mkcli -t man | mkman > argv.1
+mkcli argv.md -t man
 ```
 
+Create a zsh completion script:
+
+```shell
+mkcli argv.md -t zsh
+```
+
+Example files for a simple working program are in [doc/example](https://github.com/mkdoc/mkcli/blob/master/doc/example):
+
+* [program definition](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md)
+* [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json)
+* [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt)
+* [man page](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.1)
+* [program implementation](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js)
+* [minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv)
 ## Guide
 
 ### Defining Programs
@@ -429,7 +439,6 @@ Usage: mkcli [options] [files...]
   Output files are overwritten if they already exist.
 
 Options
-  -r, --recursive         Recursively load command definitions
   -p, --package=[FILE]    Use package descriptor
   -t, --type=[TYPE]       Output renderer type (json|help|man)
   -y, --style=[VAL]       Help output style (col|list|cmd|usage)
@@ -440,6 +449,7 @@ Options
   -a, --align=[TYPE]      Alignment of first help column (left|right)
   -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:)
   -f, --full              Do not compact compiled descriptor
+  -r, --recursive         Recursively load command definitions
   -C, --colon             Append a colon to headings in help output
   -S, --section=[PTN...]  Include sections matching patterns in help output
   -H, --header            Include default header in help output
