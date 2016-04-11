@@ -10,7 +10,7 @@ Describe a command line interface as an easy to read man-style markdown document
 
 The JSON program descriptor can then be used by the program implementation to parse and validate arguments.
 
-The markdown program definitions can be converted to man pages and help files.
+The markdown program definitions can be converted to man pages, help files and shell completion scripts.
 
 Encourages a document first approach to writing command line interfaces.
 
@@ -362,8 +362,6 @@ The environment variable FOO changes the behaviour to `bar`.
 The section ends when the next level one heading is encountered or the end of the file is reached.
 
 ### Compiling Programs
-
-This bit is easy, the hard work is done writing the markdown definition.
 
 To compile the markdown document to a JSON program descriptor run:
 

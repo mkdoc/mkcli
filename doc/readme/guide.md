@@ -248,8 +248,6 @@ The section ends when the next level one heading is encountered or the end of th
 
 ### Compiling Programs
 
-This bit is easy, the hard work is done writing the markdown definition.
-
 To compile the markdown document to a JSON program descriptor run:
 
 ```shell
