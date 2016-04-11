@@ -90,8 +90,6 @@ Example files for a simple working program are in [doc/example](https://github.c
 
 ### Defining Programs
 
-This section covers what you need to know to define a program as markdown.
-
 The markdown document defines sections that start with a level one heading and continue until the next level one heading or the end of file is reached.
 
 The sections that have special meaning to the compiler are:
