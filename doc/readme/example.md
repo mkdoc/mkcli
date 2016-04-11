@@ -30,6 +30,7 @@ Example files for a simple working program are in [doc/example](/doc/example):
 * [program descriptor](/doc/example/argv.json)
 * [help file](/doc/example/argv.txt)
 * [man page](/doc/example/argv.1)
+* [zsh completion](/doc/example/_argv)
 * [program implementation](/doc/example/argv.js)
 * [minimal executable](/doc/example/argv)
 
