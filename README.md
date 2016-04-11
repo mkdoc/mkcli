@@ -111,6 +111,7 @@ Example files for a simple working program are in [doc/example](https://github.c
 * [man page](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.1)
 * [program implementation](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js)
 * [minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv)
+
 ## Guide
 
 ### Defining Programs
