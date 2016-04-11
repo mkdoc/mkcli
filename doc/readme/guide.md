@@ -91,7 +91,7 @@ Simple program.
 
 Run with:
 
-    cat file.md | program
+    cat file.md | prg
 ```
 
 Context would be lost on the second paragraph because the code block would not be included in the help output, whilst it would make perfect sense in the man output.

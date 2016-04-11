@@ -188,7 +188,7 @@ Simple program.
 
 Run with:
 
-    cat file.md | program
+    cat file.md | prg
 ```
 
 Context would be lost on the second paragraph because the code block would not be included in the help output, whilst it would make perfect sense in the man output.
@@ -420,6 +420,8 @@ Usage: mkcli [options] [files...]
   When files are given and no type is specified all types are created otherwise
   when reading from stdin the json output type is assumed.
 
+  Output files are overwritten if they already exist.
+
 Options
   -p, --package=[FILE]    Use package descriptor
   -t, --type=[TYPE]       Output renderer type (json|help|man)
@@ -430,15 +432,20 @@ Options
   -i, --indent=[NUM]      Number of spaces for help indentation (default: 2)
   -a, --align=[TYPE]      Alignment of first help column (left|right)
   -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:)
+  -f, --full              Do not compact compiled descriptor
   -C, --colon             Append a colon to headings in help output
   -S, --section=[PTN...]  Include sections matching patterns in help output
   -H, --header            Include default header in help output
   -F, --footer            Include default footer in help output
   -N, --newline           Print leading newline when no header
   -P, --preserve          Do not upper case headings in man output
-  -f, --full              Do not compact compiled descriptor
+  -J, --json=[DIR]        Set output directory for json files
+  -T, --text=[DIR]        Set output directory for help text files
+  -M, --man=[DIR]         Set output directory for man pages
+  -Z, --zsh=[DIR]         Set output directory for zsh completion
+  -o, --output=[DIR]      Set output directory for all types
   -h, --help              Display help and exit
-  --version               Print the version and exit
+  -v, --version           Print the version and exit
 
 mkcli@1.0.22 https://github.com/mkdoc/mkcli
 ```
@@ -537,7 +544,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 7, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 11, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
