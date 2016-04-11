@@ -74,7 +74,7 @@ mkcli argv.md -t man
 mkcli argv.md -t zsh
 ```
 
-See [help](#help) for more options.
+If you have a lot of programs pass it a directory and all `md` files in the directory are compiled, see [help](#help) for more options.
 
 Example files for a simple working program are in [doc/example](https://github.com/mkdoc/mkcli/blob/master/doc/example):
 
@@ -85,6 +85,16 @@ Example files for a simple working program are in [doc/example](https://github.c
 * [zsh completion](https://github.com/mkdoc/mkcli/blob/master/doc/example/_argv)
 * [program implementation](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js)
 * [minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv)
+
+Every program in the [mkdoc][] toolkit is compiled using this library:
+
+* [definitions](https://github.com/mkdoc/mkdoc/tree/master/doc/cli)
+* [compiled descriptors](https://github.com/mkdoc/mkdoc/tree/master/doc/json)
+* [help files](https://github.com/mkdoc/mkdoc/tree/master/doc/help)
+* [man pages](https://github.com/mkdoc/mkdoc/tree/master/doc/man)
+* [zsh completion](https://github.com/mkdoc/mkdoc/tree/master/doc/zsh)
+* [program implementations](https://github.com/mkdoc/mkdoc/tree/master/cli)
+* [executables](https://github.com/mkdoc/mkdoc/tree/master/bin)
 
 ## Guide
 
