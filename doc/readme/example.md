@@ -1,28 +1,21 @@
 ## Example
 
-Compile a program definition:
+To compile all output files run:
+
+```shell
+mkcli argv.md
+```
+
+Or compile a specific output type:
 
 ```shell
 mkcli argv.md -t json
-```
-
-Create a help text file:
-
-```shell
 mkcli argv.md -t help
-```
-
-Create a man page:
-
-```shell
 mkcli argv.md -t man
-```
-
-Create a zsh completion script:
-
-```shell
 mkcli argv.md -t zsh
 ```
+
+See [help](#help) for more options.
 
 Example files for a simple working program are in [doc/example](/doc/example):
 

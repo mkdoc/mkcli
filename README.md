@@ -25,7 +25,6 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 ---
 
 - [Install](#install)
-- [Usage](#usage)
 - [Example](#example)
 - [Guide](#guide)
   - [Defining Programs](#defining-programs)
@@ -58,7 +57,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 ---
 
-## Usage
+## Example
 
 To compile all output files run:
 
@@ -76,32 +75,6 @@ mkcli argv.md -t zsh
 ```
 
 See [help](#help) for more options.
-
-## Example
-
-Compile a program definition:
-
-```shell
-mkcli argv.md -t json
-```
-
-Create a help text file:
-
-```shell
-mkcli argv.md -t help
-```
-
-Create a man page:
-
-```shell
-mkcli argv.md -t man
-```
-
-Create a zsh completion script:
-
-```shell
-mkcli argv.md -t zsh
-```
 
 Example files for a simple working program are in [doc/example](https://github.com/mkdoc/mkcli/blob/master/doc/example):
 
