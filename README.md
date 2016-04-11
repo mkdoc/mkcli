@@ -60,17 +60,23 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 ## Usage
 
-First define a [program as markdown](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md) and compile the [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
+To compile all output files run:
 
 ```shell
-mkcat argv.md | mkcli > argv.json
+mkcli argv.md
 ```
 
-Then create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt) and a [man page](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.1):
+To just compile the [program definition](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.md) to a [program descriptor](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.json):
 
 ```shell
-mkcat argv.md | mkcli -t help | mktext > argv.txt
-mkcat argv.md | mkcli -t man | mkman --title argv > argv.1
+mkcli argv.md -t json
+```
+
+To create a [help file](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.txt) and a [man page](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.1):
+
+```shell
+mkcli argv.md -t help
+mkcli argv.md -t man
 ```
 
 Write [a program](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv.js) that can be executed and easily tested and add [a minimal executable](https://github.com/mkdoc/mkcli/blob/master/doc/example/argv).
@@ -423,6 +429,7 @@ Usage: mkcli [options] [files...]
   Output files are overwritten if they already exist.
 
 Options
+  -r, --recursive         Recursively load command definitions
   -p, --package=[FILE]    Use package descriptor
   -t, --type=[TYPE]       Output renderer type (json|help|man)
   -y, --style=[VAL]       Help output style (col|list|cmd|usage)
