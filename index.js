@@ -22,6 +22,12 @@ function cli(opts, cb) {
 
   opts.type = opts.type || types.json;
 
+  // do we need a compiler phase?
+  var compiles = opts.type === cli.JSON || opts.type === cli.ZSH;
+
+  opts.recursive = opts.recursive !== undefined
+    ? opts.recursive : (compiles ? true : false);
+  
   var stream = src(opts)
     , parser = stream
     , ast = require('mkast')
@@ -46,13 +52,13 @@ function cli(opts, cb) {
   stream = ast.parser(opts.input)
     .pipe(stream);
 
-  if(opts.type === types.json || opts.type === types.zsh) {
+  if(compiles) {
     stream = stream.pipe(compiler(opts)); 
   }
 
   stream = stream.pipe(renderer)
 
-  if(opts.type !== types.json && opts.type !== types.zsh) {
+  if(!compiles) {
     stream = stream.pipe(ast.stringify()); 
   }
   
