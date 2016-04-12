@@ -312,6 +312,21 @@ prg - short program summary
 
 They allow you to create complex programs with options specific to a command.
 
+Command files are loaded and compiled automatically following a naming convention. Using the above example to define the `list` command create a file named `prg-list.md`:
+
+```markdown
+# Name
+
+list - list tasks
+
+# Options
+
+* `-a, --all` List all tasks
+* `-t=[TYPE...]` List tasks of TYPE
+```
+
+Will result in the compiled tree containing options specific to the `list` command.
+
 #### Identifiers
 
 When a program is created from a source markdown document each argument and command is given a key for the resulting map. This key is generated automcatically by using the longest argument (or command) name and converting it to camel case.
