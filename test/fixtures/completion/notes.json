@@ -1,9 +1,9 @@
 {
   "names": [
-    "todo"
+    "notes"
   ],
   "type": "program",
-  "name": "todo",
+  "name": "notes",
   "summary": "program to test the completion capabilities",
   "options": {
     "help": {
@@ -13,7 +13,8 @@
         "-h",
         "--help"
       ],
-      "type": "flag"
+      "type": "flag",
+      "name": "--help"
     },
     "version": {
       "key": "version",
@@ -21,34 +22,38 @@
       "names": [
         "--version"
       ],
-      "type": "flag"
+      "type": "flag",
+      "name": "--version"
     }
   },
   "commands": {
     "add": {
       "key": "add",
-      "description": "Add a todo",
+      "description": "Add a note",
       "names": [
         "add"
       ],
-      "type": "command"
+      "type": "command",
+      "name": "add"
     },
     "del": {
       "key": "del",
-      "description": "Delete a todo",
+      "description": "Delete a note",
       "names": [
         "del"
       ],
-      "type": "command"
+      "type": "command",
+      "name": "del"
     },
     "list": {
       "key": "list",
-      "description": "List todo notes",
+      "description": "List notes",
       "names": [
         "ls",
         "list"
       ],
-      "type": "command"
+      "type": "command",
+      "name": "list"
     }
   }
 }

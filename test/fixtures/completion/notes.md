@@ -1,12 +1,12 @@
 # Name
 
-todo - program to test the completion capabilities
+notes - program to test the completion capabilities
 
 # Commands
 
-* `add` Add a todo
-* `del` Delete a todo
-* `ls, list` List todo notes
+* `add` Add a note
+* `del` Delete a note
+* `ls, list` List notes
 
 # Options
 

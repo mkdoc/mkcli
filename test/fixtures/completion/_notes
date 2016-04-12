@@ -1,0 +1,17 @@
+#compdef notes
+local curcontext="$curcontext" state line ret=1
+_arguments -C\
+  "1:cmd:->cmds" \
+  "*::arg:->args" && ret=0
+case $state in
+  (cmds)
+    _values \
+      "add[Add a note]" \
+      "del[Delete a note]" \
+      "list[List notes]" \
+    ret=0
+    ;;
+  (args)
+    ;;
+esac
+return ret;

@@ -1,0 +1,9 @@
+Commands
+  add                     Add a note
+  del                     Delete a note
+  ls, list                List notes
+
+Options
+  -h, --help              Display help and exit
+  --version               Print version and exit
+
