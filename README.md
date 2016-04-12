@@ -424,7 +424,7 @@ See the [help](#help) for more options available when creating help and man page
 
 ### Completion
 
-Completion scripts are currently available for zsh. To install a completion script for a program copy the script to a directory in `$fpath` or modify `~/.zshrc` to search for the directory containing the completion script:
+Completion scripts are currently available for zsh. To install a completion script for a program copy the script to a directory in `$fpath` or modify `~/.zshrc` to autoload the directory containing the completion script:
 
 ```zsh
 fpath=(/path/to/completion $fpath)
