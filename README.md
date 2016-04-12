@@ -413,17 +413,8 @@ See the [help](#help) for more options available when creating help and man page
 ```
 Usage: mkcli [options] [files...]
 
-  Compiles markdown command line interface definitions to JSON and supplies
-  renderers for converting the definitions to help files and man pages. If no
-  files are given input from stdin is expected.
-
-  If an input file is a directory then the directory is scanned for files
-  ending in md or markdown.
-
-  When files are given and no type is specified all types are created otherwise
-  when reading from stdin the json output type is assumed.
-
-  Output files are overwritten if they already exist.
+  Compiles markdown command line interface definitions to JSON and renders to
+  help text files, man pages and shell completion scripts.
 
 Options
   -p, --package=[FILE]    Use package descriptor
