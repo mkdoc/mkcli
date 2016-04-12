@@ -1,6 +1,6 @@
 #compdef argv
-_arguments -C \
-  '-e,--err[Print to stderr]' \
-  '-h,--help[Display help and exit]' \
-  '--version[Print version and exit]' \
-  '*::arguments:_files' && return 0;
+_arguments \
+  "(-e --err)"{-e,--err}"[Print to stderr]" \
+  "(-h --help)"{-h,--help}"[Display help and exit]" \
+  "--version[Print version and exit]" \
+  && return 0;
