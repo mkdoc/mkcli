@@ -43,6 +43,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
   - [Creating Documentation](#creating-documentation)
     - [Help Styles](#help-styles)
     - [Help Sections](#help-sections)
+  - [Completion](#completion)
 - [Help](#help)
 - [API](#api)
   - [src](#src)
@@ -420,6 +421,37 @@ mkcli -t help -S '(env|bug)' program.md
 ```
 
 See the [help](#help) for more options available when creating help and man pages.
+
+### Completion
+
+Completion scripts are currently available for zsh. To install a completion script for a program copy the script to a directory in `$fpath` or modify `~/.zshrc` to search for the directory containing the completion script:
+
+```zsh
+fpath=(/path/to/completion $fpath)
+```
+
+Some option value specifications map to zsh completion functions:
+
+* `file`: _files
+* `dir`: _directories
+* `url`: _urls
+
+Such that an option specification such as:
+
+```markdown
+* `-i, --input [file...]` Input files
+* `-o, --output <dir>` Output directory
+```
+
+Will result in the `_files` completion function being called to complete file paths for the `--input` option and the `_directories` function for the `--output` option.
+
+For options that specify a list of types the `_values` completion function is called.
+
+```markdown
+* `-t, --type=[TYPE] {json|yaml}` Output type
+```
+
+Results in automatic completion for the `--type` option to one of `json` or `yaml`.
 
 ## Help
 
