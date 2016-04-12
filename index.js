@@ -58,7 +58,8 @@ function cli(opts, cb) {
 
   stream = stream.pipe(renderer)
 
-  if(!compiles) {
+  // convert output to newline delimited json
+  if(opts.type !== cli.JSON) {
     stream = stream.pipe(ast.stringify()); 
   }
   
