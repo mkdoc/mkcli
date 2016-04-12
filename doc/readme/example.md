@@ -3,19 +3,25 @@
 To compile all output files run:
 
 ```shell
-mkcli argv.md
+mkcli program.md
 ```
 
 Or compile a specific output type:
 
 ```shell
-mkcli argv.md -t json
-mkcli argv.md -t help
-mkcli argv.md -t man
-mkcli argv.md -t zsh
+mkcli program.md -t json
+mkcli program.md -t help
+mkcli program.md -t man
+mkcli program.md -t zsh
 ```
 
-If you have a lot of programs pass it a directory and all `md` files in the directory are compiled, see [help](#help) for more options.
+You may pipe input for more control over the output. For example to set a man page title:
+
+```shell
+mkcat program.md | mkcli -t man | mkman --title program > program.1
+```
+
+If you have a lot of programs pass a directory and all `md` files in the directory are compiled, see [help](#help) for more options.
 
 Example files for a simple working program are in [doc/example](/doc/example):
 

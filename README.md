@@ -62,19 +62,25 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 To compile all output files run:
 
 ```shell
-mkcli argv.md
+mkcli program.md
 ```
 
 Or compile a specific output type:
 
 ```shell
-mkcli argv.md -t json
-mkcli argv.md -t help
-mkcli argv.md -t man
-mkcli argv.md -t zsh
+mkcli program.md -t json
+mkcli program.md -t help
+mkcli program.md -t man
+mkcli program.md -t zsh
 ```
 
-If you have a lot of programs pass it a directory and all `md` files in the directory are compiled, see [help](#help) for more options.
+You may pipe input for more control over the output. For example to set a man page title:
+
+```shell
+mkcat program.md | mkcli -t man | mkman --title program > program.1
+```
+
+If you have a lot of programs pass a directory and all `md` files in the directory are compiled, see [help](#help) for more options.
 
 Example files for a simple working program are in [doc/example](https://github.com/mkdoc/mkcli/blob/master/doc/example):
 
@@ -347,7 +353,7 @@ The section ends when the next level one heading is encountered or the end of th
 To compile the markdown document to a JSON program descriptor run:
 
 ```shell
-mkcat program.md | mkcli > program.json
+mkcli -t json program.md
 ```
 
 Now you have a JSON document that describes your program commands and options.
@@ -359,13 +365,13 @@ Once you have defined the program you will want to generate a man page and some 
 To create the help text run:
 
 ```shell
-mkcat program.md | mkcli -t help | mktext > program.txt
+mkcli -t help program.md
 ```
 
 For a man page run:
 
 ```shell
-mkcat program.md | mkcli -t man | mkman --title program > program.1
+mkcli -t man program.md
 ```
 
 #### Help Styles
@@ -385,19 +391,19 @@ Pass regular expression patterns using the `--section` option and if they match 
 To include an *Environment* section you could use:
 
 ```shell
-mkcat program.md | mkcli -t help -S env | mktext > program.txt
+mkcli -t help -S env program.md
 ```
 
 To include the *Environment* and *Bugs* sections you could use:
 
 ```shell
-mkcat program.md | mkcli -t help -S env -S bug | mktext > program.txt
+mkcli -t help -S env -S bug program.md
 ```
 
 Or if you prefer:
 
 ```shell
-mkcat program.md | mkcli -t help -S '(env|bug)' | mktext > program.txt
+mkcli -t help -S '(env|bug)' program.md
 ```
 
 See the [help](#help) for more options available when creating help and man pages.
@@ -443,7 +449,7 @@ Options
   -Z, --zsh=[DIR]         Set output directory for zsh completion
   -o, --output=[DIR]      Set output directory for all types
   -h, --help              Display help and exit
-  -v, --version           Print the version and exit
+  --version               Print the version and exit
 
 mkcli@1.0.22 https://github.com/mkdoc/mkcli
 ```
@@ -542,7 +548,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 11, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 12, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast

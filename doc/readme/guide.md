@@ -249,7 +249,7 @@ The section ends when the next level one heading is encountered or the end of th
 To compile the markdown document to a JSON program descriptor run:
 
 ```shell
-mkcat program.md | mkcli > program.json
+mkcli -t json program.md
 ```
 
 Now you have a JSON document that describes your program commands and options.
@@ -261,13 +261,13 @@ Once you have defined the program you will want to generate a man page and some 
 To create the help text run:
 
 ```shell
-mkcat program.md | mkcli -t help | mktext > program.txt
+mkcli -t help program.md
 ```
 
 For a man page run:
 
 ```shell
-mkcat program.md | mkcli -t man | mkman --title program > program.1
+mkcli -t man program.md
 ```
 
 #### Help Styles
@@ -287,19 +287,19 @@ Pass regular expression patterns using the `--section` option and if they match 
 To include an *Environment* section you could use:
 
 ```shell
-mkcat program.md | mkcli -t help -S env | mktext > program.txt
+mkcli -t help -S env program.md
 ```
 
 To include the *Environment* and *Bugs* sections you could use:
 
 ```shell
-mkcat program.md | mkcli -t help -S env -S bug | mktext > program.txt
+mkcli -t help -S env -S bug program.md
 ```
 
 Or if you prefer:
 
 ```shell
-mkcat program.md | mkcli -t help -S '(env|bug)' | mktext > program.txt
+mkcli -t help -S '(env|bug)' program.md
 ```
 
 See the [help](#help) for more options available when creating help and man pages. 
