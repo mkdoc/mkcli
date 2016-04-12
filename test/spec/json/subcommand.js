@@ -44,6 +44,11 @@ describe('json:', function() {
       expect(cmds.list.options).to.be.an('object');
       expect(cmds.list.options.subOption).to.be.an('object');
 
+      // loaded nested subcommand
+      var notes = cmds.list.commands.notes;
+      expect(notes.options).to.be.an('object');
+      expect(notes.options.all).to.be.an('object');
+
       done();
     })
   });
