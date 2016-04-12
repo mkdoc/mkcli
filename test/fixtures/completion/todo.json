@@ -1,0 +1,54 @@
+{
+  "names": [
+    "todo"
+  ],
+  "type": "program",
+  "name": "todo",
+  "summary": "program to test the completion capabilities",
+  "options": {
+    "help": {
+      "key": "help",
+      "description": "Display help and exit",
+      "names": [
+        "-h",
+        "--help"
+      ],
+      "type": "flag"
+    },
+    "version": {
+      "key": "version",
+      "description": "Print version and exit",
+      "names": [
+        "--version"
+      ],
+      "type": "flag"
+    }
+  },
+  "commands": {
+    "add": {
+      "key": "add",
+      "description": "Add a todo",
+      "names": [
+        "add"
+      ],
+      "type": "command"
+    },
+    "del": {
+      "key": "del",
+      "description": "Delete a todo",
+      "names": [
+        "del"
+      ],
+      "type": "command"
+    },
+    "list": {
+      "key": "list",
+      "description": "List todo notes",
+      "names": [
+        "ls",
+        "list"
+      ],
+      "type": "command"
+    }
+  }
+}
