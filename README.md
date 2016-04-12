@@ -68,10 +68,10 @@ mkcli program.md
 Or compile a specific output type:
 
 ```shell
-mkcli program.md -t json
-mkcli program.md -t help
-mkcli program.md -t man
-mkcli program.md -t zsh
+mkcli -t json program.md
+mkcli -t help program.md
+mkcli -t man program.md
+mkcli -t zsh program.md
 ```
 
 You may pipe input for more control over the output. For example to set a man page title:
