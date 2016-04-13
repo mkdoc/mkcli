@@ -332,6 +332,8 @@ Some option value specifications map to zsh completion functions:
 * `file`: _files
 * `dir`: _directories
 * `url`: _urls
+* `user`: _users
+* `host`: _hosts
 
 Such that an option specification such as:
 
