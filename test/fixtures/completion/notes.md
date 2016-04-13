@@ -7,9 +7,14 @@ notes - program to test the completion capabilities
 * `add` Add a note
 * `del` Delete a note
 * `ls, list` List notes
+* `show` Show a note
+* `edit` Edit a note
 
 # Options
 
+* `-f, --file=[FILE]` File completion
+* `-d, --directory=[DIR]` Directory completion
+* `-u, --url=[URL]` URL completion
 * `-h, --help` Display help and exit
 * `--version` Print version and exit
 

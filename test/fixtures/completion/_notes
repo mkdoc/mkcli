@@ -8,8 +8,17 @@ case $state in
     _values "commands" \
       "add[Add a note]" \
       "del[Delete a note]" \
-      "list[List notes]"
+      "list[List notes]" \
+      "show[Show a note]" \
+      "edit[Edit a note]"
     ret=0
+_arguments \
+  "(-f --file)"{-f=,--file=}"[File completion]:file:_files" \
+  "(-d --directory)"{-d=,--directory=}"[Directory completion]:directory:_directories" \
+  "(-u --url)"{-u=,--url=}"[URL completion]:url:_urls" \
+  "(-h --help)"{-h,--help}"[Display help and exit]" \
+  "--version[Print version and exit]" \
+  && return 0;
     ;;
   (args)
     ;;
