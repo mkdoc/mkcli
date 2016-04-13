@@ -2,6 +2,12 @@
 
 notes - program to test the completion capabilities
 
+# Synopsis
+
+```
+<command> [options] [files...]
+```
+
 # Commands
 
 * `add` Add a note
