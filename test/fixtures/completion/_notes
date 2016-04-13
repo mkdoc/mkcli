@@ -1,6 +1,7 @@
 #compdef notes
 _notes(){
-  local curcontext="$curcontext" state line ret=1
+  local context="$curcontext" state state_descr line ret=1;
+  typeset -A opt_args;
 
   _arguments -C \
     "1:cmd:->cmds" \
