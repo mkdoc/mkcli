@@ -8,10 +8,11 @@ _notes(){
 
   case $state in
     (cmds)
-      _values "commands" \
+      _values \
+        "notes commands" \
         "add[Add a note]" \
         "del[Delete a note]" \
-        "list[List notes]" \
+        "(ls list)"{ls,list}"[List notes]" \
         "show[Show a note]" \
         "edit[Edit a note]" && ret=0;
       ;;
