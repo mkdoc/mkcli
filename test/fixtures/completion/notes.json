@@ -25,35 +25,5 @@
       "type": "flag",
       "name": "--version"
     }
-  },
-  "commands": {
-    "add": {
-      "key": "add",
-      "description": "Add a note",
-      "names": [
-        "add"
-      ],
-      "type": "command",
-      "name": "add"
-    },
-    "del": {
-      "key": "del",
-      "description": "Delete a note",
-      "names": [
-        "del"
-      ],
-      "type": "command",
-      "name": "del"
-    },
-    "list": {
-      "key": "list",
-      "description": "List notes",
-      "names": [
-        "ls",
-        "list"
-      ],
-      "type": "command",
-      "name": "list"
-    }
   }
 }
