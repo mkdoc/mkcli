@@ -24,7 +24,7 @@ _notes(){
         "*"{-u=,--url=}"[URL completion]:url:_urls" \
         "(-h --help)"{-h,--help}"[Display help and exit]" \
         "--version[Print version and exit]" \
-        "*::file:_files" && ret=0;
+        "*::files:_files" && ret=0;
       ;;
   esac
   return $ret;

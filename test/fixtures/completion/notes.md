@@ -8,6 +8,10 @@ notes - program to test the completion capabilities
 <command> [options] [files...]
 ```
 
+```zsh
+:file:_files
+```
+
 # Commands
 
 * `add` Add a note
