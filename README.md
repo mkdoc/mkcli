@@ -435,6 +435,8 @@ Some option value specifications map to zsh completion functions:
 * `file`: _files
 * `dir`: _directories
 * `url`: _urls
+* `user`: _users
+* `host`: _hosts
 
 Such that an option specification such as:
 
@@ -584,7 +586,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 12, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 13, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
