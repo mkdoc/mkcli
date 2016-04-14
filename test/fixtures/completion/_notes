@@ -2,22 +2,9 @@
 _notes(){
   local context="$curcontext" state state_descr line ret=1;
   typeset -A opt_args;
-
-  _arguments -C \
-    "1:cmd:->cmds" \
-    "*::arg:->args" && ret=0
-
-  case $state in
-    (cmds)
-      _values \
-        "notes commands" \
-        "add[Add a note]" \
-        "del[Delete a note]" \
-        "(ls list)"{ls,list}"[List notes]" \
-        "show[Show a note]" \
-        "edit[Edit a note]" && ret=0;
-      ;;
-    (args)
+  integer NORMARG;
+  case "$words[$NORMARG-1]" in
+    (-*)
       _arguments \
         "(-p --package)"{-p=,--package=}"[File type completion]:file:_files -g '*.json'" \
         "(-f --file)"{-f=,--file=}"[File completion]:file:_files" \
@@ -26,9 +13,12 @@ _notes(){
         "*"{-D=,--domain=}"[Domain completion]:domain:_domains" \
         "*"{-u=,--url=}"[URL completion]:url:_urls" \
         "(-h --help)"{-h,--help}"[Display help and exit]" \
-        "--version[Print version and exit]" \
+        "--version[Print version and exit]" && ret=0;
+    ;;
+    (*)
+      _arguments \
         ":file:_files -g '*.md'" && ret=0;
-      ;;
+    ;;
   esac
   return $ret;
 }
