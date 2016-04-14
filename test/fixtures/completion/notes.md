@@ -26,6 +26,7 @@ notes - program to test the completion capabilities
 * `-f, --file=[FILE]` File completion
 * `-d, --directory=[DIR]` Directory completion
 * `-H, --host=[HOST]` Host completion
+* `-D, --domain=[DOMAIN...]` Domain completion
 * `-u, --url=[URL...]` URL completion
 * `-h, --help` Display help and exit
 * `--version` Print version and exit

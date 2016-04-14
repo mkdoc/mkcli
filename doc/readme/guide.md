@@ -327,6 +327,16 @@ Completion scripts are currently available for zsh. To install a completion scri
 fpath=(/path/to/completion $fpath)
 ```
 
+A full working completion example is the [notes](/test/fixtures/completion) test fixture.
+
+Sometimes you may wish to reload a completion for testing purposes:
+
+```zsh
+unfunction _notes && autoload -U _notes
+```
+
+### Actions
+
 Some option value specifications map to zsh completion functions:
 
 <? @include actions.md ?>
@@ -338,7 +348,7 @@ Such that an option specification such as:
 * `-o, --output <dir>` Output directory
 ```
 
-Will result in the `_files` completion function being called to complete file paths for the `--input` option and the `_directories` function for the `--output` option.
+Will result in the `_files` completion function being called to complete file paths for the `--input` option and the `_directories` function for the `--output` option. Note that the ellipsis (...) multiple flag is respected so `--input` will be completed multiple times whilst `--output` will only complete once.
 
 For options that specify a list of types the `_values` completion function is called.
 

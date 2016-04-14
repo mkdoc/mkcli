@@ -23,6 +23,7 @@ _notes(){
         "(-f --file)"{-f=,--file=}"[File completion]:file:_files" \
         "(-d --directory)"{-d=,--directory=}"[Directory completion]:directory:_directories" \
         "(-H --host)"{-H=,--host=}"[Host completion]:host:_hosts" \
+        "*"{-D=,--domain=}"[Domain completion]:domain:_domains" \
         "*"{-u=,--url=}"[URL completion]:url:_urls" \
         "(-h --help)"{-h,--help}"[Display help and exit]" \
         "--version[Print version and exit]" \
