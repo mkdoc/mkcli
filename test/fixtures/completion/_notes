@@ -2,23 +2,81 @@
 _notes(){
   local context="$curcontext" state state_descr line ret=1;
   typeset -A opt_args;
-  integer NORMARG;
-  case "$words[$NORMARG-1]" in
-    (-*)
+  local options commands;
+  options=(
+    "(-p --package)"{-p=,--package=}"[File type completion]:file:_files -g '*.json'" 
+    "(-f --file)"{-f=,--file=}"[File completion]:file:_files" 
+    "(-d --directory)"{-d=,--directory=}"[Directory completion]:directory:_directories" 
+    "(-H --host)"{-H=,--host=}"[Host completion]:host:_hosts" 
+    "*"{-D=,--domain=}"[Domain completion]:domain:_domains" 
+    "*"{-u=,--url=}"[URL completion]:url:_urls" 
+    "(-h --help)"{-h,--help}"[Display help and exit]" 
+    "--version[Print version and exit]"
+  )
+  _arguments \
+    "1:cmd:->cmd" \
+    "*::arg:->args" && ret=0;
+
+  case $state in
+    (cmd)
+      commands=(
+        "add:Add a note" 
+        "del:Delete a note" 
+        "list:List notes" 
+        "show:Show a note" 
+        "edit:Edit a note"
+      )
+      _describe "notes commands" commands
       _arguments \
-        "(-p --package)"{-p=,--package=}"[File type completion]:file:_files -g '*.json'" \
-        "(-f --file)"{-f=,--file=}"[File completion]:file:_files" \
-        "(-d --directory)"{-d=,--directory=}"[Directory completion]:directory:_directories" \
-        "(-H --host)"{-H=,--host=}"[Host completion]:host:_hosts" \
-        "*"{-D=,--domain=}"[Domain completion]:domain:_domains" \
-        "*"{-u=,--url=}"[URL completion]:url:_urls" \
-        "(-h --help)"{-h,--help}"[Display help and exit]" \
-        "--version[Print version and exit]" && ret=0;
-    ;;
-    (*)
+        $options && return 0;
+      ;;
+    (args)
+      case "$words[1]" in
+        add)
+          _arguments \
+            "(-t --type)"{-t=,--type=}"[Type of note to create]" \
+            $options && return 0;
+        ;;
+        del)
+          _arguments \
+            $options && return 0;
+        ;;
+        ls|list)
+          commands=(
+            "todo:Show todos" 
+            "bugs:Show bugs" 
+            "features:Show features"
+          )
+          _describe "list commands" commands
+          case "$words[2]" in
+            todo)
+              _arguments \
+                $options && return 0;
+            ;;
+            bugs)
+              _arguments \
+                $options && return 0;
+            ;;
+            features)
+              _arguments \
+                $options && return 0;
+            ;;
+          esac
+          _arguments \
+            $options && return 0;
+        ;;
+        show)
+          _arguments \
+            $options && return 0;
+        ;;
+        edit)
+          _arguments \
+            $options && return 0;
+        ;;
+      esac
       _arguments \
-        ":file:_files -g '*.md'" && ret=0;
-    ;;
+        $options && ret=0;
+      ;;
   esac
   return $ret;
 }

@@ -116,7 +116,23 @@
         "add"
       ],
       "type": "command",
-      "name": "add"
+      "name": "add",
+      "summary": "add a note",
+      "options": {
+        "type": {
+          "key": "type",
+          "description": "Type of note to create",
+          "names": [
+            "-t",
+            "--type"
+          ],
+          "type": "option",
+          "extra": "=[TYPE]",
+          "required": false,
+          "multiple": false,
+          "name": "--type"
+        }
+      }
     },
     "del": {
       "key": "del",
@@ -135,7 +151,37 @@
         "list"
       ],
       "type": "command",
-      "name": "list"
+      "name": "list",
+      "summary": "list notes",
+      "commands": {
+        "todo": {
+          "key": "todo",
+          "description": "Show todos",
+          "names": [
+            "todo"
+          ],
+          "type": "command",
+          "name": "todo"
+        },
+        "bugs": {
+          "key": "bugs",
+          "description": "Show bugs",
+          "names": [
+            "bugs"
+          ],
+          "type": "command",
+          "name": "bugs"
+        },
+        "features": {
+          "key": "features",
+          "description": "Show features",
+          "names": [
+            "features"
+          ],
+          "type": "command",
+          "name": "features"
+        }
+      }
     },
     "show": {
       "key": "show",
