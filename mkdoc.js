@@ -1,6 +1,7 @@
 var mk = require('mktask')
   , fs = require('fs');
 
+// @task actions build the zsh actions list
 function actions(cb) {
   // get list of actions
   var map = require('./lib/render/zsh').actions
@@ -17,7 +18,7 @@ function actions(cb) {
   stream.end(buf);
 }
 
-// @task readme build the readme file.
+// @task readme build the readme file
 function readme(cb) {
   mk.doc('doc/readme.md')
     .pipe(mk.pi())
