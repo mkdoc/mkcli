@@ -20,6 +20,7 @@
       "extra": "=[FILE]",
       "required": false,
       "multiple": false,
+      "zaction": ":file:_files -g \\*.json",
       "name": "--package"
     },
     "file": {
