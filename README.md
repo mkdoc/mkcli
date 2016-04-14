@@ -44,7 +44,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
     - [Help Styles](#help-styles)
     - [Help Sections](#help-sections)
   - [Completion](#completion)
-  - [Actions](#actions)
+    - [Actions](#actions)
     - [Synopsis Completion](#synopsis-completion)
     - [Specification Completion](#specification-completion)
 - [Help](#help)
@@ -441,7 +441,7 @@ Sometimes you may wish to reload a completion for testing purposes:
 unfunction _notes && autoload -U _notes
 ```
 
-### Actions
+#### Actions
 
 Some option value specifications map to zsh completion functions:
 

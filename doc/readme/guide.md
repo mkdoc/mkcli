@@ -335,7 +335,7 @@ Sometimes you may wish to reload a completion for testing purposes:
 unfunction _notes && autoload -U _notes
 ```
 
-### Actions
+#### Actions
 
 Some option value specifications map to zsh completion functions:
 
