@@ -22,7 +22,7 @@ notes - program to test the completion capabilities
 
 # Options
 
-* `-p, --package=[FILE] :file:_files -g \*.json` File type completion
+* `-p, --package=[FILE] :file:_files -g '*.json'` File type completion
 * `-f, --file=[FILE]` File completion
 * `-d, --directory=[DIR]` Directory completion
 * `-H, --host=[HOST]` Host completion

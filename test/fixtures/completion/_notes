@@ -19,7 +19,7 @@ _notes(){
       ;;
     (args)
       _arguments \
-        "(-p --package)"{-p=,--package=}"[File type completion]:file:_files -g \*.json" \
+        "(-p --package)"{-p=,--package=}"[File type completion]:file:_files -g '*.json'" \
         "(-f --file)"{-f=,--file=}"[File completion]:file:_files" \
         "(-d --directory)"{-d=,--directory=}"[Directory completion]:directory:_directories" \
         "(-H --host)"{-H=,--host=}"[Host completion]:host:_hosts" \
