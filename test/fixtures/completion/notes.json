@@ -5,7 +5,75 @@
   "type": "program",
   "name": "notes",
   "summary": "program to test the completion capabilities",
+  "synopsis": [
+    "<command> [options] [files...]"
+  ],
   "options": {
+    "package": {
+      "key": "package",
+      "description": "File type completion",
+      "names": [
+        "-p",
+        "--package"
+      ],
+      "type": "option",
+      "extra": "=[FILE]",
+      "required": false,
+      "multiple": false,
+      "name": "--package"
+    },
+    "file": {
+      "key": "file",
+      "description": "File completion",
+      "names": [
+        "-f",
+        "--file"
+      ],
+      "type": "option",
+      "extra": "=[FILE]",
+      "required": false,
+      "multiple": false,
+      "name": "--file"
+    },
+    "directory": {
+      "key": "directory",
+      "description": "Directory completion",
+      "names": [
+        "-d",
+        "--directory"
+      ],
+      "type": "option",
+      "extra": "=[DIR]",
+      "required": false,
+      "multiple": false,
+      "name": "--directory"
+    },
+    "host": {
+      "key": "host",
+      "description": "Host completion",
+      "names": [
+        "-H",
+        "--host"
+      ],
+      "type": "option",
+      "extra": "=[HOST]",
+      "required": false,
+      "multiple": false,
+      "name": "--host"
+    },
+    "url": {
+      "key": "url",
+      "description": "URL completion",
+      "names": [
+        "-u",
+        "--url"
+      ],
+      "type": "option",
+      "extra": "=[URL...]",
+      "required": false,
+      "multiple": true,
+      "name": "--url"
+    },
     "help": {
       "key": "help",
       "description": "Display help and exit",
@@ -25,5 +93,59 @@
       "type": "flag",
       "name": "--version"
     }
-  }
+  },
+  "commands": {
+    "add": {
+      "key": "add",
+      "description": "Add a note",
+      "names": [
+        "add"
+      ],
+      "type": "command",
+      "name": "add"
+    },
+    "del": {
+      "key": "del",
+      "description": "Delete a note",
+      "names": [
+        "del"
+      ],
+      "type": "command",
+      "name": "del"
+    },
+    "list": {
+      "key": "list",
+      "description": "List notes",
+      "names": [
+        "ls",
+        "list"
+      ],
+      "type": "command",
+      "name": "list"
+    },
+    "show": {
+      "key": "show",
+      "description": "Show a note",
+      "names": [
+        "show"
+      ],
+      "type": "command",
+      "name": "show"
+    },
+    "edit": {
+      "key": "edit",
+      "description": "Edit a note",
+      "names": [
+        "edit"
+      ],
+      "type": "command",
+      "name": "edit"
+    }
+  },
+  "zsh": [
+    {
+      "info": "zsh",
+      "literal": ":file:_files"
+    }
+  ]
 }
