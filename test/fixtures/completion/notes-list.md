@@ -5,7 +5,7 @@ list - list notes
 # Synopsis
 
 ```
-<command>
+[command] [options]
 ```
 
 # Commands

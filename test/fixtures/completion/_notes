@@ -26,7 +26,7 @@ _notes(){
         "show:Show a note" 
         "edit:Edit a note"
       )
-      _describe "notes commands" commands
+      _describe "notes commands" commands && return 0;
       _arguments \
         $options && return 0;
       ;;

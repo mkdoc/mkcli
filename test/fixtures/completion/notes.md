@@ -5,7 +5,7 @@ notes - program to test the completion capabilities
 # Synopsis
 
 ```
-[command] [options] [files...]
+<command> [options] [files...]
 ```
 
 ```zsh
