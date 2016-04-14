@@ -38,7 +38,7 @@ _notes(){
       case "$words[1]" in
         add)
           _arguments \
-            "(-t --type)"{-t=,--type=}"[Type of note to create]" \
+            "(-t --type)"{-t=,--type=}"[Type of note to create]:value:_values select  'todo' 'bug' 'feature'" \
             $options && ret=0;
         ;;
         del)
@@ -55,8 +55,8 @@ _notes(){
             (cmd)
               commands=(
                 "todo:Show todos" 
-                "bugs:Show bugs" 
-                "features:Show features"
+                "bug:Show bugs" 
+                "feature:Show features"
               )
               _describe "list commands" commands && ret=0
               _arguments \
@@ -68,11 +68,11 @@ _notes(){
                   _arguments \
                     $options && ret=0;
                 ;;
-                bugs)
+                bug)
                   _arguments \
                     $options && ret=0;
                 ;;
-                features)
+                feature)
                   _arguments \
                     $options && ret=0;
                 ;;

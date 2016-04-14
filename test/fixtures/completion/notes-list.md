@@ -11,5 +11,5 @@ list - list notes
 # Commands
 
 * `todo` Show todos
-* `bugs` Show bugs
-* `features` Show features
+* `bug` Show bugs
+* `feature` Show features
