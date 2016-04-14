@@ -26,20 +26,18 @@ _notes(){
         "show:Show a note" 
         "edit:Edit a note"
       )
-      _describe "notes commands" commands && return 0;
-      _arguments \
-        $options && return 0;
+      _describe "notes commands" commands && ret=0
       ;;
     (args)
       case "$words[1]" in
         add)
           _arguments \
             "(-t --type)"{-t=,--type=}"[Type of note to create]" \
-            $options && return 0;
+            $options && ret=0;
         ;;
         del)
           _arguments \
-            $options && return 0;
+            $options && ret=0;
         ;;
         ls|list)
           commands=(
@@ -51,31 +49,29 @@ _notes(){
           case "$words[2]" in
             todo)
               _arguments \
-                $options && return 0;
+                $options && ret=0;
             ;;
             bugs)
               _arguments \
-                $options && return 0;
+                $options && ret=0;
             ;;
             features)
               _arguments \
-                $options && return 0;
+                $options && ret=0;
             ;;
           esac
           _arguments \
-            $options && return 0;
+            $options && ret=0;
         ;;
         show)
           _arguments \
-            $options && return 0;
+            $options && ret=0;
         ;;
         edit)
           _arguments \
-            $options && return 0;
+            $options && ret=0;
         ;;
       esac
-      _arguments \
-        $options && ret=0;
       ;;
   esac
   return $ret;
