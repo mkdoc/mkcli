@@ -20,7 +20,7 @@
       "extra": "=[FILE]",
       "required": false,
       "multiple": false,
-      "zaction": ":file:_files -g \\*.json",
+      "zaction": ":file:_files -g '*.json'",
       "name": "--package"
     },
     "file": {
@@ -61,6 +61,19 @@
       "required": false,
       "multiple": false,
       "name": "--host"
+    },
+    "domain": {
+      "key": "domain",
+      "description": "Domain completion",
+      "names": [
+        "-D",
+        "--domain"
+      ],
+      "type": "option",
+      "extra": "=[DOMAIN...]",
+      "required": false,
+      "multiple": true,
+      "name": "--domain"
     },
     "url": {
       "key": "url",
@@ -146,7 +159,7 @@
   "zsh": [
     {
       "info": "zsh",
-      "literal": ":file:_files"
+      "literal": ":file:_files -g '*.md'"
     }
   ]
 }

@@ -1,4 +1,20 @@
+Usage: notes <command> [options] [files...]
+
+Commands
+  add                     Add a note
+  del                     Delete a note
+  ls, list                List notes
+  show                    Show a note
+  edit                    Edit a note
+
 Options
+  -p, --package=[FILE]    File type completion
+  -f, --file=[FILE]       File completion
+  -d, --directory=[DIR]   Directory completion
+  -H, --host=[HOST]       Host completion
+  -D, --domain=[DOMAIN...] 
+                          Domain completion
+  -u, --url=[URL...]      URL completion
   -h, --help              Display help and exit
   --version               Print version and exit
 

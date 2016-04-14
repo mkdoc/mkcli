@@ -9,7 +9,7 @@ notes - program to test the completion capabilities
 ```
 
 ```zsh
-:file:_files
+:file:_files -g '*.md'
 ```
 
 # Commands
