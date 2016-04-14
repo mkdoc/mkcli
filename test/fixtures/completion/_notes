@@ -16,7 +16,7 @@ _notes(){
   )
 
   actions=(
-    ":file:_files -g '*.md'"
+    "*:file:_files -g '*.md'"
   )
 
   _arguments \
@@ -39,11 +39,13 @@ _notes(){
         add)
           _arguments \
             "(-t --type)"{-t=,--type=}"[Type of note to create]:value:_values select  'todo' 'bug' 'feature'" \
-            $options && ret=0;
+            $options \
+            $actions && ret=0;
         ;;
         del)
           _arguments \
-            $options && ret=0;
+            $options \
+            $actions && ret=0;
         ;;
         ls|list)
 
@@ -60,21 +62,25 @@ _notes(){
               )
               _describe "list commands" commands && ret=0
               _arguments \
-                $options && return 0;
+                $options \
+                $actions && return 0;
               ;;
             (args)
               case "$words[1]" in
                 todo)
                   _arguments \
-                    $options && ret=0;
+                    $options \
+                    $actions && ret=0;
                 ;;
                 bug)
                   _arguments \
-                    $options && ret=0;
+                    $options \
+                    $actions && ret=0;
                 ;;
                 feature)
                   _arguments \
-                    $options && ret=0;
+                    $options \
+                    $actions && ret=0;
                 ;;
               esac
               ;;
@@ -82,11 +88,13 @@ _notes(){
         ;;
         show)
           _arguments \
-            $options && ret=0;
+            $options \
+            $actions && ret=0;
         ;;
         edit)
           _arguments \
-            $options && ret=0;
+            $options \
+            $actions && ret=0;
         ;;
       esac
       ;;
