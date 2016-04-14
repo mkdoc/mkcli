@@ -1,4 +1,21 @@
-var mk = require('mktask');
+var mk = require('mktask')
+  , fs = require('fs');
+
+function actions(cb) {
+  // get list of actions
+  var map = require('./lib/render/zsh').actions
+    , buf = ''
+    , stream = fs.createWriteStream('doc/readme/actions.md');
+
+  stream.once('finish', cb);
+
+  // convert to markdown
+  for(var k in map) {
+    buf += '* ' + k + ': `' + map[k] + '`\n'; 
+  }
+  buf += '\n';
+  stream.end(buf);
+}
 
 // @task readme build the readme file.
 function readme(cb) {
@@ -13,4 +30,5 @@ function readme(cb) {
     .on('finish', cb);
 }
 
-mk.task(readme);
+mk.task(actions);
+mk.task([actions], readme);

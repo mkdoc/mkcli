@@ -434,11 +434,13 @@ fpath=(/path/to/completion $fpath)
 
 Some option value specifications map to zsh completion functions:
 
-* `file`: _files
-* `dir`: _directories
-* `url`: _urls
-* `user`: _users
-* `host`: _hosts
+* user: `:user:_users`
+* group: `:group:_groups`
+* host: `:host:_hosts`
+* domain: `:domain:_domains`
+* file: `:file:_files`
+* dir: `:directory:_directories`
+* url: `:url:_urls`
 
 Such that an option specification such as:
 
@@ -478,6 +480,8 @@ You may wish to change the zsh action taken per option, this can be done by appe
 ```markdown
 * `-p, --package=[FILE] :file:_files -g '*.json'` Package descriptor
 ```
+
+Which will complete files with a `.json` extension for the `--package` option.
 
 ## Help
 
