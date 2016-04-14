@@ -44,6 +44,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
     - [Help Styles](#help-styles)
     - [Help Sections](#help-sections)
   - [Completion](#completion)
+    - [Synopsis](#synopsis-1)
 - [Help](#help)
 - [API](#api)
   - [src](#src)
@@ -455,6 +456,20 @@ For options that specify a list of types the `_values` completion function is ca
 
 Results in automatic completion for the `--type` option to one of `json` or `yaml`.
 
+#### Synopsis
+
+The program synopsis section is also inspected and will use completion functions when a match is available, so a synopsis such as:
+
+```markdown
+    [options] [files...]
+```
+
+Will result in the _files completion function called, see above for the list of matches and completion functions.
+
+Sometimes you may need to create a custom completion list; you can set the info string of fenced code blocks in the synopsis section to inject scripts. The value may be either `zsh-locals` to inject code into the beginning of the body of the generated completion function and `zsh` to add to the list of completion actions.
+
+A real-world example is [mk](https://github.com/mkdoc/mkdoc#mk) ([program definition](https://raw.githubusercontent.com/mkdoc/mkdoc/master/doc/cli/mk.md) and [compiled completion script](https://github.com/mkdoc/mkdoc/blob/master/doc/zsh/_mk)) which completes on the available task names.
+
 ## Help
 
 ```
@@ -586,7 +601,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 13, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 14, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
