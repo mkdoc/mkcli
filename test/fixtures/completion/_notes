@@ -24,9 +24,9 @@ _notes(){
         "(-d --directory)"{-d=,--directory=}"[Directory completion]:directory:_directories" \
         "(-H --host)"{-H=,--host=}"[Host completion]:host:_hosts" \
         "*"{-D=,--domain=}"[Domain completion]:domain:_domains" \
-        "*"{-u=,--url=}"[URL completion]:url:_urls" \
-        "(-h --help)"{-h,--help}"[Display help and exit]" \
-        "--version[Print version and exit]" \
+        "*"{-u=,--url=}"[URL completion's]:url:_urls" \
+        "(-h --help)"{-h,--help}"[Display "help" and exit]" \
+        "--version[Print version and exit"]" \
         ":file:_files" && ret=0;
       ;;
   esac

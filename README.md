@@ -470,6 +470,8 @@ For options that specify a list of types the `_values` completion function is ca
 
 Results in automatic completion for the `--type` option to one of `json` or `yaml`.
 
+Actions are enclosed in double quotes (") so you may use single quotes and paired double quotes but not a single double quote which will generate an `unmatched "` zsh error.
+
 #### Synopsis Completion
 
 The program synopsis section is inspected and will use completion functions when a match is available, so a synopsis such as:
