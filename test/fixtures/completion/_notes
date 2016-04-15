@@ -74,9 +74,46 @@ _notes(){
                     $actions && ret=0;
                 ;;
                 bug)
+
                   _arguments \
-                    $options \
-                    $actions && ret=0;
+                    "1:cmd:->cmd" \
+                    "*::arg:->args" && ret=0;
+
+                  case $state in
+                    (cmd)
+                      commands=(
+                        "low:Low priority bugs" 
+                        "medium:Medium priority bugs" 
+                        "high:High priority bugs" 
+                        "critical:Critical bugs"
+                      )
+                      _describe "bug commands" commands && ret=0
+                      ;;
+                    (args)
+                      case "$words[1]" in
+                        low)
+                          _arguments \
+                            $options \
+                            $actions && ret=0;
+                        ;;
+                        medium)
+                          _arguments \
+                            $options \
+                            $actions && ret=0;
+                        ;;
+                        high)
+                          _arguments \
+                            $options \
+                            $actions && ret=0;
+                        ;;
+                        critical)
+                          _arguments \
+                            $options \
+                            $actions && ret=0;
+                        ;;
+                      esac
+                      ;;
+                  esac
                 ;;
                 feature)
                   _arguments \
