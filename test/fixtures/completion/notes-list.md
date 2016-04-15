@@ -13,3 +13,7 @@ list - list notes
 * `todo` Show todos
 * `bug` Show bugs
 * `feature` Show features
+
+# Options
+
+* `--[no]-private` Include or exclude private notes

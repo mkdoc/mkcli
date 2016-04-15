@@ -62,6 +62,7 @@ _notes(){
               )
               _describe "list commands" commands && ret=0
               _arguments \
+                "(--private --no-private)"{--private,--no-private}"[Include or exclude private notes]" \
                 $options \
                 $actions && return 0;
               ;;
