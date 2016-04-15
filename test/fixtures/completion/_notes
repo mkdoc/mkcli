@@ -37,17 +37,18 @@ _notes(){
     (args)
       case "$words[1]" in
         add)
-          _arguments \
-            "(-t --type)"{-t=,--type=}"[Type of note to create]:value:_values select  'todo' 'bug' 'feature'" \
-            $options \
-            $actions && ret=0;
+          options=(
+            "(-t --type)"{-t=,--type=}"[Type of note to create]:value:_values select  'todo' 'bug' 'feature'"
+            $options
+          )
         ;;
         del)
-          _arguments \
-            $options \
-            $actions && ret=0;
         ;;
         ls|list)
+          options=(
+            "(--private --no-private)"{--private,--no-private}"[Include or exclude private notes]"
+            $options
+          )
 
           _arguments \
             "1:cmd:->cmd" \
@@ -62,16 +63,12 @@ _notes(){
               )
               _describe "list commands" commands && ret=0
               _arguments \
-                "(--private --no-private)"{--private,--no-private}"[Include or exclude private notes]" \
                 $options \
                 $actions && return 0;
               ;;
             (args)
               case "$words[1]" in
                 todo)
-                  _arguments \
-                    $options \
-                    $actions && ret=0;
                 ;;
                 bug)
 
@@ -92,47 +89,26 @@ _notes(){
                     (args)
                       case "$words[1]" in
                         low)
-                          _arguments \
-                            $options \
-                            $actions && ret=0;
                         ;;
                         medium)
-                          _arguments \
-                            $options \
-                            $actions && ret=0;
                         ;;
                         high)
-                          _arguments \
-                            $options \
-                            $actions && ret=0;
                         ;;
                         critical)
-                          _arguments \
-                            $options \
-                            $actions && ret=0;
                         ;;
                       esac
                       ;;
                   esac
                 ;;
                 feature)
-                  _arguments \
-                    $options \
-                    $actions && ret=0;
                 ;;
               esac
               ;;
           esac
         ;;
         show)
-          _arguments \
-            $options \
-            $actions && ret=0;
         ;;
         edit)
-          _arguments \
-            $options \
-            $actions && ret=0;
         ;;
       esac
       ;;
