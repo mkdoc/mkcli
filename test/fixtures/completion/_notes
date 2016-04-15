@@ -1,7 +1,7 @@
 #compdef notes
 _notes(){
-  local context state state_descr line ret=1;
   typeset -A opt_args;
+  local context state state_descr line ret=1;
   local actions options commands;
 
   options=(
@@ -28,7 +28,7 @@ _notes(){
       commands=(
         "add:Add a note" 
         "del:Delete a note" 
-        "list:List notes" 
+        {ls,list}":List notes" 
         "show:Show a note" 
         "edit:Edit a note"
       )
