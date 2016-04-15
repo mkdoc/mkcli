@@ -1,6 +1,6 @@
 #compdef notes
 _notes(){
-  local context="$curcontext" state state_descr line ret=1;
+  local context state state_descr line ret=1;
   typeset -A opt_args;
   local actions options commands;
 
@@ -100,6 +100,9 @@ _notes(){
       esac
       ;;
   esac
+  (( $ret == 1 )) && _arguments \
+    $options \
+    $actions && ret=0;
   return $ret;
 }
 
