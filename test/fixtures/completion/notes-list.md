@@ -8,6 +8,10 @@ list - list notes
 [command] [options]
 ```
 
+```zsh-locals
+typeset -A listLocal;
+```
+
 # Commands
 
 * `todo` Show todos

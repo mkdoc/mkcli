@@ -501,7 +501,7 @@ Which will complete files with a `.json` extension for the `--package` option.
 
 Commands are recursively added to the completion script; they are completed using the following rules:
 
-* Required commands (`<command>` in the synopsis) will not list options.
+* Required commands (`<command>` in the synopsis) will not list options by default.
 * Command options inherit from the global options.
 * Command options cascade to child options.
 * Rest pattern matches (`*: :file:_files` for example) are respected.

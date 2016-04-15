@@ -15,6 +15,8 @@ _notes(){
     "--version[Print version and exit]"
   )
 
+  typeset -A notesLocal;
+
   actions=(
     "*:file:_files -g '*.md'"
   )
@@ -37,6 +39,10 @@ _notes(){
     (args)
       case "$words[1]" in
         add)
+
+          actions=(
+            "*:dir:_directories"
+          )
           options=(
             "(-t --type)"{-t=,--type=}"[Type of note to create]:value:_values select  'todo' 'bug' 'feature'"
             $options
@@ -45,6 +51,9 @@ _notes(){
         del)
         ;;
         ls|list)
+
+          typeset -A listLocal;
+
           options=(
             "(--private --no-private)"{--private,--no-private}"[Include or exclude private notes]" 
             "--\[enable|disable\]-feature[Enable or disable a feature]"

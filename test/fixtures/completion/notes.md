@@ -8,6 +8,10 @@ notes - program to test the completion capabilities
 <command> [options] [files...]
 ```
 
+```zsh-locals
+typeset -A notesLocal;
+```
+
 ```zsh
 *:file:_files -g '*.md'
 ```
