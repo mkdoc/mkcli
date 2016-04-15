@@ -383,3 +383,37 @@ You may wish to change the zsh action taken per option, this can be done by appe
 ```
 
 Which will complete files with a `.json` extension for the `--package` option.
+
+#### Command Completion
+
+Commands are recursively added to the completion script; they are completed using the following rules:
+
+* Required commands (`<command>` in the synopsis) will not list options.
+* Command options inherit from the global options.
+* Command options cascade to child options.
+* Rest pattern matches (`*: :file:_files` for example) are respected.
+
+It is recommended you use a program synopsis with the command first:
+
+```markdown
+# Synopsis
+
+    <command> [options] [files...] 
+```
+
+Or if the command is not required:
+
+```markdown
+# Synopsis
+
+    [command] [options] [files...] 
+```
+
+Which is because command completion is terminated when an option is intermingled with the command hierarchy. Consider a program that has the command structure `notes > list > bug|todo|feature` if you present a command line such as:
+
+```shell
+notes list --private
+```
+
+Completion will no longer be attempted on the `list` sub-commands. To put it another way *commands must be consecutive* for command completion to occur.
+
