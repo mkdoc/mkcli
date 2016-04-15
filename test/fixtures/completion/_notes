@@ -46,7 +46,8 @@ _notes(){
         ;;
         ls|list)
           options=(
-            "(--private --no-private)"{--private,--no-private}"[Include or exclude private notes]"
+            "(--private --no-private)"{--private,--no-private}"[Include or exclude private notes]" 
+            "--[enable|disable]-feature[Enable or disable a feature]"
             $options
           )
 

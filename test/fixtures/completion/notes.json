@@ -130,6 +130,11 @@
           "extra": "=[TYPE]",
           "required": false,
           "multiple": false,
+          "kind": [
+            "todo",
+            "bug",
+            "feature"
+          ],
           "name": "--type"
         }
       }
@@ -153,6 +158,29 @@
       "type": "command",
       "name": "list",
       "summary": "list notes",
+      "synopsis": [
+        "[command] [options]"
+      ],
+      "options": {
+        "private": {
+          "key": "private",
+          "description": "Include or exclude private notes",
+          "names": [
+            "--[no]-private"
+          ],
+          "type": "flag",
+          "name": "--[no]-private"
+        },
+        "[enable|disable]Feature": {
+          "key": "[enable|disable]Feature",
+          "description": "Enable or disable a feature",
+          "names": [
+            "--[enable|disable]-feature"
+          ],
+          "type": "flag",
+          "name": "--[enable|disable]-feature"
+        }
+      },
       "commands": {
         "todo": {
           "key": "todo",
@@ -163,23 +191,65 @@
           "type": "command",
           "name": "todo"
         },
-        "bugs": {
-          "key": "bugs",
+        "bug": {
+          "key": "bug",
           "description": "Show bugs",
           "names": [
-            "bugs"
+            "bug"
           ],
           "type": "command",
-          "name": "bugs"
+          "name": "bug",
+          "summary": "list bugs",
+          "synopsis": [
+            "<command> [options]"
+          ],
+          "commands": {
+            "low": {
+              "key": "low",
+              "description": "Low priority bugs",
+              "names": [
+                "low"
+              ],
+              "type": "command",
+              "name": "low"
+            },
+            "medium": {
+              "key": "medium",
+              "description": "Medium priority bugs",
+              "names": [
+                "medium"
+              ],
+              "type": "command",
+              "name": "medium"
+            },
+            "high": {
+              "key": "high",
+              "description": "High priority bugs",
+              "names": [
+                "high"
+              ],
+              "type": "command",
+              "name": "high"
+            },
+            "critical": {
+              "key": "critical",
+              "description": "Critical bugs",
+              "names": [
+                "critical"
+              ],
+              "type": "command",
+              "name": "critical"
+            }
+          }
         },
-        "features": {
-          "key": "features",
+        "feature": {
+          "key": "feature",
           "description": "Show features",
           "names": [
-            "features"
+            "feature"
           ],
           "type": "command",
-          "name": "features"
+          "name": "feature"
         }
       }
     },
@@ -205,7 +275,7 @@
   "zsh": [
     {
       "info": "zsh",
-      "literal": ":file:_files -g '*.md'"
+      "literal": "*:file:_files -g '*.md'"
     }
   ]
 }

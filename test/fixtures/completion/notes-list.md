@@ -17,3 +17,4 @@ list - list notes
 # Options
 
 * `--[no]-private` Include or exclude private notes
+* `--[enable|disable]-feature` Enable or disable a feature
