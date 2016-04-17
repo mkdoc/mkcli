@@ -1,7 +1,15 @@
 function argv(req, cb) {
   var parser = req.conf.impl || require('cli-argparse')
-    , args = parser(req.argv, req.hints)
+    , args
+    , conf = req.conf
     , k;
+
+  // respect hints plugin
+  for(k in req.hints) {
+    conf[k] = req.hints[k];
+  }
+
+  args = parser(req.argv, conf);
 
   for(k in args.flags) {
     this[k] = args.flags[k];
