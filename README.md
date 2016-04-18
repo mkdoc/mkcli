@@ -62,19 +62,30 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 ## Example
 
-To compile all output files run:
+To compile all output types run:
 
 ```shell
 mkcli program.md
 ```
 
-Or compile a specific output type:
+Output files are written to the same directory as the input file.
+
+Compile all output types to a specific directory:
 
 ```shell
-mkcli -t json program.md
-mkcli -t help program.md
+mkcli program.md -o build
+```
+
+Compile a specific output type:
+
+```shell
 mkcli -t man program.md
-mkcli -t zsh program.md
+```
+
+Compile a specific output type to a particular directory:
+
+```shell
+mkcli -t zsh program.md --zsh build/zsh
 ```
 
 You may pipe input for more control over the output. For example to set a man page title:
@@ -83,7 +94,13 @@ You may pipe input for more control over the output. For example to set a man pa
 mkcat program.md | mkcli -t man | mkman --title program > program.1
 ```
 
-If you have a lot of programs pass a directory and all `md` files in the directory are compiled, see [help](#help) for more options.
+If you have a lot of programs pass a directory and all `md` files in the directory are compiled:
+
+```shell
+mkcli doc/cli -o build
+```
+
+See [help](#help) for more options.
 
 Example files for a simple working program are in [doc/example](https://github.com/mkdoc/mkcli/blob/master/doc/example):
 
@@ -535,8 +552,7 @@ Completion will no longer be attempted on the `list` sub-commands. To put it ano
 ```
 Usage: mkcli [options] [files...]
 
-  Compiles markdown command line interface definitions to JSON and renders to
-  help text files, man pages and shell completion scripts.
+  Compiles markdown cli definitions.
 
 Options
   -p, --package=[FILE]    Use package descriptor
@@ -564,7 +580,7 @@ Options
   -h, --help              Display help and exit
   --version               Print the version and exit
 
-mkcli@1.0.22 https://github.com/mkdoc/mkcli
+mkcli@1.0.26 https://github.com/mkdoc/mkcli
 ```
 
 ## API
@@ -661,7 +677,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 15, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 18, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast

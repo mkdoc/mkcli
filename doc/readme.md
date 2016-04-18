@@ -16,7 +16,7 @@ Encourages a document first approach to writing command line interfaces in a flu
 <!-- @toc -->
 ***
 
-<? @include {=readme} example.md guide.md help.md ?>
+<? @include {=readme} example.md example-files.md guide.md help.md ?>
 
 <? @exec mkapi index.js --title=API --level=2 ?>
 <? @include {=readme} license.md links.md ?>
