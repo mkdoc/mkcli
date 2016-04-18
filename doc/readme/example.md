@@ -32,7 +32,7 @@ You may pipe input for more control over the output. For example to set a man pa
 mkcat program.md | mkcli -t man | mkman --title program > program.1
 ```
 
-If you have a lot of programs pass a directory and all `md` files in the directory are compiled:
+If you have a lot of programs pass a directory and all markdown documents in the directory are compiled:
 
 ```shell
 mkcli doc/cli -o build
