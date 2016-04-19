@@ -31,7 +31,8 @@ function cli(opts, cb) {
   var stream = src(opts)
     , parser = stream
     , ast = require('mkast')
-    , renderer;
+    , renderer
+    , builder;
 
   try {
     renderer = dest(opts)
@@ -53,7 +54,8 @@ function cli(opts, cb) {
     .pipe(stream);
 
   if(compiles) {
-    stream = stream.pipe(compiler(opts)); 
+    builder = compiler(opts);
+    stream = stream.pipe(builder); 
   }
 
   stream = stream.pipe(renderer)
@@ -67,6 +69,7 @@ function cli(opts, cb) {
 
   if(cb) {
     parser.once('error', cb);
+    builder.once('error', cb);
     opts.output
       .once('error', cb)
       .once('finish', cb);
