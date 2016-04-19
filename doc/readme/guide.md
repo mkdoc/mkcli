@@ -4,19 +4,13 @@
 
 The markdown document defines sections that start with a level one heading and continue until the next level one heading or the end of file is reached.
 
-The sections that have special meaning to the compiler are:
-
-* [NAME](#name)
-* [SYNOPSIS](#synopsis)
-* [DESCRIPTION](#description)
-* [COMMANDS](#commands)
-* [OPTIONS](#arguments)
+The sections that have special meaning to the compiler are [NAME](#name), [SYNOPSIS](#synopsis), [DESCRIPTION](#description), [COMMANDS](#commands) and [OPTIONS](#arguments).
 
 It is considered best practice to declare these sections in the order listed.
 
 All other sections are deemed to be man page sections they are ignored from help output by default (but may be included at compile time) and are always included when generating man pages.
 
-Section headings are not case-sensitive so you can use upper case, title case or lower case. 
+Section headings are not case-sensitive so you can use upper case, title case or lower case but they must match exactly.
 
 #### Name
 
