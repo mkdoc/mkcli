@@ -33,7 +33,7 @@ describe('help renderer:', function() {
 
     output.once('finish', function() {
       var result = '' + fs.readFileSync(target)
-      expect(Boolean(~result.indexOf('Program Name'))).to.eql(true);
+      expect(Boolean(~result.indexOf('Program-Name'))).to.eql(true);
       expect(Boolean(~result.indexOf('foo@1.0.0')))
         .to.eql(true);
       expect(Boolean(~result.indexOf('http://example.com')))

@@ -1,6 +1,6 @@
 # Name
 
-bug - list bugs
+notes list bug - list bugs
 
 # Synopsis
 

@@ -1,6 +1,6 @@
 # Name
 
-list - list notes
+notes list - list notes
 
 # Synopsis
 

@@ -25,7 +25,7 @@ describe('json:', function() {
 
     output.once('finish', function() {
       var result = JSON.parse('' + fs.readFileSync(target));
-      expect(result.name).to.eql('Program Name');
+      expect(result.name).to.eql('Program-Name');
       done();
     })
   });
@@ -48,7 +48,7 @@ describe('json:', function() {
     
     function onFinish() {
       var result = JSON.parse('' + fs.readFileSync(target));
-      expect(result.name).to.eql('Program Name');
+      expect(result.name).to.eql('Program-Name');
       done();
     }
 
