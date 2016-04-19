@@ -231,7 +231,9 @@ mkcat program.md | mkcli --desc 1 | mktext
 
 #### Arguments
 
-Program arguments are declared with a heading of *Options* and a list following the heading:
+Program arguments are declared with a heading of *Options* and a list following the heading.
+
+Note the list bullet character `+` is preferred because it creates a more idiomatic listing in generated man pages.
 
 ```markdown
 # Name
@@ -240,8 +242,8 @@ prg - short program summary
 
 # Options
 
-* `-i, --input [FILE...]` Input files
-* `-o, --output [FILE]` Output file
++ `-i, --input [FILE...]` Input files
++ `-o, --output [FILE]` Output file
 ```
 
 An argument is declared as a list item whose first child is an inline code element which defines a *specification*.
@@ -255,7 +257,7 @@ The remaining list item content after the specification is treated as a descript
 An argument specification with no value is treated as a flag option:
 
 ```markdown
-* `-v, --verbose` Print more information
++ `-v, --verbose` Print more information
 ```
 
 ##### Options
@@ -263,7 +265,7 @@ An argument specification with no value is treated as a flag option:
 To create an option argument specify a value in either `[]` or `<>`:
 
 ```markdown
-* `-o, --output [FILE]` Output file
++ `-o, --output [FILE]` Output file
 ```
 
 ###### Required
@@ -271,7 +273,7 @@ To create an option argument specify a value in either `[]` or `<>`:
 When the `<>` notation is used it indicates that that the option is required:
 
 ```markdown
-* `-t, --type <TYPE>` Output format
++ `-t, --type <TYPE>` Output format
 ```
 
 The parsed option will have the `required` flag set.
@@ -281,7 +283,7 @@ The parsed option will have the `required` flag set.
 To signify that an option argument is repeatable include an ellipsis:
 
 ```markdown
-* `-i, --input [FILE...]` Input files
++ `-i, --input [FILE...]` Input files
 ```
 
 The parsed option will have the `multiple` flag set.
@@ -291,7 +293,7 @@ The parsed option will have the `multiple` flag set.
 You can associate some type information with the `{}` notation:
 
 ```markdown
-* `-i, --indent [NUM] {Number}` Amount of indentation
++ `-i, --indent [NUM] {Number}` Amount of indentation
 ```
 
 The parsed option will have the `kind` property set to `Number`.
@@ -299,7 +301,7 @@ The parsed option will have the `kind` property set to `Number`.
 You can delimit multiple types with `|` and `kind` is expanded to an array. This is useful to indicate an argument may be of multiple types or if you want to treat an argument value as an enum:
 
 ```markdown
-* `-t, --type [VAL] {json|help|man}` Renderer type
++ `-t, --type [VAL] {json|help|man}` Renderer type
 ```
 
 ###### Default Value
@@ -307,7 +309,7 @@ You can delimit multiple types with `|` and `kind` is expanded to an array. This
 To specify a default value for the option use the `=` operator in the type:
 
 ```markdown
-* `-i, --indent [NUM] {Number=2}` Amount of indentation
++ `-i, --indent [NUM] {Number=2}` Amount of indentation
 ```
 
 The parsed option will have the `kind` property set to `Number` and the  `value` property set to `2`.
@@ -315,7 +317,7 @@ The parsed option will have the `kind` property set to `Number` and the  `value`
 You can just specify the default value using:
 
 ```markdown
-* `-i, --indent [NUM] {=2}` Amount of indentation
++ `-i, --indent [NUM] {=2}` Amount of indentation
 ```
 
 In which case the `kind` property will be `undefined` and the  `value` property is set to `2`.
@@ -331,8 +333,8 @@ prg - short program summary
 
 # Commands
 
-* `ls, list` List tasks
-* `i, info` Print task information
++ `ls, list` List tasks
++ `i, info` Print task information
 ```
 
 They allow you to create complex programs with options specific to a command.
@@ -346,8 +348,8 @@ list - list tasks
 
 # Options
 
-* `-a, --all` List all tasks
-* `-t=[TYPE...]` List tasks of TYPE
++ `-a, --all` List all tasks
++ `-t=[TYPE...]` List tasks of TYPE
 ```
 
 Will result in the compiled tree containing options specific to the `list` command.
@@ -365,11 +367,11 @@ prg - short program summary
 
 # Commands
 
-* `tasks: ls, list` List tasks
++ `tasks: ls, list` List tasks
 
 # Options
 
-* `verbose: -v` Print more information
++ `verbose: -v` Print more information
 ```
 
 #### Manual Sections
@@ -523,8 +525,8 @@ Some option value specifications map to zsh completion functions:
 Such that an option specification such as:
 
 ```markdown
-* `-i, --input [file...]` Input files
-* `-o, --output <dir>` Output directory
++ `-i, --input [file...]` Input files
++ `-o, --output <dir>` Output directory
 ```
 
 Will result in the `_files` completion function being called to complete file paths for the `--input` option and the `_directories` function for the `--output` option. Note that the ellipsis (...) multiple flag is respected so `--input` will be completed multiple times whilst `--output` will only complete once.
@@ -532,7 +534,7 @@ Will result in the `_files` completion function being called to complete file pa
 For options that specify a list of types the `_values` completion function is called.
 
 ```markdown
-* `-t, --type=[TYPE] {json|yaml}` Output type
++ `-t, --type=[TYPE] {json|yaml}` Output type
 ```
 
 Results in automatic completion for the `--type` option to one of `json` or `yaml`.
@@ -558,7 +560,7 @@ A real-world example is [mk](https://github.com/mkdoc/mkdoc#mk) ([program defini
 You may wish to change the zsh action taken per option, this can be done by appending a colon and the zsh action to an option specification:
 
 ```markdown
-* `-p, --package=[FILE] :file:_files -g '*.json'` Package descriptor
++ `-p, --package=[FILE] :file:_files -g '+.json'` Package descriptor
 ```
 
 Which will complete files with a `.json` extension for the `--package` option.
