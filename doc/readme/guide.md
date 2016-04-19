@@ -259,6 +259,50 @@ The environment variable FOO changes the behaviour to `bar`.
 
 The section ends when the next level one heading is encountered or the end of the file is reached.
 
+### Synopsis Expansion
+
+Unless disabled the synopsis declaration is expanded for the `man` and `help` output types.
+
+#### Flags
+
+Use the notation `[flags]` (or `<flags>`) in the synopsis and it will be replaced with all short form (single character) flag options (for example: `-xvf`).
+
+#### Options
+
+Use the notation `[options]` (or `<options>`) in the synopsis and it will be replaced with all option names that are not declared in the synopsis and were not expanded using the `[flags]` notation.
+
+#### Exclusive Options
+
+You should indicate mutually exclusive options using a vertical bar between option names.
+
+#### Expansion Example
+
+Given a definition such as:
+
+```markdown
+# Name
+
+prg - short program summary
+
+# Synopsis
+
+    [flags] [options] [--xml|--html] <file...>
+
+# Options
+
++ `-X, --xml` Print as XML
++ `-H, --html` Print as HTML
++ `-V` Print more information
++ `-h, --help` Display help and exit
++ `--version` Print the version and exit
+```
+
+The synopsis is expanded to:
+
+```
+prg [-XHVh] [--help] [--version] [--xml|--html] <file...>
+```
+
 ### Compiling Programs
 
 To compile the markdown document to a JSON program descriptor run:

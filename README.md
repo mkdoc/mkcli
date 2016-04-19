@@ -39,6 +39,11 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
     - [Commands](#commands)
     - [Identifiers](#identifiers)
     - [Manual Sections](#manual-sections)
+  - [Synopsis Expansion](#synopsis-expansion)
+    - [Flags](#flags-1)
+    - [Options](#options-1)
+    - [Exclusive Options](#exclusive-options)
+    - [Expansion Example](#expansion-example)
   - [Compiling Programs](#compiling-programs)
   - [Creating Documentation](#creating-documentation)
     - [Help Styles](#help-styles)
@@ -53,7 +58,7 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
   - [src](#src)
   - [compiler](#compiler)
   - [dest](#dest)
-    - [Options](#options-1)
+    - [Options](#options-2)
   - [load](#load)
   - [run](#run)
 - [License](#license)
@@ -383,6 +388,50 @@ The environment variable FOO changes the behaviour to `bar`.
 
 The section ends when the next level one heading is encountered or the end of the file is reached.
 
+### Synopsis Expansion
+
+Unless disabled the synopsis declaration is expanded for the `man` and `help` output types.
+
+#### Flags
+
+Use the notation `[flags]` (or `<flags>`) in the synopsis and it will be replaced with all short form (single character) flag options (for example: `-xvf`).
+
+#### Options
+
+Use the notation `[options]` (or `<options>`) in the synopsis and it will be replaced with all option names that are not declared in the synopsis and were not expanded using the `[flags]` notation.
+
+#### Exclusive Options
+
+You should indicate mutually exclusive options using a vertical bar between option names.
+
+#### Expansion Example
+
+Given a definition such as:
+
+```markdown
+# Name
+
+prg - short program summary
+
+# Synopsis
+
+    [flags] [options] [--xml|--html] <file...>
+
+# Options
+
++ `-X, --xml` Print as XML
++ `-H, --html` Print as HTML
++ `-V` Print more information
++ `-h, --help` Display help and exit
++ `--version` Print the version and exit
+```
+
+The synopsis is expanded to:
+
+```
+prg [-XHVh] [--help] [--version] [--xml|--html] <file...>
+```
+
 ### Compiling Programs
 
 To compile the markdown document to a JSON program descriptor run:
@@ -550,7 +599,13 @@ Completion will no longer be attempted on the `list` sub-commands. To put it ano
 ## Help
 
 ```
-Usage: mkcli [options] [files...]
+Usage: mkcli [-frRCHFNPh] [--full] [--recursive] [--raw-synopsis] [--colon]
+             [--header] [--footer] [--newline] [--preserve] [--help]
+             [--version] [--package=<file>] [--type=<type>] [--style=<val>]
+             [--cols=<num>] [--split=<num>] [--desc=<num>] [--indent=<num>]
+             [--align=<type>] [--usage=<val>] [--section=<ptn...>]
+             [--json=<dir>] [--text=<dir>] [--man=<dir>] [--zsh=<dir>]
+             [--output=<dir>] [files...]
 
   Compiles markdown cli definitions.
 
@@ -566,6 +621,7 @@ Options
   -u, --usage=[VAL]       Set usage message for help synopsis (default: Usage:)
   -f, --full              Do not compact compiled descriptor
   -r, --recursive         Recursively load command definitions
+  -R, --raw-synopsis      Do not expand synopsis
   -C, --colon             Append a colon to headings in help output
   -S, --section=[PTN...]  Include sections matching patterns in help output
   -H, --header            Include default header in help output
@@ -580,7 +636,7 @@ Options
   -h, --help              Display help and exit
   --version               Print the version and exit
 
-mkcli@1.0.26 https://github.com/mkdoc/mkcli
+mkcli@1.0.30 https://github.com/mkdoc/mkcli
 ```
 
 ## API
@@ -677,7 +733,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 18, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 19, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
