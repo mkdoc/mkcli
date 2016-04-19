@@ -67,13 +67,11 @@ For the command line interface install [mkdoc][] globally (`npm i -g mkdoc`).
 
 ## Example
 
-To compile all output types run:
+To compile all output types to the same directory as the input file:
 
 ```shell
 mkcli program.md
 ```
-
-Output files are written to the same directory as the input file.
 
 Compile all output types to a specific directory:
 
@@ -93,16 +91,16 @@ Compile a specific output type to a particular directory:
 mkcli -t zsh program.md --zsh build/zsh
 ```
 
-You may pipe input for more control over the output. For example to set a man page title:
-
-```shell
-mkcat program.md | mkcli -t man | mkman --title program > program.1
-```
-
 If you have a lot of programs pass a directory and all markdown documents in the directory are compiled:
 
 ```shell
 mkcli doc/cli -o build
+```
+
+You may pipe input for more control over the output; to set a man page title:
+
+```shell
+mkcat program.md | mkcli -t man | mkman --title program > program.1
 ```
 
 See [help](#help) for more options.
