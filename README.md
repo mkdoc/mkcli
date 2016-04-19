@@ -143,7 +143,7 @@ Section headings are not case-sensitive so you can use upper case, title case or
 
 Like man pages the name section is required and it **must** include a brief summary of the program after the program name. Delimit the program name from the short summary using a hyphen surrounded by spaces as shown below.
 
-The program name and summary is extracted from the first paragraph under the *Name* heading:
+The program name and summary is extracted from the first paragraph under the *NAME* heading:
 
 ```markdown
 # Name
@@ -165,7 +165,7 @@ The name section must be the first section in the file otherwise the compiler wi
 
 #### Synopsis
 
-The program synopsis is created from all code block elements under the *Synopsis* heading:
+The program synopsis is created from all code block elements under the *SYNOPSIS* heading:
 
 ```markdown
 # Name
@@ -181,7 +181,7 @@ It is a compiler error if any other type is declared in the synopsis section.
 
 #### Description
 
-The program description is created from all block level elements under the *Description* heading:
+The program description is created from all block level elements under the *DESCRIPTION* heading:
 
 ```markdown
 # Name
@@ -223,7 +223,7 @@ mkcat program.md | mkcli --desc 1 | mktext
 
 #### Arguments
 
-Program arguments are declared with a heading of *Options* and a list following the heading.
+Program arguments are declared with a heading of *OPTIONS* and a list following the heading.
 
 Note the list bullet character `+` is preferred because it creates a more idiomatic listing in generated man pages.
 
@@ -316,7 +316,7 @@ In which case the `kind` property will be `undefined` and the  `value` property 
 
 #### Commands
 
-Commands are declared in the same way as program arguments but under the `Commands` heading:
+Commands are declared in the same way as program arguments but under the *COMMANDS* heading:
 
 ```markdown
 # Name
@@ -538,7 +538,7 @@ Actions are enclosed in double quotes (") so you may use single quotes and paire
 The program synopsis section is inspected and will use completion functions when a match is available, so a synopsis such as:
 
 ```markdown
-    [options] [files...]
+[options] [files...]
 ```
 
 Will result in the _files completion function called, see above for the list of matches and completion functions.
