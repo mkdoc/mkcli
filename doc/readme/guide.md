@@ -16,12 +16,22 @@ Section headings are not case-sensitive so you can use upper case, title case or
 
 Like man pages the name section is required and it **must** include a brief summary of the program after the program name. Delimit the program name from the short summary using a hyphen surrounded by spaces as shown below.
 
+The name section must be the first section in the file otherwise the compiler will error.
+
 The program name and summary is extracted from the first paragraph under the *NAME* heading:
 
 ```markdown
 # Name
 
 prg - short program summary
+```
+
+For subcommands define parent names for a command using whitespace between the words:
+
+```markdown
+# Name
+
+prg list - perform list action
 ```
 
 Add a list when a program can have multiple names:
@@ -33,8 +43,6 @@ prg - short program summary
 
 + prg-alias
 ```
-
-The name section must be the first section in the file otherwise the compiler will error.
 
 #### Synopsis
 
