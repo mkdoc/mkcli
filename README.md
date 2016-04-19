@@ -406,6 +406,10 @@ Use the notation `[options]` (or `<options>`) in the synopsis and it will be rep
 
 You should indicate mutually exclusive options using a vertical bar between option names.
 
+When compiling to JSON the synopsis is parsed and any mutually exclusive declarations are added to the output using the target option keys.
+
+It is a compiler error if the target option is not declared.
+
 #### Expansion Example
 
 Given a definition such as:
