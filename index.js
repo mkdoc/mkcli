@@ -69,7 +69,9 @@ function cli(opts, cb) {
 
   if(cb) {
     parser.once('error', cb);
-    builder.once('error', cb);
+    if(builder) {
+      builder.once('error', cb);
+    }
     opts.output
       .once('error', cb)
       .once('finish', cb);
