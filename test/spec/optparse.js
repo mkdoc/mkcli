@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-  , Argument = require('../../lib/argument')
+  , Argument = require('mkcli-runtime/lib/argument')
   , optparse = require('../../lib/optparse');
 
 describe('optparse:', function() {

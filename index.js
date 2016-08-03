@@ -148,14 +148,14 @@ function dest(opts) {
  *
  *  @returns a new program.
  */
-function load(def) {
-  var Program = require('./lib/program')
-    , prg = new Program();
-  for(var k in def) {
-    prg[k] = def[k];
-  }
-  return prg;
-}
+//function load(def) {
+  //var Program = require('./lib/program')
+    //, prg = new Program();
+  //for(var k in def) {
+    //prg[k] = def[k];
+  //}
+  //return prg;
+//}
 
 /**
  *  Load a program definition into a new program assigning the definition 
@@ -178,28 +178,33 @@ function load(def) {
  *
  *  @returns a new program.
  */
-function run(src, argv, runtime, cb) {
-  var Program = require('./lib/program')
-    , runner = require('./lib/run');
+//function run(src, argv, runtime, cb) {
+  //var Program = require('./lib/program')
+    //, runner = require('./lib/run');
 
-  if(!(src instanceof Program)) {
-    src = load(src); 
-  }
+  //if(!(src instanceof Program)) {
+    //src = load(src); 
+  //}
 
-  runner.call(src, argv, runtime, cb);
-}
+  //runner.call(src, argv, runtime, cb);
+//}
 
-cli.load = load;
+var runtime = require('mkcli-runtime');
+cli.load = runtime.load;
+cli.run = runtime.run;
+cli.camelcase = runtime.camelcase;
+
+//cli.load = load;
 cli.types = types;
 cli.src = src;
 cli.compiler = compiler;
 cli.dest = dest;
-cli.run = run;
-cli.camelcase = function() {
-  // lazy require
-  var camel = require('cli-argparse').camelcase;
-  return camel.apply(this, arguments);
-}
+//cli.run = run;
+//cli.camelcase = function() {
+  //// lazy require
+  //var camel = require('cli-argparse').camelcase;
+  //return camel.apply(this, arguments);
+//}
 
 Object.keys(types).forEach(function(nm) {
   cli[nm.toUpperCase()] = nm;

@@ -25,6 +25,7 @@
   "dependencies": {
     "cli-argparse": "~1.1.2",
     "mkast": "~1.2.2",
+    "mkcli-runtime": "~1.0.0",
     "string-repeater": "~1.0.3",
     "through3": "~1.1.5",
     "wordwrap": "~1.0.0"
