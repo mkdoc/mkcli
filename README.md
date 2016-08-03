@@ -642,7 +642,7 @@ Options
   -h, --help              Display help and exit
   --version               Print the version and exit
 
-mkcli@1.0.31 https://github.com/mkdoc/mkcli
+mkcli@1.0.32 https://github.com/mkdoc/mkcli
 ```
 
 ## API
@@ -739,7 +739,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 19, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on August 3, 2016
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
