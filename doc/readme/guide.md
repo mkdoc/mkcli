@@ -229,7 +229,7 @@ Will result in the compiled tree containing options specific to the `list` comma
 
 #### Identifiers
 
-When a program is created from a source markdown document each argument and command is given a key for the resulting map. This key is generated automcatically by using the longest argument (or command) name and converting it to camel case.
+When a program is created from a source markdown document each argument and command is given a key for the resulting map. This key is generated automatically by using the longest argument (or command) name and converting it to camel case.
 
 If you wish to use a fixed key you can add an identifier followed by a colon (`:`) to the beginning of the specification:
 

@@ -356,7 +356,7 @@ Will result in the compiled tree containing options specific to the `list` comma
 
 #### Identifiers
 
-When a program is created from a source markdown document each argument and command is given a key for the resulting map. This key is generated automcatically by using the longest argument (or command) name and converting it to camel case.
+When a program is created from a source markdown document each argument and command is given a key for the resulting map. This key is generated automatically by using the longest argument (or command) name and converting it to camel case.
 
 If you wish to use a fixed key you can add an identifier followed by a colon (`:`) to the beginning of the specification:
 
@@ -739,7 +739,7 @@ MIT
 
 ---
 
-Created by [mkdoc](https://github.com/mkdoc/mkdoc) on August 3, 2016
+Created by [mkdoc](https://github.com/mkdoc/mkdoc) on April 26, 2017
 
 [mkdoc]: https://github.com/mkdoc/mkdoc
 [mkast]: https://github.com/mkdoc/mkast
